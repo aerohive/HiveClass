@@ -1,0 +1,22 @@
+- name: Reload server
+  shell: >
+    docker ps |grep "services_{{ deploy_env }}" |awk '{ print $2 }'
+  register: services_image
+  notify: remove server container
+- name: remove server container
+  shell: >
+    docker rm -v -f "services_{{ deploy_env }}"
+  notify: Start server container
+- name: Start server container
+  shell: >
+    docker run -d
+    --name "services_{{ deploy_env }}"
+    --hostname "services"
+    --volume="/srv/hiveclass-server/{{ deploy_env }}:/opt/config:ro"
+    --volumes-from="front_apps_{{ deploy_env }}:ro"
+    --publish="127.0.0.1:{{ monitoring.port }}:9615"
+    --publish="127.0.0.1:{{ rp.http.internal.port }}:{{ server.router.port }}"
+    --publish="127.0.0.1:{{ rp.ws.internal.port }}:{{ server.rendez_vous.port }}"
+    --net="{{ deploy_env }}"
+    --restart=always
+    "{{ services_image.stdout }}"

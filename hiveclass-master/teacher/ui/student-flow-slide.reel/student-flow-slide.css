@@ -1,0 +1,29 @@
+.StudentFlowSlide {
+    width: 800px;
+    margin-left: -400px;
+    text-align: center;
+    -webkit-transform: translate3d(0, -50%, 0);
+    -moz-transform: translate3d(0, -50%, 0);
+    -ms-transform: translate3d(0, -50%, 0);
+    -o-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+}
+
+.StudentFlowSlide:hover {
+    cursor: pointer;
+}
+
+.ScreenFlow-screen {
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 400px;
+    box-shadow: 1px 1px 3px rgba(142, 142, 142, 0.85);
+}
+
+.ScreenFlow-firstName.montage-Text {
+    font-size: 16px;
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: 20px;
+}

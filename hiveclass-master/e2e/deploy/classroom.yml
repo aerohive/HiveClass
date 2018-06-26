@@ -1,0 +1,17 @@
+- hosts:  localhost
+  roles:
+    - instances
+
+- hosts:          teacher
+  become:         yes
+  become_method:  sudo
+  become_user:    root
+  roles:
+    - peer
+
+- hosts:          students
+  become:         yes
+  become_method:  sudo
+  become_user:    root
+  roles:
+    - peer

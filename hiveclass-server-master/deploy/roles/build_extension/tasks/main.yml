@@ -1,0 +1,45 @@
+-   name: Ensure github deploy ssh key is available
+    copy:
+        src: deploy.pem
+        dest: /home/deploy/.ssh/deploy_front.pem
+        mode: 0400
+
+-   name: Ensure source repo is cloned and up to date
+    git:
+        repo: git@github.com:montagestudio/hiveclass.git
+        dest: /home/deploy/hiveclass
+        accept_hostkey: yes
+        key_file: /home/deploy/.ssh/deploy_front.pem
+    register: git_repo
+
+-   name: Retrieve docker images list
+    shell: >
+        docker images
+    register: images
+
+-   name: Copy Dockerfile
+    copy:
+        src: Dockerfile
+        dest: /home/deploy/hiveclass/extensions/Dockerfile
+    when: images.stdout.find('hiveclass/extension_builder') == -1 or force_build
+
+-   name: Copy build_extension.sh
+    copy:
+        src: build_extension.sh
+        dest: /home/deploy/hiveclass/extensions/build_extension.sh
+        mode: 0755
+    when: images.stdout.find('hiveclass/extension_builder') == -1 or force_build
+
+-   name: Build docker image
+    shell: >
+        docker build -t hiveclass/extension_builder --no-cache .
+        chdir=/home/deploy/hiveclass/extensions
+    notify: Clean up the mess
+    when: images.stdout.find('hiveclass/extension_builder') == -1 or force_build
+
+-   { include: build.yml, item: student }
+-   { include: build.yml, item: teacher }
+- name: Removes git repo
+  file:
+    path: /home/deploy/hiveclass
+    state: absent

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="student-flow-slide-zoom.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "screen": {
+            "prototype": "digit/ui/image.reel",
+            "properties": {
+                "element": {"#": "screen"}
+            },
+            "bindings": {
+                "src": {"<-": "@owner.student.screen"}
+            }
+        },
+
+        "name": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": { "#": "name" }
+            },
+            "bindings": {
+                "value": {"<-": "@owner.student.firstname + ' ' + @owner.student.lastname"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="StudentFlowSlideZoom">
+        <div class="ScreenFlowZoom-header">
+            <div data-montage-id="name" class="ScreenFlowZoomHeader-name"></div>
+            <div data-montage-id="toolbar" class="ScreenFlowZoomHeader-toolbar">
+                <a href="#">XX</a>
+                <a href="#">XX</a>
+                <a href="#">XX</a>
+            </div>
+        </div>
+        <div data-montage-id="screen" class="ScreenFlowZoom-screen"></div>
+    </div>
+</body>
+</html>

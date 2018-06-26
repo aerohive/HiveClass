@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="class-menu-component.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "selectedMenu": {"<-": "@repetition.iteration.0"}
+            }
+        },
+
+        "currentClass": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "currentClass"}
+            },
+            "bindings": {
+                "label": {"<-": "@owner.currentClass.name"}
+            },
+            "listeners": [
+                {"type": "action",
+                "listener": {"@": "owner"}}
+            ]
+        },
+
+        "repetition": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "repetition"},
+                "isSelectionEnabled": true
+            },
+            "bindings": {
+                "content": {"<-": "@owner.classMenu"}
+            }
+        },
+
+         "menuItem": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "classMenuItem"}
+            },
+            "bindings": {
+                "label": {"<-": "@repetition:iteration.object.name"}
+            },
+            "listeners": [
+                {"type": "action",
+                "listener": {"@": "owner"}}
+            ]
+        },
+
+        "endClass": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "endClass"},
+                "label": "End Class"
+            },
+            "localizations": {
+                "label": {
+                    "key": "End Class"
+                }
+            }
+            "listeners": [
+                {"type": "action",
+                "listener": {"@": "owner"}}
+            ]
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="ClassMenuComponent">
+        <ul class="ClassMenuComponent-items">
+            <li class="ClassMenuComponent-item">
+                <button data-montage-id="currentClass" class="ClassMenuComponent-menuItem currentClass"></button>
+            </li>
+        </ul>
+        <div class="hidden">
+            <ul data-montage-id="repetition" class="ClassMenuComponent-items ClassMenuComponent-list">
+                <li class="ClassMenuComponent-item">
+                    <button data-montage-id="classMenuItem" class="ClassMenuComponent-menuItem"></button>
+                </li>
+            </ul>
+            <ul class="ClassMenuComponent-items">
+                <li class="ClassMenuComponent-item">
+                    <button data-montage-id="endClass" class="ClassMenuComponent-menuItem digit-Button static-item"></button>
+                </li>
+            </ul>
+        </div>  
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+.Classroom {
+    overflow: hidden;
+    width:  100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+    position: relative;
+}
+
+.Classroom-pages {
+    flex: 1;
+}
+
+.ClassroomPages-page {
+    position: absolute;
+    top:      10%;
+    bottom:   10%;
+    left:     5%;
+    right:    5%;
+    background: grey;
+    max-width: 2050px;
+    margin: 0 auto;
+}
+
+.Classroom-arrow, .Classroom-arrow:focus {
+    position: absolute;
+    top: 45%;
+    height: 100px;
+    border:none;
+    box-shadow:none;
+    background:none;
+    outline:none;
+}
+
+.Classroom-arrow img {
+    height: 100%;
+    color: #FAC23E;
+}
+
+.Classroom-arrow:hover {
+    cursor:pointer;
+}
+
+.Classroom-previous {
+    left: 1%;
+}
+
+.Classroom-previous img {
+    transform: rotate(180deg);
+}
+
+.Classroom-next {
+    right: 1%;
+}
+
+@media (min-width: 1000px) {
+    .ClassroomPages-page {
+        top:      10%;
+        bottom:   10%;
+    }
+}
+
+@media (min-width: 1350px) {
+    .ClassroomPages-page {
+        top:      2%;
+        bottom:   2%;
+        left:     9%;
+        right:    9%;
+    }
+}

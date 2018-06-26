@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="new-student-modal.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "modal": {
+            "prototype": "common/ui/aerohive-modal.reel",
+            "properties": {
+                "element": {"#": "modal"},
+                "closeOnEscape": false
+            }
+        },
+
+        "modalTitle": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "modalTitle"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Add Student"
+                }
+            }
+        },
+
+        "firstNameFieldLabel": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "firstNameFieldLabel"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "First Name"
+                }
+            }
+        },
+
+
+        "firstNameField": {
+            "prototype": "common/ui/aerohive-input-text.reel",
+            "properties": {
+                "element": {"#": "firstNameField"},
+                "delegate": {"@": "owner"}
+            }
+        },
+
+        "lastNameFieldLabel": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "lastNameFieldLabel"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Last Name"
+                }
+            }
+        },
+
+        "lastNameField": {
+            "prototype": "common/ui/aerohive-input-text.reel",
+            "properties": {
+                "element": {"#": "lastNameField"},
+                "delegate": {"@": "owner"}
+            }
+        },
+
+        "newEmailFieldLabel": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "newEmailFieldLabel"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Email"
+                }
+            }
+        },
+
+        "newEmailField": {
+            "prototype": "common/ui/aerohive-input-text.reel",
+            "properties": {
+                "element": {"#": "newEmailField"},
+                "delegate": {"@": "owner"}
+            }
+        },
+
+        "emailUsed": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "emailUsed"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "emailUsed"
+                }
+            }
+        },
+
+        "addAdditionalStudentButton": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "addAdditionalStudentButton"}
+            },
+            "localizations": {
+                "label": {
+                    "key": "Add Another"
+                }
+            },
+            "bindings": {
+                "enabled": {"<-": "!!@newEmailField.value.length && !@newEmailField.isInvalid"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+
+        "closeModal": {
+        	"prototype": "common/ui/aerohive-button.reel",
+        	"properties": {
+        		"element" : {"#": "closeButton"}
+        	},
+            "localizations": {
+                "label": {
+                    "key": "Cancel"
+                }
+            },
+        	"listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+
+        "newStudentButton": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "newStudentButton"}
+            },
+            "localizations": {
+                "label": {
+                    "key": "Add Student"
+                }
+            },
+            "bindings": {
+                "enabled": {"<-": "@addAdditionalStudentButton.enabled"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+
+        "emailWrap": {
+            "prototype": "montage/ui/component",
+            "properties": {
+                "element": {"#": "emailWrap"},
+                "hasTemplate": false
+            },
+             "bindings": {
+                "classList.has('has-error')": {"<-": "@owner.isEmailAlreadyUsed"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner">
+        <div data-montage-id="modal" class="newStudentModal-modal">
+        	<div class="modalHeader">
+        		<div data-montage-id="modalTitle" class="modalTitle"></div>
+        	</div>
+        	<div class="modalMessage">
+        		<div class="row">
+		    		<div class="half">
+		            	<label data-montage-id="firstNameFieldLabel"></label>
+		            	<input data-montage-id="firstNameField" id="firstNameField" />
+		            </div>
+		            <div class="half">
+		            	<label data-montage-id="lastNameFieldLabel"></label>
+		            	<input id="lastNameField" data-montage-id="lastNameField" />
+		            </div>
+	            </div>
+                <div data-montage-id="emailWrap" class="fieldWrap">
+    	            <label data-montage-id="newEmailFieldLabel"></label>
+    	            <input id="newEmailField" data-montage-id="newEmailField" />
+                    <span data-montage-id="emailUsed" class="fieldError-message"></span>
+                </div>
+        	</div>
+            <div class="modalFooter">
+                <button data-montage-id="closeButton" class="cancelButton button--secondary"></button>
+            	<button data-montage-id="addAdditionalStudentButton" class="addAdditionalStudentButton"></button>
+            	<button data-montage-id="newStudentButton" class="newStudentButton"></button>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

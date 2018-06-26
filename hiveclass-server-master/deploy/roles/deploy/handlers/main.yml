@@ -1,0 +1,4 @@
+- name: Build server docker image
+  shell: >
+    docker build -t hiveclass/{{ name }} .
+    chdir=/home/deploy/hiveclass-server/{{ name }}

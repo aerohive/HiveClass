@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="timeline-chart.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "segmentsElement": {"#": "segments"},
+                "linesElement": {"#": "lines"},
+                "hoursElement": {"#": "hours"},
+                "segmentToMeasure": {"#": "segmentToMeasure"},
+                "lineToMeasure": {"#": "lineToMeasure"},
+                "hourToMeasure": {"#": "hourToMeasure"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="TimelineChart">
+        <div data-montage-id="segments" class="TimelineChart-segments">
+            <div data-montage-id="segmentToMeasure" class="TimelineChart-segmentToMeasure TimelineChart-segment"></div>
+        </div>
+        <div data-montage-id="lines" class="TimelineChart-lines">
+            <div data-montage-id="lineToMeasure" class="TimelineChart-lineToMeasure TimelineChart-line"></div>
+        </div>
+        <div data-montage-id="hours" class="TimelineChart-hours">
+            <div data-montage-id="hourToMeasure" class="TimelineChart-hourToMeasure TimelineChart-hour">99:99 AM</div>
+        </div>
+    </div>
+</body>
+</html>

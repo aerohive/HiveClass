@@ -1,0 +1,14 @@
+aws_demo ansible_host=52.53.210.37 ansible_user=ubuntu ansible_become=true ansible_become_method=sudo ansible_become_user=root
+
+[webservers]
+aws_demo
+
+[extension_builder]
+aws_demo
+
+[qa:children]
+webservers
+
+[vars:children]
+webservers
+extension_builder

@@ -1,0 +1,69 @@
+- name: Add ssh agent line to sudoers
+  lineinfile:
+    dest:   /etc/sudoers
+    state:  present
+    regexp: SSH_AUTH_SOCK
+    line:   Defaults env_keep += "SSH_AUTH_SOCK"
+- name: Install required packages
+  apt:
+    name:         "{{ item }}"
+    update_cache: yes
+  with_items:
+    - git
+    - xvfb
+    - chromium-browser
+    - nodejs
+    - npm
+    - python-pip
+    - unzip
+- name: Install required python libs
+  pip:
+    name: "{{ item }}"
+  with_items:
+    - httplib2
+
+- name: Clone git repository
+  git:
+    repo:           git@github.com:montagestudio/hiveclass.git
+    accept_hostkey: yes
+    dest:           /home/ubuntu/hiveclass
+    depth:          1
+- name: Set owner on git clone
+  file:
+    path:     /home/ubuntu/hiveclass
+    state:    directory
+    owner:    ubuntu
+    recurse:  yes
+- name: Install npm dependencies
+  shell: >
+    npm install
+  args:
+    chdir: "/home/ubuntu/hiveclass/{{ item }}"
+  with_items:
+    - e2e
+    - login
+    - student
+    - teacher
+    - extensions/student
+    - extensions/teacher
+
+- name: Get latest Chromedriver release version
+  uri:
+    url:            http://chromedriver.storage.googleapis.com/LATEST_RELEASE
+    return_content: yes
+  register: release_version
+- name: Get latest Chromedriver release
+  get_url:
+    url:  "http://chromedriver.storage.googleapis.com/{{ release_version.content }}/chromedriver_linux64.zip"
+    dest: /tmp/chromedriver.zip
+- name: Create Chromedriver binary directory
+  file:
+    path:   /home/ubuntu/hiveclass/e2e/bin
+    state:  directory
+    owner:  ubuntu
+- name: Extract Chromedriver binary
+  unarchive:
+    src:    /tmp/chromedriver.zip
+    dest:   /home/ubuntu/hiveclass/e2e/bin
+    copy:   no
+    owner:  ubuntu

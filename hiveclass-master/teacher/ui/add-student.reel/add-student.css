@@ -1,0 +1,15 @@
+.AddStudent{
+
+}
+
+.AddStudent-Hexagon{
+
+}
+
+.AddStudent-Hexagon:focus{
+    outline:none;
+}
+
+.AddStudent-Hexagon:hover{
+    cursor:pointer;
+}

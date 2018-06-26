@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="teacher-dashboard.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "currentClass": {"<-": "@owner.application.classroomService.classroom"},
+                "teacher": {"<-": "@owner.application.profileService.profile"}
+            }
+        },
+
+
+        "dashboardStudents": {
+            "prototype": "ui/teacher-dashboard-students.reel",
+            "properties": {
+                "element": {"#": "dashboardStudents"}
+            },
+            "bindings": {
+                "currentClass": {"<-": "@owner.currentClass"},
+                "accessCode": {"<-": "@owner.application.classroomService.classroom.code"},
+                "displayPictures": {"<-": "@owner.displayPictures"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="TeacherDashboard">
+        <section class="TeacherDashboardContent">
+            <div data-montage-id="dashboardStudents"></div>
+        </section>
+    </div>
+</body>
+</html>

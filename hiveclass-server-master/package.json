@@ -1,0 +1,14 @@
+{
+  "name": "hiveclass-server",
+  "version": "1.5.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pchaussalet/hiveclass-server.git"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.5.3",
+    "chai": "^3.4.1",
+    "gulp": "^3.8.11",
+    "mocha": "^2.3.4"
+  }
+}

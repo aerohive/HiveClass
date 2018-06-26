@@ -1,0 +1,9 @@
+.DashboardHeader {
+    background: rgba(43, 141, 204, 1);
+    color: rgba(255, 255, 255, .95);
+    height: 50px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "hiveschool-app-login",
+  "version": "1.5.2",
+  "dependencies": {
+    "montage": "git+http://github.com/montagejs/montage.git#58b5d8a3df4a2eba75ad092738be92b9e69c9f61",
+    "collections": "~1.2.0",
+    "digit": "~0.5.0"
+  },
+  "devDependencies": {
+    "montage-testing": "~0.4.0"
+  },
+  "exclude": [
+    "run-tests.html",
+    "test"
+  ],
+  "bundle": [
+    "ui/main.reel"
+  ]
+}

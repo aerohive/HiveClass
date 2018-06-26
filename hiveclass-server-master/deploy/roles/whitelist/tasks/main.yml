@@ -1,0 +1,23 @@
+- name: Ensure httplib2 is installed
+  pip:
+    name: httplib2
+- name: Create clients
+  uri:
+    url:                  "{{ frontend.login.auth_endpoint }}/whitelist/{{ item.key }}"
+    HEADER_authorization: "Bearer {{ server.auth.bearer_token }}"
+    body_format:          json
+    method:               POST
+    status_code:          201,409
+    timeout:              5
+  with_dict: "{{ clients }}"
+- name: Authorize domains
+  uri:
+    url:                  "{{ frontend.login.auth_endpoint }}/whitelist/{{ item.key }}/domains"
+    HEADER_authorization: "Bearer {{ server.auth.bearer_token }}"
+    body_format:          json
+    method:               PUT
+    body:                 "{{ item.value }}"
+    status_code:          204
+    timeout:              5
+  with_dict: "{{ clients }}"
+  

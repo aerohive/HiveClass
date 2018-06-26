@@ -1,0 +1,14 @@
+{
+  "name": "hiveclass-jira",
+  "version": "1.2.7",
+  "description": "HiveClass feedback service ",
+  "main": "app.js",
+  "dependencies": {
+    "bell": "^2.9.0",
+    "blipp": "^2.3.0",
+    "good": "^5.1.2",
+    "good-console": "^4.1.0",
+    "hapi": "^13.0.0",
+    "hapi-auth-cookie": "^2.0.0"
+  }
+}

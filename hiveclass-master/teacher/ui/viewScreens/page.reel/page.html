@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="page.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classList.has('Page-back')": {"<-": "@owner.back"},
+                "classList.has('Page-before')": {"<-": "@owner.back && @owner.position == 'before'"},
+                "classList.has('Page-after')": {"<-": "@owner.back && @owner.position == 'after'"}
+            }
+        },
+
+        "screens": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "screens"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.students"}
+            }
+        },
+
+        "screen": {
+            "prototype": "../screen.reel",
+            "properties": {
+                "element": {"#": "screen"}
+            },
+            "bindings": {
+                "isSingle": {"<-": "@owner.isSingle"},
+                "student": {"<-": "@screens:iteration.object"},
+                "index": {"<-": "@screens:iteration.index"},
+                "page": {"<-": "(index / 4).floor()"},
+                "back": {"<-": "@owner.back"},
+                "position": {"<-": "@owner.page > page ? 'before' : 'after' "},
+                "anyZoom": {"<->": "@owner.anyZoom"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="Page">
+        <div data-montage-id="screens" class="Page-screens">
+            <div data-montage-id="screen" class="PageScreens-screen"></div>
+        </div>
+    </div>
+</body>
+</html>

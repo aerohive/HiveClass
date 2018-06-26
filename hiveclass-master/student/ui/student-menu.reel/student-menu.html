@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="student-menu.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "className": {"<->": "@owner.application.classroomService.classroom.name"},
+                "selectedLanguage": {"<-": "@languageSelect.value"}
+            }
+        },
+
+        "studentMenuButton": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "studentMenuButton"}
+            },
+            "listeners": [
+                {"type": "action",
+                "listener": {"@": "owner"}}
+            ]
+        },
+
+        "leaveClass": {
+			"prototype": "digit/ui/button.reel",
+			"properties": {
+			    "element": {"#": "leaveClass"}
+			},
+            "localizations": {
+                "label": {
+                    "key": "Leave Class"
+                }
+            },
+            "listeners": [
+                {"type": "action",
+                "listener": {"@": "owner"}}
+            ]
+        },
+
+        "language": {
+            "prototype": "digit/ui/text.reel",
+            "properties": {
+                "element": {"#": "settingsMenu-languageSelect"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Language"
+                }
+            }
+        },
+
+        "languageSelect": {
+            "prototype": "matte/ui/select.reel",
+            "properties": {
+                "element": {"#": "language-select"},
+                "content": [{  "value": "English"}, {"value": "Deutsch"}, {"value": "Español"}, {"value": "Suomi"}, {"value": "Français"}, {"value": "Italiano"}, {"value": "日本語"}, {"value": "한국인"}, {"value": "Dutch"}, {"value": "Português"}, {"value": "Svenska"}, {"value": "简体中文"}, {"value": "繁體中文"}]
+            },
+            "bindings": {
+                "value": {"<-": "@owner.application.defaultLanguage"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="StudentMenu">
+        <button data-montage-id="studentMenuButton" class="SettingsMenuComponent-settingsButton">
+            <svg><use xlink:href="#menuIcon"/></svg>
+        </button>
+        <ul class="SettingsMenuComponent-items">
+            <li class="SettingsMenuComponent-item">
+                <label for="language-select" data-montage-id="settingsMenu-languageSelect" class="SettingsMenuComponent-menuItem"></label>
+                <select data-montage-id="language-select" class="language-select"></select>
+            </li>
+        	<li class="SettingsMenuComponent-item">
+                <button data-montage-id="leaveClass" class="SettingsMenuComponent-menuItem digit-Button static-item"></button>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

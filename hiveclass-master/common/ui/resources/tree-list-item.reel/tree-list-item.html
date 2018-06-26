@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="tree-list-item.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "active": {"@": "active"},
+                "focus": {"@": "focus"},
+                "icon": {"@": "icon"},
+                "titleElement": {"#": "title"},
+                "linkElement": {"#": "link"}
+            },
+            "bindings": {
+                "activeStatus": {"<-": "_iteration.data.activeStatus"},
+                "focusStatus": {"<-": "_iteration.data.focusStatus"}
+            }
+        },
+        "active": {
+            "prototype": "../../button.reel",
+            "properties": {
+                "element": {"#": "active"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "focus": {
+            "prototype": "../../button.reel",
+            "properties": {
+                "element": {"#": "focus"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "icon": {
+            "prototype": "../../button.reel",
+            "properties": {
+                "element": {"#": "icon"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "title": {
+            "prototype": "../../button.reel",
+            "properties": {
+                "element": {"#": "title"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="TreeListItem">
+        <div data-montage-id="active" class="TreeListItem-active"></div>
+        <div data-montage-id="focus" class="TreeListItem-focus"></div>
+        <div data-montage-id="icon" class="TreeListItem-icon"></div>
+        <div data-montage-id="title" class="TreeListItem-title"></div>
+        <a data-montage-id="link" class="TreeListItem-link" target="_blank"></a>
+    </div>
+</body>
+</html>

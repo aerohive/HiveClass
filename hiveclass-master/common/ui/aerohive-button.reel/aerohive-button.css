@@ -1,0 +1,62 @@
+.AerohiveButton {
+    position: relative;
+    display: inline-block; /* 1 */
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: rgba(255, 255, 255, .95);
+    text-shadow: none;
+    outline: none;
+    font-size: 18px;
+    box-shadow: none;
+    border-radius: 3px;
+    vertical-align: middle;
+    min-width: 5.4em; /* Don't shrink below the height. Makes a perfect circle. */
+    margin: 0;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none; /* 1 */
+    -webkit-tap-highlight-color: transparent;
+    font-weight: 400;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: "roboto", sans-serif;
+    border: none;
+    background: #2FBEC1;
+    transition: background .25s;
+}
+
+/* border */
+
+.AerohiveButton:focus {
+    box-shadow: 0 0 3px 2px rgba(43, 141, 204, 1);
+}
+
+.AerohiveButton.montage--disabled:hover {
+    cursor: default;
+}
+
+.AerohiveButton:hover {
+    cursor: pointer;
+    background: #2DB0B3;
+}
+
+.AerohiveButton.montage--active {
+    background: #2FBEC1;
+}
+
+.AerohiveButton.montage--disabled {
+    background: #979797 !important;
+    opacity: .5;
+}
+
+[data-montage-skin="aerohive-gray"] .AerohiveButton {
+    background: rgba(229, 229, 229, .9);
+    border: 1px solid rgba(220, 220, 220, .6);
+}
+
+[data-montage-skin="aerohive-gray"] .AerohiveButton.montage--active {
+    background: rgba(229, 229, 229, .95);
+}

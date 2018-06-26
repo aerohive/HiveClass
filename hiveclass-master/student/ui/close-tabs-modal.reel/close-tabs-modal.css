@@ -1,0 +1,19 @@
+.CloseTabsModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.CloseTabsModal-header {
+}
+
+.CloseTabsModal-body {
+    padding: 1em;
+}
+
+.CloseTabsModal-footer {
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

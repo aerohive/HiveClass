@@ -1,0 +1,59 @@
+- name: Ensure github deploy ssh key is available
+  copy:
+    src: deploy.pem
+    dest: /home/deploy/.ssh/deploy_front.pem
+    mode: 0400
+- name: Ensure source repo is cloned and up to date
+  git:
+    repo:           "{{ git_url }}"
+    dest:           /home/deploy/hiveclass
+    accept_hostkey: yes
+    key_file:       /home/deploy/.ssh/deploy_front.pem
+    version:        "{{ branch }}"
+  register: git_repo
+- name: Retrieve docker images list
+  shell: >
+    docker images |awk '{ print $1":"$2 }'
+  register: images
+- name: Copy Dockerfile
+  copy:
+    src: Dockerfile
+    dest: /home/deploy/hiveclass/Dockerfile
+- name: Overwrite app configuration
+  template:
+    src: "{{ item }}.json.tpl"
+    dest: "/home/deploy/hiveclass/{{ item }}/core/configuration.json"
+  with_items:
+    - login
+    - student
+    - teacher
+- name: Overwrite rollbar configuration
+  template:
+    src: rollbar_config.js.tpl
+    dest: "/home/deploy/hiveclass/{{ item }}/rollbar_config.js"
+  with_items:
+    - login
+    - student
+    - teacher
+- name: Build docker image
+  shell: >
+    docker build -t "hiveclass/front_apps_{{ deploy_env }}:{{ branch }}" .
+    chdir=/home/deploy/hiveclass
+- shell: docker ps -a |awk '{ print $NF }'
+  register: containers
+- name: Remove old docker container
+  shell: >
+    docker rm -v "front_apps_{{ deploy_env }}"
+  when: containers.stdout.find('front_apps_' + deploy_env) != -1
+- name: Start new docker container
+  shell: >
+    docker run -d
+    --name "front_apps_{{ deploy_env }}"
+    --hostname "front-apps-{{ deploy_env }}"
+    --volume="/srv/www"
+    "hiveclass/front_apps_{{ deploy_env }}:{{ branch }}"
+  notify: Reload server
+- name: Removes git repo
+  file:
+    path: /home/deploy/hiveclass
+    state: absent

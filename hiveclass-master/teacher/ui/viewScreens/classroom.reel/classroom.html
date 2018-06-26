@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="classroom.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "student": {"<-": "@owner.application.classroomService.viewedStudent"}
+            }
+        },
+
+        "pages": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "pages"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.displayPages"}
+            }
+        },
+
+        "page": {
+            "prototype": "../page.reel",
+            "properties": {
+                "element": {"#": "page"}
+            },
+            "bindings": {
+                "students": {"<-": "@pages:iteration.object"},
+                "index": {"<-": "@pages:iteration.index"},
+                "back": {"<-": "@owner.page != index"},
+                "position": {"<-": "@owner.page > index ? 'before' : 'after' "},
+                "isSingle": {"<-": "!!@owner.student"}
+            }
+        },
+
+        "previous": {
+            "prototype": "montage/ui/button.reel",
+            "properties": {
+                "element": {"#": "previous"}
+            },
+            "bindings": {
+                "classList.has('hidden')": {"<-": "@owner.displayPages.length == 1"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+
+        "next": {
+            "prototype": "montage/ui/button.reel",
+            "properties": {
+                "element": {"#": "next"}
+            },
+            "bindings": {
+                "classList.has('hidden')": {"<-": "@owner.displayPages.length == 1"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="Classroom">
+        <div data-montage-id="pages" class="Classroom-pages">
+            <div data-montage-id="page" class="ClassroomPages-page"></div>
+        </div>
+        <button data-montage-id="previous" class="Classroom-previous Classroom-arrow">
+            <img src="arrow-right.svg">
+        </button>
+        <button data-montage-id="next" class="Classroom-next Classroom-arrow">
+            <img src="arrow-right.svg">
+        </button>
+    </div>
+</body>
+</html>

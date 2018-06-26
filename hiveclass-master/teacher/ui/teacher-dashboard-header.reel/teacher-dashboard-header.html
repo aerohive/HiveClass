@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="teacher-dashboard-header.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "selectedMenu": {"<-": "@repetition.selection.0"},
+                "displayPictures": {"<-": "@settingsMenu.templateObjects.displayPicturesSwitch"}
+            }
+        },
+
+        "repetition": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "repetition"},
+                "isSelectionEnabled": true
+            },
+            "bindings": {
+                "content": {"<-": "@owner.application.configuration.dashboardMenus"}
+            }
+        },
+
+
+        "className": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "className"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.currentClass.name"}
+            }
+        },
+
+        "settingsMenu": {
+            "prototype": "ui/settings-menu-component.reel",
+            "properties": {
+                "element": {"#": "settingsMenu"}
+            },
+            "bindings": {
+                "currentClass": {"<-": "@owner.currentClass"}
+            },
+            "listeners": [
+                {"type": "action",
+                "listener": {"@": "owner"}}
+            ]
+        },
+
+        "appName": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "appName"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Dashboard"
+                }
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="TeacherDashboardHeader">
+        <div data-montage-id="className" class="AerohiveHeader-className"></div>
+        <!-- $fixme - do we need this repitition here? -->
+        <ul data-montage-id="repetition" class="TeacherDashboardHeaderMenu-items"></ul>
+        <div data-montage-id="appName" class="AerohiveHeader-appName"></div>
+        <div data-montage-id="settingsMenu" class="TeacherDashboardHeader-settingsMenu"></div>
+    </div>
+</body>
+</html>

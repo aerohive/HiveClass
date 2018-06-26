@@ -1,0 +1,66 @@
+.HexagonSelectedPath {
+    display: none;
+}
+
+.HexagonSelectedPath.displayed {
+    display: inline;
+}
+
+.Hexagon-button {
+    cursor: pointer;
+    fill: white;
+}
+
+.Hexagon-color .Hexagon-presentButton {
+    opacity: 0.5;
+}
+
+.Hexagon-color.can-present .Hexagon-presentButton {
+    opacity: 1;
+}
+
+.Hexagon .disconnected image {
+    opacity: 0.5;
+}
+
+.disconnected .Hexagon-button.connected-only {
+    opacity: 0.5;
+}
+
+.Hexagon {
+    position: relative;
+}
+
+.Hexagon .hexagon-name {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.Hexagon .hexagon-name span {
+    color: #444;
+    font-size: 14px;
+    letter-spacing: .5px;
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0 12px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 400;
+}
+
+.disconnected .hexagon-name span {
+    color: #FFF;
+}
+
+.Hexagon .deleteCircle {
+    color: #D90B0B;
+}
+
+.is-locked .student-lockButton {
+    color: #D90B0B;
+}

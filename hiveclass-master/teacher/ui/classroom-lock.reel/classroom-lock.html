@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="classroom-lock.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "listeners": [
+                { "type": "action", "listener": {"@": "owner"} }
+            ]
+        },
+
+        "image": {
+            "prototype": "digit/ui/image.reel",
+            "properties": {
+                "element": {"#": "image"},
+                "src": "./lock.svg"
+            }
+        },
+
+        "label": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "label"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.checked ? 'Class Locked' : 'Class Unlocked' "}
+            }
+        }
+
+        ,
+        "classAccessCode": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "classAccessCode"}
+            },
+            "bindings": {
+                "value": {"<-": "'Access Code: ' + @owner.accessCode"},
+                "classList.has('hidden')" : { "<-" : "@owner.checked"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="ClassroomLock">
+        <div class="ClassroomLock-lock">
+            <img data-montage-id="image" class="ClassroomLock-lockImage" />
+        </div>
+        <span data-montage-id="label" class="ClassroomLock-lockLabel status"></span>
+        <span data-montage-id="classAccessCode" class="ClassroomLock-lockLabel access-code"></span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+.StudentScreenFlow {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    -webkit-user-select: none;
+}
+
+.StudentScreenFlow-header {
+    position: absolute;
+    height: 128px;
+    width: 100%;
+    z-index: 1000;
+}
+
+.BigBrother {
+    text-align: center;
+}
+
+.BigBrother-eye {
+    display: inline-block;
+    width: 96px;
+    height: 96px;
+    background: rgba(128, 128, 128, .9);
+    position: relative;
+    border-radius: 65% 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+
+}
+.BigBrother-eye:before, .BigBrother-eye:after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    border-radius: 100%;
+}
+
+.BigBrother-eye:before {
+    height: 48px;
+    width: 48px;
+    background: #ffffff;
+    margin-top: -24px;
+    margin-left: -24px;
+}
+
+.BigBrother-eye:after {
+    height: 24px;
+    width: 24px;
+    background: rgba(128, 128, 128, .9);
+    margin-top: -12px;
+    margin-left: -12px;
+}
+
+.ScreenFlow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 160px 20px 0 20px;
+    background: white;
+}

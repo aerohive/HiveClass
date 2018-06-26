@@ -1,0 +1,22 @@
+- name: Ensure mongodb container is running
+  docker:
+    name:           "mongo_backup"
+    command:        "--replSet hs_rs0"
+    hostname:       "mongo"
+    image:          "mongo:3"
+    expose:         27017
+    ports:          "27017:27017"
+    volumes:        "/srv/mongo:/data/db:rw"
+    restart_policy: always
+    state:          started
+- name: Ensure mongodb arbiter container is running
+  docker:
+    name:           "mongo_arbiter"
+    command:        "--replSet hs_rs0"
+    hostname:       "mongo"
+    image:          "mongo:3"
+    expose:         27017
+    ports:          "27018:27017"
+    restart_policy: always
+    state:          started
+

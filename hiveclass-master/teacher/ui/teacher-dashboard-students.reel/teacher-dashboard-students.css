@@ -1,0 +1,276 @@
+.TeacherDashboardStudents {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    min-height: 300px;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    overflow-x: hidden;
+}
+
+.TeacherDashboardStudents-toolbar {
+    height:120px;
+}
+
+/* access key edits */
+
+.TeacherDashboardStudents-toolbar .accessKey {
+    display: inline-block;
+    width: 400px;
+}
+
+.TeacherDashboardStudents-toolbar .accessKey-states {
+/*    margin: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;*/
+}
+
+.TeacherDashboardStudents-toolbar .accessKey-states:hover { cursor: pointer; }
+.TeacherDashboardStudents-toolbar .accessKey-states:hover svg { color: #666; }
+
+.TeacherDashboardStudents-toolbar .accessKey-states .accessKey-lock {
+    color: #979797;
+    opacity: 1;
+    top: 0;
+    height: 45px;
+}
+
+/* lock class text */
+
+.TeacherDashboardStudents-toolbar .accessKey-states span {
+    font-size: 14px;
+    line-height: 16px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left:   0;
+}
+
+.TeacherDashboardStudents-toolbar .accessKey .matte-InputText:disabled {
+    color: #666;
+    opacity: 1;
+    border-width: 2px;
+}
+
+.TeacherDashboardStudents-header {margin: 50px 0;}
+
+.TeacherDashboardStudentsHeader-tools {text-align: center;}
+
+.TeacherDashboardStudentsContent-main {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    -webkit-align-self: stretch;
+        -ms-flex-item-align: stretch;
+            align-self: stretch;
+}
+
+.TeacherDashboardStudents-panel .StudentList {
+    -webkit-flex: 16 1 0;
+        -ms-flex: 16 1 0;
+            flex: 16 1 0;
+    -webkit-align-self: stretch;
+        -ms-flex-item-align: stretch;
+            align-self: stretch;
+}
+
+.lockClassroom {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.TeacherDashboardStudents-toolbar{
+    text-align:center;
+    margin:0 auto;
+}
+
+.TeacherDashboardStudentsContent-main-footer{
+    position:absolute;
+    bottom:5%;
+    left:5%;
+}
+
+/* Main Action Buttons */
+
+.TeacherDashboardStudents .mainAction {
+    margin: 0 20px;
+}
+
+.mainAction-viewScreens .mainAction-image   {background: #FDDA9B; border:3px solid #CA910D;}
+.mainAction-viewScreens .mainAction-image svg {fill: #CA910D;}
+.mainAction-lockAll .mainAction-image       {background: #EEA99F; border:3px solid #BF3F2B}
+.mainAction-lockAll .mainAction-image svg {fill: #BF3F2B; position:relative; top: -2px;}
+.mainAction-followMe .mainAction-image      {background:#A4DABC; border:3px solid #286940}
+.mainAction-followMe .mainAction-image svg {fill: #286940;}
+.mainAction-resources .mainAction-image     {background: #B0D1E9; border:3px solid #2B8DCC}
+.mainAction-resources .mainAction-image svg {fill: #2B8DCC;}
+.mainAction.montage--disabled .mainAction-image {border:3px solid gray;}
+.mainAction.montage--disabled .mainAction-image  svg {fill: #000000;}
+
+
+/* Follow Me Animation */
+
+.mainAction-followMe.onAir .mainAction-image {
+    position: relative;
+    color: #FFF;
+}
+
+.mainAction-followMe.onAir .mainAction-image:before {
+    z-index: -1;
+    position: absolute;
+    content: '';
+    left:   0;
+    right:  0;
+    top:    0;
+    left:   0;
+    border: 5px solid #EA6D42;
+    -webkit-animation: onAir 1s linear infinite;
+            animation: onAir 1s linear infinite;
+}
+
+/* Follow Me - onAir animation*/
+
+@-webkit-keyframes onAir {
+    0%      {border-width: 7px; transform: scale(.9);}
+    100%    {border-width: 0px; transform: scale(1.35); opacity: 0;}
+}
+
+@keyframes onAir {
+    0%      {border-width: 7px; transform: scale(.9);}
+    100%    {border-width: 0px; transform: scale(1.35); opacity: 0;}
+}
+
+/* Students Count */
+
+.studentCount {
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    line-height: 30px;
+    font-family: 'Roboto';
+    padding: 10px 0;
+    font-weight: 400;
+}
+
+.studentCount span {
+    font-weight: 700;
+    font-family: 'Roboto';
+    font-size: 28px;
+    margin-bottom:-5px;
+    color: #2FBEC1;
+}
+
+.studentsTotal {margin-right: 5px;}
+
+/* Student Count - of */
+
+.studentsTotal:before {
+    content: 'of';
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 14px;
+    color: rgba(153, 153, 153, 1);
+    position: relative;
+    bottom: 2px;
+    margin: 0 10px;
+}
+
+.studentsPresentLabel{
+    margin-top:-10px;
+}
+
+.studentCount-text, .reporting {
+    display: inline-block;
+    vertical-align: middle;
+    transform:translate(63px);
+}
+
+.mainAction.reportingButton {
+    margin:0;
+}
+
+.reportingButton .mainAction-image {
+    fill: #2FBEC1;
+    padding-bottom: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    height: 48px;
+}
+.reportingButton.montage--disabled .mainAction-image {
+    background: none;
+    border: none;
+}
+
+.reportingButton .mainAction-title {
+    color: rgba(153,153,153,1);
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 5px;
+    margin-top: -5px;
+}
+  
+.mainAction.sharingDisabled {
+    left: 0%;
+    position: absolute;
+    height:80px;
+    cursor:default;
+}
+
+.sharingDisabled > .mainAction-tooltip.montage-Text {
+    position: absolute;
+    top: -70%;
+    left: 70%;
+    border-radius: 6px;
+    border: 1px #555 solid;
+    /*background: #555;*/
+    padding: 6px;
+    opacity: 0;
+    transition: opacity 1s;
+    font-size:11px;
+    color:#BF3F2B;
+    width: 250px;
+}
+
+.sharingDisabled > .mainAction-tooltip.montage-Text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 6%;
+    margin-left: -8px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.sharingDisabled:hover .mainAction-tooltip.montage-Text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.sharingDisabled > .mainAction-title.montage-Text {
+    color:#BF3F2B;
+    transform: translate(0%,-300%);
+    font-size:10px;
+}
+
+.sharingDisabled svg{
+    fill:#BF3F2B;
+}

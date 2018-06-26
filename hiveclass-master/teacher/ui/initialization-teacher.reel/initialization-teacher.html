@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="initialization-teacher.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+
+        "accountConfirmed": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "accountConfirmed"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Account Confirmed"
+                }
+            }
+        },
+
+        "teacherNameLabel": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "teacherNameLabel"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "TeacherNameLabel"
+                }
+            }
+
+        },
+
+        "teacherNameField": {
+            "prototype": "common/ui/aerohive-input-text.reel",
+            "properties": {
+                "element": {"#": "teacherNameField"}
+            },
+            "bindings": {
+                "value": {
+                    "<->": "@owner.teacherName"
+                }
+            }
+
+        },
+
+        "createClass": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "nextButton"}
+            },
+            "localizations": {
+                "label":{
+                    "key": "Next"
+                }
+            },
+            "bindings": {
+                "enabled": {"<-": "@owner.teacherName && !@owner.isClicked"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="TeacherName">
+        <div class="TeacherName-content">
+        	<header class="Initialization-header">
+	            <div data-montage-id="accountConfirmed" class="loginTitle"></div>
+	        </header>
+            <div data-montage-skin="aerohive-gray" class="InitializationSection-content">
+                <label data-montage-id="teacherNameLabel" class="TeacherName-label"></label>
+                <input tabindex="1" id="teacherNameField" data-montage-id="teacherNameField" />
+            </div>
+            <footer class="Initialization-footer">
+                <button type="submit" data-montage-id="nextButton" class="TeacherNameFooter-Button"></button>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

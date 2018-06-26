@@ -1,0 +1,39 @@
+FROM ubuntu:14.04
+MAINTAINER Pierre Chaussalet <pchaussalet@montagestudio.com>
+
+ENV DEBIAN_FRONTEND noninteractive
+ENV DISPLAY :0
+
+RUN apt-get update
+RUN apt-get install -y xvfb x11vnc unzip curl build-essential chromium-browser lxde && \
+    apt-get clean
+RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash - && \
+    sudo apt-get install -y nodejs
+
+WORKDIR /usr/local/bin
+RUN curl -O http://chromedriver.storage.googleapis.com/2.20/chromedriver_linux64.zip
+RUN unzip chromedriver_linux64.zip
+RUN chmod +x chromedriver
+
+
+WORKDIR /srv
+RUN echo '#!/bin/bash' > start.sh
+RUN echo 'XVFB_RESOLUTION=${RESOLUTION:-1366x768}' >> start.sh
+RUN echo 'XVFB_DEPTH=${DEPTH:-24}' >> start.sh
+RUN echo 'Xvfb -screen 0 ${XVFB_RESOLUTION}x${XVFB_DEPTH} 2> ~/.xvfb.err & sleep 2' >> start.sh
+RUN echo 'x11vnc -display :0 2> ~/.x11vnc.err & sleep 2' >> start.sh
+RUN echo 'lxsession &' >> start.sh
+RUN echo 'exec "$@"' >> start.sh
+RUN chmod +x start.sh
+
+ADD extensions /srv/extensions
+ADD hiveschool-bots /srv/hiveschool-bots
+
+WORKDIR /srv/hiveschool-bots
+RUN npm install
+
+RUN useradd -m -s /bin/bash bot
+USER bot
+
+EXPOSE 5900
+ENTRYPOINT ["/srv/start.sh"]

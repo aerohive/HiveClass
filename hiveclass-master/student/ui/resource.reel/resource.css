@@ -1,0 +1,32 @@
+/*.Resource {
+    outline: 1px solid red;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.Resource-title {
+    height: 2.5em;
+    margin: 0.25em;
+    font-size: 18px;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.Resource-image {
+    width: 100%;
+    max-height: calc(100% - 5em);
+    background-color: silver;
+}
+
+.Resource-link {
+    height: 1.25em;
+    margin: 0.25em;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}*/

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="import-modal.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "importResourcesOverlay": {
+            "prototype": "montage/ui/overlay.reel",
+            "properties": {
+                "element": {"#": "importResourcesOverlay"}
+            }
+        },
+
+        "foldersTreeController": {
+            "prototype": "montage/core/tree-controller",
+            "bindings": {
+                "content": {"<-": "@owner.folders"}
+            }
+        },
+
+        "folderNodesRepetition": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "folderNodesRepetition"},
+                "isSelectionEnabled": true
+            },
+            "bindings": {
+                "content": {"<-": "@foldersTreeController.iterations"}
+            }
+        },
+
+        "folder": {
+            "prototype": "./indent",
+            "properties": {
+                "element": {"#": "folder"}
+            },
+            "bindings": {
+                "iteration": {"<-": "@folderNodesRepetition:iteration.object"}
+            }
+        },
+
+        "expandFolder": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "expandFolder"}
+            },
+            "bindings": {
+                "node": {"<-": "@folderNodesRepetition:iteration.object"},
+                "classList.has('is-expanded')": {"<-": "@folderNodesRepetition:iteration.object.expanded"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+
+		"folderLink": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "folderLink"}
+            },
+            "bindings": {
+				"value": {"<-": "@folderNodesRepetition:iteration.object.content.title ? @folderNodesRepetition:iteration.object.content.title : 'Bookmarks'"}
+            }
+		},
+
+        "importResourcesButton": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "importResourcesButton"}
+            },
+            "localizations": {
+                "label": {
+                    "key": "Add Resources"
+                }
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="ImportResourcesModal" data-montage-skin="aerohive-gray">
+        <div data-montage-id="importResourcesOverlay" class="ImportResourcesModal-overlay">
+            <span class="modalTitle">Choose a folder to import</span>
+            <div class="ImportResourcesModalOverlay-folders modalMessage">
+                <ul data-montage-id="folderNodesRepetition" class="ImportResourcesModalOverlay-repetition">
+                    <li data-montage-id="folder" class="ImportResourcesModalOverlayRepetition-entry">
+                        <button data-montage-id="expandFolder" class="ImportResourcesModalOverlayRepetition-expand"></button>
+                        <a data-montage-id="folderLink" class="ImportResourcesModalOverlayRepetition-link"></a>
+                    </li>
+                </ul>
+            </div>
+            <button data-montage-id="importResourcesButton" class="ImportResourcesModalOverlay-import"></button>
+        </div>
+    </div>
+</body>
+</html>

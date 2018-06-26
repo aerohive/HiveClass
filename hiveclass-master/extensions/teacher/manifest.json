@@ -1,0 +1,40 @@
+{
+  "content_security_policy": "script-src 'self' https://d37gvrvc0wt4s1.cloudfront.net; object-src 'self'",
+  "background": {
+    "persistent": true,
+    "page": "background.html"
+  },
+  "web_accessible_resources": [
+    "js/*"
+  ],
+  "permissions": [
+    "background",
+    "desktopCapture",
+    "tabs",
+    "unlimitedStorage",
+    "bookmarks",
+    "activeTab",
+    "notifications",
+    "http://*/",
+    "https://*/",
+    "system.cpu",
+    "system.memory"
+  ],
+  "manifest_version": 2,
+  "name": "HiveSchool - Teacher",
+  "description": "This extension enables connections between teacher and student in a HiveSchool session.",
+  "version": "1.5.2",
+  "browser_action": {
+    "default_icon": {
+      "19": "assets/icon19.png",
+      "38": "assets/icon38.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icon16.png",
+    "32": "assets/icon32.png",
+    "48": "assets/icon48.png",
+    "64": "assets/icon64.png",
+    "128": "assets/icon128.png"
+  }
+}

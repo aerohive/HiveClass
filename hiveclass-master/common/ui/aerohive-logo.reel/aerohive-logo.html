@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="aerohive-logo.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "dynamicHeader": {
+            "prototype": "digit/ui/text-field.reel",
+            "properties": {
+                "element": {"#": "dynamicHeader"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.dynamicHeaderValue"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="AerohiveLogo">
+        <input data-montage-id="dynamicHeader"
+               type="text"
+               class="AerohiveLogo-dynamicHeader"
+               placeholder="Custom School Name" />
+        <div class="AerohiveLogo-container">
+            <div class="AerohiveLogo-product">Follow-Me</div>
+            <div class="AerohiveLogo-company">by Aerohive</div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

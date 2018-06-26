@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="tab.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "name": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "name"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.tab.title"}
+            }
+        },
+
+        "close": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "close"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="Tab">
+        <div data-montage-id="name" class="Tab-name"></div>
+        <button data-montage-id="close" class="Tab-close">
+            <svg class="TabClose-icon"><use xlink:href="#close"/></svg>
+        </button>
+    </div>
+</body>
+</html>

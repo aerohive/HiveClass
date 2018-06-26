@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="classrooms-list.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "classroomsRepetition": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "repetition"},
+                "isSelectionEnabled": true
+            },
+            "bindings": {
+                "content": {"<-": "@owner.classrooms"}
+            }
+        },
+
+        "classroom": {
+            "prototype": "ui/classroom-selector.reel",
+            "properties": {
+                "element": {"#": "classroom"}
+            },
+            "bindings": {
+                "classroom": {"<-": "@classroomsRepetition:iteration.object"},
+                "controller": {"<-": "@owner.radioButtonController"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="ClassroomsList">
+        <ul data-montage-id="repetition" class="ClassroomsList-repetition">
+            <li class="ClassroomList-item">
+                <div data-montage-id="classroom"></div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

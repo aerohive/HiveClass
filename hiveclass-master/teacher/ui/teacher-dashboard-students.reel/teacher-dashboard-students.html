@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="teacher-dashboard-students.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "teacher": {"<-": "@owner.application.teacher"},
+                "isStudentsListSorted": {"<-": "@owner.application.classroomService.isStudentsListSorted"},
+                "studentList": {"<-": "@owner.application.classroomService.classroom.registeredStudents"},
+                "areStudentFollowing": {"<-": "@owner.application.classroomService.classroom.following == 'teacher'"},
+                "isAttentionOn": {"<-": "!!@owner.application.classroomService.classroom.attentionOn"},
+                "_isSharingEnabled": {"<->": "@owner.application.classroomService.isSharingEnabled"},
+                "connectedStudents": {"<-": "@owner.application.classroomService.classroom.students"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+
+        "studentsTotal": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "studentsTotal"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.studentList.length"}
+            }
+        },
+
+        "studentsPresent": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "studentsPresent"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.application.classroomService.classroom.students.length"}
+            }
+        },
+
+
+        "studentList": {
+            "prototype": "ui/student-list.reel",
+            "properties": {
+                "element": {"#": "studentList"}
+            },
+            "bindings": {
+                "students": {"<-": "@owner.studentList"},
+                "isFaceDisplayed": {"<-": "@owner.displayPictures.checked"}
+            }
+        },
+
+        "viewScreensButton" : {
+        	"prototype": "ui/teacher-main-action-button.reel",
+        	"properties": {
+        		"element": {"#": "view-screens-button"},
+        		"icon" : "#viewScreens"
+        	},
+            "localizations": {
+                "title": {
+                    "key": "View Screens"
+                }
+            },
+        	"bindings": {
+                "enabled": {"<-": "@owner.application.classroomService.classroom.students.length > 0"}
+            }
+        },
+
+        "lockAllButton" : {
+        	"prototype": "ui/teacher-main-action-button.reel",
+        	"properties": {
+        		"element": {"#": "lock-all-button"}
+        	},
+            "localizations": {
+                "title": {
+                    "key": "lockAllButton",
+                    "data": {
+                        "state": {"<-": "@owner.isAttentionOn ? 'unlock' : 'Lock'"}
+                    }
+                }
+            },
+        	"bindings": {
+                "enabled": {"<-": "@owner.application.classroomService.classroom.students.length > 0"},
+                "icon": {"<-": "@owner.isAttentionOn ? '#closedLock' : '#lock'" }
+            }
+        },
+
+        "followMeButton" : {
+        	"prototype": "ui/teacher-main-action-button.reel",
+        	"properties": {
+        		"element": {"#": "follow-me-button"},
+        		"icon" : "#present"
+        	},
+            "localizations": {
+                "title": {
+                    "key": "followMeButton",
+                    "data": {
+                        "state": {"<-": "!!@owner.areStudentFollowing ? 'StopSharing' : 'FollowMe' "}
+                    }
+                }
+            },
+        	"bindings": {
+                "enabled": {"<-": "@owner._isSharingEnabled && @owner.application.classroomService.classroom.students.length > 0"},
+                "classList.has('onAir')": {"<-": "!!@owner.areStudentFollowing"}
+            }
+        },
+
+        "resourcesButton" : {
+        	"prototype": "ui/teacher-main-action-button.reel",
+        	"properties": {
+        		"element": {"#": "resources-button"},
+        		"icon" : "#link"
+        	},
+            "localizations": {
+                "title": {
+                    "key": "Resources"
+                }
+            }
+        },
+
+        "toolbarSub": {
+            "prototype": "montage/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "toolbarSub"}
+            },
+            "bindings": {
+                "switchValue": { "<-": "!!@owner.application.classroomService.classroom.lock ? 'showTools' : 'showCode'" }
+            }
+        },
+
+        "classAccessCode": {
+            "prototype": "common/ui/access-key.reel",
+            "properties": {
+                "element": {"#": "classAccessCode"},
+                "isReadOnly": true
+            },
+            "bindings": {
+                "accessCode": {"<-": "@owner.application.classroomService.classroom.code"}
+            }
+        },
+
+        "studentsPresentLabel": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "studentsPresentLabel"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "students present"
+                }
+            }
+        },
+
+        "reportingButton" : {
+        	"prototype": "ui/teacher-main-action-button.reel",
+        	"properties": {
+        		"element": {"#": "reporting-button"},
+        		"icon" : "#reporting"
+        	},
+            "localizations": {
+                "title": {
+                    "key": "Reporting"
+                }
+            },
+        	"bindings": {
+                "enabled": {"<-": "@owner.application.classroomService.classroom.students.length > 0 || @owner.application.classroomService.classroom.previousActivity"}
+            }
+        },
+
+        "sharingDisabled": {
+            "prototype": "ui/teacher-main-action-button.reel",
+            "properties": {
+                "element": {"#": "sharingDisabled"},
+                "icon": "#sharingDisabled",
+                "title": "Screen Sharing Disabled",
+                "tooltip": "Computers in this classroom do not meet the minimum system requirements for Presentation Mode. To enable Presentation mode, please upgrade these devices."
+            },
+            "bindings": {
+                "classList.has('hidden')": {"<-": "@owner._isSharingEnabled"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="TeacherDashboardStudents">
+	        <header class="TeacherDashboardStudents-header">
+                <div data-montage-id="toolbarSub" class="TeacherDashboardStudents-toolbar">
+                    <div data-montage-id="toolbar" data-arg="showTools" class="TeacherDashboardStudentsHeader-tools" data-montage-skin="aerohive-gray">
+                        <div data-montage-id="headerTools" class="TeacherDashboardStudentsHeader-tools">
+                            <button data-montage-id="view-screens-button" class="mainAction-viewScreens"></button>
+                            <button data-montage-id="lock-all-button" class="mainAction-lockAll"></button>
+                            <button data-montage-id="follow-me-button" class="mainAction-followMe"></button>
+                            <button data-montage-id="resources-button" class="mainAction-resources"></button>
+                        </div>
+                    </div>
+                    <div data-montage-id="classAccessCode" data-arg="showCode" class="TeacherDashboardStudents-toolbar-accessCode">
+                    </div>
+                </div>
+	        </header>
+            <div class="TeacherDashboardStudentsContent-main">
+                <div data-montage-id="studentList"></div>
+                <div class="studentCount">
+                    
+                    <button data-montage-id="sharingDisabled" class="sharingDisabled">
+                    </button>
+                  
+                    <div class="studentCount-text">
+                        <div><span data-montage-id="studentsPresent" class="studentsPresent"></span><span data-montage-id="studentsTotal" class="studentsTotal"></span></div>
+                        <div data-montage-id="studentsPresentLabel" class="studentsPresentLabel"></div>
+                    </div>
+                    <div class="reporting">
+                        <button data-montage-id="reporting-button" class="reportingButton"></button>
+                    </div>
+                </div>
+            </div>
+    </div>
+</body>
+</html>

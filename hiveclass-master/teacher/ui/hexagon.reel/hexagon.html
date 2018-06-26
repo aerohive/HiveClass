@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="hexagon.css">
+    <script type="text/montage-serialization">
+       {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "overlayElement": {"#": "overlay"},
+                "hexagonNameElement": {"#": "hexagonName"},
+                "removeButtonElement": {"#": "removeButton"},
+                "viewButtonElement": {"#": "viewButton"},
+                "lockButtonElement": {"#": "lockButton"},
+                "presentButtonElement": {"#": "presentButton"},
+                "imageElement": {"#": "imageElement"},
+                "lockOverlayElement": {"#": "lockOverlay"}
+            },
+            "bindings": {
+                "canPresent": {"<-": "@owner.application.classroomService.isSharingEnabled && @owner.application.classroomService.canPresentStudent"}
+            }
+        },
+
+        "firstNameLabel": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "student-first-name"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.student.firstname"}
+            }
+        },
+
+        "LastNameLabel": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "student-last-name"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.student.lastname"}
+            }
+        },
+
+        "hexagon": {
+            "prototype": "montage/ui/component",
+            "properties": {
+                "element": {"#": "hexagon"},
+                "hasTemplate": false
+            },
+            "bindings": {
+                "classList.has('disconnected')": {"<-": "!@owner.connected"},
+                "classList.has('can-present')": {"<-": "@owner.canPresent"}
+            }
+        },
+
+        "color-hexagon": {
+            "prototype": "montage/ui/component",
+            "properties": {
+                "element": {"#": "color-hexagon"},
+                "hasTemplate": false
+            },
+            "bindings": {
+                "classList.has('hidden')": {"<-": "!@owner.connected"},
+                "classList.has('is-locked')": {"<-": "@owner.student.attentionOn"}
+            }
+        },
+
+        "lock-hexagon": {
+            "prototype": "montage/ui/component",
+            "properties": {
+                "element": {"#": "lock-hexagon"},
+                "hasTemplate": false
+            },
+            "bindings": {
+                "classList.has('hidden')": {"<-": "!@owner.connected || !@owner.student.attentionOn"}
+            }
+        },
+
+        "selected": {
+            "prototype": "montage/ui/component",
+            "properties": {
+                "element": {"#": "selected"},
+                "hasTemplate": false
+            },
+            "bindings": {
+                "classList.has('displayed')": {"<-": "@owner.isDragged"}
+            }
+        },
+
+        "image": {
+            "prototype": "montage/ui/component",
+            "properties": {
+                "element": {"#": "imageElement"},
+                "hasTemplate": false
+            },
+            "bindings": {
+                "classList.has('disconnected')": {"<-": "!@owner.connected"}
+            }
+        },
+
+        "lockLabel": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "lockLabel"}
+            },
+            "bindings": {
+                "value": {"<-": "!@owner.student.attentionOn ? 'lock' : 'unlock'"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+<div data-montage-id="owner" class="Hexagon">
+    <div data-montage-id="hexagonName" class="hexagon-name">
+        <span data-montage-id="student-first-name"></span>
+        <span data-montage-id="student-last-name"></span>
+    </div>
+    <svg data-montage-id="hexagon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100" height="100" viewBox="0 0 205 232" data-arg="true" class="Hexagon-color">
+        <rect id="orangehex" clip-path="url(#clipping-hexagon)" x="0" y="0" width="100%" height="100%" fill="#808080"/>
+        <rect data-montage-id="color-hexagon" id="orangehex" clip-path="url(#clipping-hexagon)" x="0" y="0" width="100%" height="100%" fill="#FED054"/>
+        <rect data-montage-id="lock-hexagon" id="orangehex" clip-path="url(#clipping-hexagon)" x="0" y="0" width="100%" height="100%" fill="#BF3F2B"/>
+        <path data-montage-id="selected" class="HexagonSelectedPath" stroke="#000000" stroke-width="1" fill="transparent" transform="translate(-50,-46.137817)" d="m 152.7,277.5 c -4,0 -7.7,-0.9 -10.5,-2.5 l -81,-47.2 C 55.4,224.4 50.7,216.2 50.7,209.4 V 115 c 0,-6.8 4.7, -15 10.5,-18.4 l 81,-47.2 c 2.8,-1.6 6.6,-2.5 10.5,-2.5 4,0 7.7,0.9 10.5,2.5 l 81,47.2 c 5.8,3.4 10.5,11.6 10.5, 18.4 v 94.4 c 0,6.8 -4.7,15 -10.5,18.4 l -81,47.2 c -2.8,1.6 -6.5,2.5 -10.5,2.5 z" />
+
+        <image data-montage-id="imageElement" clip-path="url(#clipping-hexagon)" x="-16" y="0" width="115%" height="100%"/>
+
+        <g data-montage-id="overlay" class="hidden" fill="#2b8dcc" fill-opacity="1">
+            <g data-montage-id="removeZone">
+                <rect id="top" clip-path="url(#clipping-hexagon)" x="0" y="0" width="100%" height="25%"/>
+                <use data-montage-id="removeButton" class="Hexagon-button deleteCircle" x="82" y="10"  height="40" width="40" xlink:href="#deleteCircle"/>
+            </g>
+            <g data-montage-id="viewZone">
+                <rect id="left" clip-path="url(#clipping-hexagon)" x="0" y="25%" width="50%" height="35%"/>
+                <g data-montage-id="viewButton" fill-opacity="1" class="Hexagon-button connected-only">
+                    <rect x="0" y="30%" width="45%" height="20%" fill="transparent"/>
+                    <use text-anchor="middle" x="25" y="25%" width="25%" height="20%" xlink:href="#laptop"/>
+                    <text text-anchor="middle" x="50" y="56%" font-family="Roboto" font-size="30" fill="#FFF">view</text>
+                </g>
+            </g>
+            <g data-montage-id="lockZone" class="student-lockButton">
+                <rect id="right" clip-path="url(#clipping-hexagon)" x="50%" y="25%" width="50%" height="35%"/>
+                <g data-montage-id="lockButton" fill-opacity="1" class="Hexagon-button connected-only">
+                    <rect x="55%" y="30%" width="45%" height="40%" fill="transparent"/>
+                    <use text-anchor="middle" x="128" y="25%" width="20%" height="20%" xlink:href="#lock"/>
+                    <text data-montage-id="lockLabel" text-anchor="middle" x="150" y="56%" font-family="Roboto" font-size="30" fill="#FFF">lock</text>
+                </g>
+            </g>
+            <g data-montage-id="presentZone">
+                <rect id="top" clip-path="url(#clipping-hexagon)" x="0" y="60%" width="100%" height="40%"/>
+                <g data-montage-id="presentButton" fill-opacity="1" class="Hexagon-button connected-only Hexagon-presentButton">
+                    <rect x="0" y="60%" width="100%" height="25%" fill="transparent"/>
+                    <text text-anchor="middle" x="50%" y="72%" width="100%" font-family="Roboto" font-size="30" fill="#FFF">present</text>
+                    <use x="0" y="75%" width="100%" height="20%" xlink:href="#present"/>
+                </g>
+            </g>
+        </g>
+
+        <g data-montage-id="lockOverlay" class="hidden" fill="#FF0000" fill-opacity="1">
+            <use data-montage-id="buttonIcon" x="50" y="50" height="100" width="100" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#lock"></use>
+        </g>
+    </svg>
+</div>
+</body>
+</html>

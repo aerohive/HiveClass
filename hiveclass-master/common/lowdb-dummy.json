@@ -1,0 +1,252 @@
+{
+    "users": {
+
+        "Y4NTGrfm": {
+            "id": "Y4NTGrfm",
+            "userID": 1007,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/Y4NTGrfm.jpg",
+            "gender": 0,
+            "urls": [],
+            "firstName": "Andrew",
+            "lastName": "Olgren",
+            "dummy": true
+        },
+
+        "8iUVaGgy": {
+            "id": "8iUVaGgy",
+            "userID": 1008,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/8iUVaGgy.jpg",
+            "gender": 1,
+            "urls": [],
+            "firstName": "Angela",
+            "lastName": "Dawson",
+            "dummy": true
+        },
+
+        "iaSXbsrl": {
+            "id": "iaSXbsrl",
+            "userID": 1009,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/iaSXbsrl.jpg",
+            "gender": 1,
+            "urls": [],
+            "firstName": "Ashley",
+            "lastName": "Crowley",
+            "dummy": true
+        },
+
+        "PakVasxm": {
+            "id": "PakVasxm",
+            "userID": 1010,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/PakVasxm.jpg",
+            "gender": 1,
+            "urls": [],
+            "firstName": "Ava",
+            "lastName": "Brinks",
+            "dummy": true
+        },
+
+        "XsW1rPK4": {
+            "id": "XsW1rPK4",
+            "userID": 1011,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/XsW1rPK4.jpg",
+            "gender": 1,
+            "urls": [],
+            "firstName": "Barbara",
+            "lastName": "Alpen",
+            "dummy": true
+        },
+
+        "imXnKYHG": {
+            "id": "imXnKYHG",
+            "userID": 1012,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/imXnKYHG.jpg",
+            "gender": 1,
+            "urls": [],
+            "firstName": "Betty",
+            "lastName": "White",
+            "dummy": true
+        },
+
+        "AvGor6zd": {
+            "id": "AvGor6zd",
+            "userID": 1013,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/AvGor6zd.jpg",
+            "gender": 1,
+            "urls": [],
+            "firstName": "Brittany",
+            "lastName": "Taylor",
+            "dummy": true
+        },
+
+        "hUi9E0xI": {
+            "id": "hUi9E0xI",
+            "userID": 1014,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/hUi9E0xI.jpg",
+            "gender": 1,
+            "urls": [],
+            "firstName": "Carol",
+            "lastName": "Sanders",
+            "dummy": true
+        },
+
+        "7YXeVE9l": {
+            "id": "7YXeVE9l",
+            "userID": 1015,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/7YXeVE9l.jpg",
+            "gender": 0,
+            "urls": [],
+            "firstName": "Charles",
+            "lastName": "Rochester",
+            "dummy": true
+        },
+
+        "k8iXwtUC": {
+            "id": "k8iXwtUC",
+            "userID": 1016,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/k8iXwtUC.jpg",
+            "gender": 0,
+            "urls": [],
+            "firstName": "Chris",
+            "lastName": "Pratt",
+            "dummy": true
+        },
+
+        "NFWjCIH3": {
+            "id": "NFWjCIH3",
+            "userID": 1017,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/NFWjCIH3.jpg",
+            "gender": 0,
+            "urls": [],
+            "firstName": "Daniel",
+            "lastName": "O’Brien",
+            "dummy": true
+        },
+
+        "NwPYcjWa": {
+            "id": "NwPYcjWa",
+            "userID": 1018,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/NwPYcjWa.jpg",
+            "gender": 0,
+            "urls": [],
+            "firstName": "David",
+            "lastName": "Nguyen",
+            "dummy": true
+        },
+
+        "YAzDf78J": {
+            "id": "YAzDf78J",
+            "userID": 1019,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/YAzDf78J.jpg",
+            "gender": 1,
+            "urls": [],
+            "firstName": "Deborah",
+            "lastName": "Misha",
+            "dummy": true
+        },
+
+        "Hc0hXY6T": {
+            "id": "Hc0hXY6T",
+            "userID": 1020,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/Hc0hXY6T.jpg",
+            "gender": 1,
+            "urls": [],
+            "firstName": "Debra",
+            "lastName": "Lannister",
+            "dummy": true
+        },
+
+        "NFZHqxPT": {
+            "id": "NFZHqxPT",
+            "userID": 1021,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/NFZHqxPT.jpg",
+            "gender": 1,
+            "urls": [],
+            "firstName": "Donna",
+            "lastName": "Kosynzki",
+            "dummy": true
+        },
+
+        "NYRWAQJG": {
+            "id": "NYRWAQJG",
+            "userID": 1022,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/NYRWAQJG.jpg",
+            "gender": 1,
+            "urls": [],
+            "firstName": "Dorothy",
+            "lastName": "Jackson",
+            "dummy": true
+        },
+
+        "bJ4gjH14": {
+            "id": "bJ4gjH14",
+            "userID": 1023,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/bJ4gjH14.jpg",
+            "gender": 1,
+            "urls": [],
+            "firstName": "Olivia",
+            "lastName": "Ingrit",
+            "dummy": true
+        },
+
+        "y7yN8Ba2": {
+            "id": "y7yN8Ba2",
+            "userID": 1024,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/y7yN8Ba2.jpg",
+            "gender": 1,
+            "urls": [],
+            "firstName": "Patricia",
+            "lastName": "Howell",
+            "dummy": true
+        },
+
+        "mimEdKQ8": {
+            "id": "mimEdKQ8",
+            "userID": 1025,
+            "role": 0,
+            "password": "montage",
+            "avatar": "public/mimEdKQ8.jpg",
+            "gender": 0,
+            "urls": [],
+            "firstName": "Richard",
+            "lastName": "Entkin",
+            "dummy": true
+        }
+    }
+
+}

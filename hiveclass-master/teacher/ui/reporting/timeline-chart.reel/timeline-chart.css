@@ -1,0 +1,47 @@
+.TimelineChart {
+   
+}
+
+.TimelineChart-hours {
+    position: relative;
+}
+
+.TimelineChart-lines {
+    border-top: 1px solid black;
+    position: relative;
+}
+
+.TimelineChart-segments {
+    position: relative;
+    padding-bottom: 6px;
+}
+
+.TimelineChart-hour {
+    position: absolute;
+    text-align: center;
+    padding: 4px 0;
+}
+
+.TimelineChart-line {
+    position: absolute;
+    width: 1px;
+    height: 8px;
+    background: black;
+}
+
+.TimelineChart-segment {
+    position: absolute;
+    height: 32px;
+    width: 100%;
+}
+
+.TimelineChart-line-secondary {
+    opacity: .2;
+}
+
+.TimelineChart-hourToMeasure,
+.TimelineChart-lineToMeasure,
+.TimelineChart-segmentToMeasure {
+    position: absolute;
+    visibility: hidden;
+}

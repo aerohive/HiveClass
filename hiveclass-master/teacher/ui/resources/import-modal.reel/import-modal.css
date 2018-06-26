@@ -1,0 +1,84 @@
+.ImportResourcesModal-overlay {
+    width: 40%;
+    min-width: 400px;
+    max-width: 800px;
+    background: #FFF;
+    border: 1px solid #D8D8D8;
+    padding: 40px 50px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.3);
+    opacity: 0;
+    transform: scale(.5);
+    transition: all .3s ease-in-out;
+}
+
+.ImportResourcesModal-overlay.montage-Overlay--visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Title - pulled from new-student-modal.css*/
+
+.ImportResourcesModal-overlay .modalTitle {
+    display: block;
+    color: #979797;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+/* File Tree */
+
+.ImportResourcesModalOverlay-folders.modalMessage {
+    position: relative;
+    background-position: bottom;
+    background-size: 100% 10px;
+    background-repeat: no-repeat;
+    border: 1px solid #D8D8D8;
+}
+
+.ImportResourcesModalOverlay-repetition {
+    list-style: none;
+    margin: 0;
+    padding: 15px 30px;
+    line-height: 40px;
+    font-size: 20px;
+    height: 180px;
+    overflow: scroll;
+}
+
+.ImportResourcesModalOverlayRepetition-entry.selected {
+    font-weight: bold;
+    border: 1px solid blue;
+}
+
+.ImportResourcesModalOverlayRepetition-link {
+    cursor: pointer;
+}
+
+.ImportResourcesModal-overlay button.ImportResourcesModalOverlay-import {
+    float:right;
+}
+
+/* folder node */
+
+button.ImportResourcesModalOverlayRepetition-expand.AerohiveButton {
+    border: 0;
+    background-color: transparent;
+    box-shadow: none;
+    color: rgba(43, 141, 206,1);
+    padding: 0;
+    margin: 0;
+    margin-right: 5px;
+    height: 24px;
+    width: 24px;
+    min-width: initial;
+    background-image: url(../../../common/ui/resources/svg/folder-closed.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    top: -3px;
+}
+
+button.ImportResourcesModalOverlayRepetition-expand.AerohiveButton.is-expanded {
+    background-image: url(../../../common/ui/resources/svg/folder-open.svg);
+}

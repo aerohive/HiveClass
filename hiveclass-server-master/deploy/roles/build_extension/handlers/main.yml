@@ -1,0 +1,3 @@
+-   name: Clean up the mess
+    shell: >
+        docker rmi $(docker images | grep '<none>' |awk '{ print $3 }'); true

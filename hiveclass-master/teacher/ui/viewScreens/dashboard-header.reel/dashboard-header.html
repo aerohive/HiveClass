@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="dashboard-header.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classroom": {"<-": "@owner.application.classroomService.classroom"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+
+        "classroomName": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "classroomName"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.classroom.name"}
+            }
+        },
+
+        "title": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "title"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "View Screens"
+                }
+            }
+        },
+
+        "close": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "close"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="DashboardHeader">
+        <div data-montage-id="classroomName" class="AerohiveHeader-className"></div>
+        <div data-montage-id="title" class="AerohiveHeader-appName"></div>
+        <div class="AerohiveHeader-close">
+            <button data-montage-id="close">
+                <svg><use xlink:href="#close"/></svg>
+            </button>
+        </div>
+    </div>
+</body>
+</html>

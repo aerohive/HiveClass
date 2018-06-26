@@ -1,0 +1,14 @@
+node_modules
+.idea
+.logs
+*.swp
+/apps/login
+/apps/student
+/apps/teacher
+/extensions
+/old
+/mongodb
+*.retry
+/deploy/beta
+/deploy/demo
+/deploy/qa

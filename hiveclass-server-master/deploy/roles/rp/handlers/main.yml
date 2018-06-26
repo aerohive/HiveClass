@@ -1,0 +1,4 @@
+- name: Reload haproxy
+  service:
+    name:   "haproxy_{{ deploy_env }}"
+    state:  reloaded

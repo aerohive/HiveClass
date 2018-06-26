@@ -1,0 +1,14 @@
+- name: Ensure deploy user exists
+  user:
+    name: deploy
+    home: /home/deploy
+- name: Ensure deploy .ssh directory exists
+  file:
+    dest: /home/deploy/.ssh
+    state: directory
+    mode: 0400
+- name: Ensure github deploy ssh key is available
+  copy:
+    src: deploy.pem
+    dest: /home/deploy/.ssh/deploy.pem
+    mode: 0400

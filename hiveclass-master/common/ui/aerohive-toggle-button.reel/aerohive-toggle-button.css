@@ -1,0 +1,38 @@
+.AerohiveToggleButton 
+{
+    text-align:center;
+    padding:0.25em 1em;
+    cursor:pointer;
+}
+
+.currentClass{
+    background:#999;
+    color:#666;
+    border-top-left-radius:5px;
+    border-bottom-left-radius:5px;
+    padding:0.25em 1em;
+    cursor:pointer;
+    display: inline-block;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.previousClass{
+    background:#999;
+    color:#666;
+    border-top-right-radius:5px;
+    border-bottom-right-radius:5px;
+    padding:0.25em 1em;
+    cursor:pointer;
+    display: inline-block;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.on
+{
+    background:#2FBEC1;
+    color:#fff;
+}
+
+

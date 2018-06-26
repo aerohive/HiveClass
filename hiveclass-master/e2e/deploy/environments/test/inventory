@@ -1,0 +1,12 @@
+localhost ansible_connection=local
+[local]
+localhost
+
+[teacher]
+
+[students]
+
+[vars:children]
+local
+teacher
+students

@@ -1,0 +1,38 @@
+.JoinClass {}
+
+.JoinClass .Initialization-footer .confirmButton {
+	float: right;
+}
+
+/* $fixme - these should probably be called .input-label */
+
+.AccessCodeClass-label {
+    margin-bottom: 10px;
+}
+
+
+/* Access Key Adjustments */
+
+/* offset for input box padding */
+.JoinClass .accessKey-inputs {
+    margin-right: -10px;
+    margin-bottom: 10px;
+}
+
+.JoinClass .accessKey-input {
+    width: 25%;
+    height: 100px;
+}
+
+.JoinClass .access-key-box { font-size: 50px; }
+
+/* remove success states -  temporary */
+.JoinClass .accessKey-states { display: none; }
+
+.JoinClass .ExitJoinClass {
+    display: none;
+}
+
+.JoinClass .ExitJoinClass.visible {
+    display: inline-block;
+}

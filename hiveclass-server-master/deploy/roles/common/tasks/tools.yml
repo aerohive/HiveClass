@@ -1,0 +1,64 @@
+- name: Ensure apt state is clean
+  shell: >
+    apt-get update --fix-missing
+  environment:
+    DEBIAN_FRONTEND:  noninteractive
+- name: Ensure all packages are up to date
+  shell: >
+    apt-get dist-upgrade -y
+  environment:
+    DEBIAN_FRONTEND:  noninteractive
+- name: Install essential packages
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - zsh
+    - htop
+    - git
+    - curl
+    - zip
+    - python
+    - python-software-properties
+    - software-properties-common
+    - screen
+- name: Fetch oh-my-zsh from github
+  git:
+    repo:   https://github.com/robbyrussell/oh-my-zsh.git
+    dest:   "/{{ item }}/.oh-my-zsh"
+    depth:  1
+  with_items:
+    - home/ubuntu
+    - root
+- name: Fetch zsh configuration from github
+  git:
+    repo:   https://github.com/pchaussalet/zsh_conf.git
+    dest:   "/{{ item }}/.zsh"
+    depth:  1
+  with_items:
+    - home/ubuntu
+    - root
+- name: Activate zsh configuration
+  file:
+    src:    "/{{ item }}/.zsh/.zshrc"
+    dest:   "/{{ item }}/.zshrc"
+    state:  link
+  with_items:
+    - home/ubuntu
+    - root
+- name: Set ownership of fetched files
+  file:
+    path:     "/home/ubuntu/{{ item }}"
+    state:    directory
+    recurse:  yes
+    owner:    ubuntu
+  with_items:
+    - .zsh
+    - .oh-my-zsh
+- name: Set zsh as default shell
+  user:
+    name:   "{{ item }}"
+    shell:  /bin/zsh
+    state:  present
+  with_items:
+    - ubuntu
+    - root

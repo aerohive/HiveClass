@@ -1,0 +1,3 @@
+volumes_from: false
+config_file:  false
+git_url:      "git@github.com:montagestudio/hiveclass-server.git"

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="dashboard-header.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "teacher": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "teacher"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.classroom.teacher"}
+            }
+        },
+
+        "classroom": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "classroom"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.classroom.name"}
+            }
+        },
+
+        "appName": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "appName"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "HiveSchool"
+                }
+            }
+        },
+
+        "studentMenu": {
+            "prototype": "ui/student-menu.reel",
+            "properties": {
+                "element": {"#": "studentMenu"}
+            },
+            "listeners": [
+                {"type": "action",
+                "listener": {"@": "owner"}}
+            ]
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="students-dashboard-header">
+        <div data-montage-id="classroom" class="AerohiveHeader-className"></div>
+        <div data-montage-id="teacher" class="teacherName"></div>
+        <div data-montage-id="appName" class="AerohiveHeader-appName"></div>
+        <div data-montage-id="studentMenu" class="AerohiveHeader-menu"></div>
+    </div>
+</body>
+</html>

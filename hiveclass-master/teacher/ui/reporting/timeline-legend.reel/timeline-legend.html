@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="timeline-legend.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "colorElement": {"#": "colorElement"},
+                "timelineLegendMain": {"#": "timelineLegendMain"},
+                "detailsRep": {"#": "detailsRep"}
+            },
+            "listeners": [
+                {"type": "action",
+                "listener": {"@": "owner"}}
+            ]
+        },
+
+        "labelElement": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "labelElement"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.activity.url"}
+            }
+        },
+
+        "startElement": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "startElement"}
+            },
+            "bindings": {
+                "value": {"<-": "'start: ' + @owner.startTime"}
+            }
+        },
+
+        "endElement": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "endElement"}
+            },
+            "bindings": {
+                "value": {"<-": "'end: ' + @owner.endTime"}
+            }
+        },
+
+        "detailsRep": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "detailsRep"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.validatedActivity"}
+            }
+        },
+
+        "detailsElement": {
+            "prototype": "common/ui/aerohive-anchor.reel",
+            "properties": {
+                "element": {"#": "detailsElement"}
+            },
+            "bindings": {
+                "href": {"<-": "@detailsRep:iteration.object"},
+                "textContent": {"<-": "@detailsRep:iteration.object"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="TimelineLegend">
+        <div data-montage-id="timelineLegendMain" class="TimelineLegend-main">
+            <div data-montage-id="colorElement" class="colorElement"></div>
+            <div data-montage-id="labelElement" class="labelElement"></div>
+            <div data-montage-id="endElement" class="endElement"></div>
+            <div data-montage-id="startElement" class="startElement"></div>
+        </div>
+        <ul data-montage-id="detailsRep" class="TimelineLegend-details hidden">
+            <li><a data-montage-id="detailsElement" class="detailsElement" target="_blank"></a></li>
+        </ul>
+    </div>
+</body>
+</html>

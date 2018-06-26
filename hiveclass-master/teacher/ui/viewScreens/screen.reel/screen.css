@@ -1,0 +1,231 @@
+.Screen {
+    max-height: 100%;
+    transition: width  .5s ease-in-out,
+                height .5s ease-in-out,
+                z-index .5s 0s;
+    overflow: hidden;
+}
+
+.Screen.zoomed {
+    width:  calc(100% - 20px);
+    height: calc(100% - 20px);
+    z-index: 10;
+}
+
+/* loading */
+
+.Screen:before,
+.Screen:after {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s;
+}
+
+.Screen.is-loading:before,
+.Screen.is-loading:after {
+    visibility: visible;
+    opacity: 1;
+}
+
+.Screen:before {
+    content: 'Loading';
+    font-size: 36px;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+}
+
+.Screen:after {
+    content: '';
+    position: absolute;
+    top:    0;
+    bottom: 0;
+    left:   0;
+    right:  0;
+    background: #000;
+}
+
+/* Title / Header */
+
+.Screen-title {
+    position: relative;
+    background-color: #FAC23E;
+    color: #ffffff;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ScreenTitle-name {
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: .5px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Buttons */
+
+.ScreenTitle-tools {
+    margin-right: -15px;
+    display: flex;
+}
+
+.ScreenTitle-tools button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Active Button */
+
+.tabsButton.is-active       { background: rgba(43, 141, 204, 1) !important; }
+.presentButton.is-active    { background: #A3E060 !important; }
+.freezeButton.is-active     { background: #D90B0F !important; }
+
+.freezeButton .ScreenTitleToolsButton-icon {
+    margin-top: -2px;
+    height: 19px;
+    width:  19px;
+}
+
+.freezeButton svg {
+    fill: #ffffff;
+}
+
+.ScreenTitle-tools button:hover {
+    background: green;
+}
+
+.ScreenTitleToolsButton-icon {
+    height: 22px;
+    width:  22px;
+    fill: #ffffff;
+    transition: transform .05s ease-in-out;
+}
+
+[data-montage-skin="aerohive-gray"] .ScreenTitleTools-button.AerohiveButton,
+[data-montage-skin="aerohive-gray"] .ScreenTitle-tabsButton.AerohiveButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 0;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+    min-width:  46px;
+}
+
+[data-montage-skin="aerohive-gray"] .ScreenTitleTools-button.AerohiveButton:hover,
+[data-montage-skin="aerohive-gray"] .ScreenTitle-tabsButton.AerohiveButton:hover,
+[data-montage-skin="aerohive-gray"] .Tab-close.AerohiveButton:hover {
+    background: rgba(0,0,0,.1);
+}
+
+[data-montage-skin="aerohive-gray"] .ScreenTitleTools-button.AerohiveButton:focus,
+[data-montage-skin="aerohive-gray"] .ScreenTitle-tabsButton.AerohiveButton:focus,
+[data-montage-skin="aerohive-gray"] .Tab-close.AerohiveButton:focus {
+    box-shadow: none;
+}
+
+[data-montage-skin="aerohive-gray"] .ScreenTitle-tabsButton.AerohiveButton.montage--active,
+[data-montage-skin="aerohive-gray"] .ScreenTitleTools-button.AerohiveButton.montage--active,
+[data-montage-skin="aerohive-gray"] .Tab-close.AerohiveButton.montage--active {
+    background: rgba(0,0,0,.1);
+}
+
+.ScreenTitle-tabsButton.AerohiveButton.hidden, .ScreenTitleTools-button.AerohiveButton.hidden {
+    display: none;
+}
+
+/* Tabs */
+
+.Screen-tabs {
+    z-index: 10;
+    position: absolute;
+    right:  0;
+    top:    40px;
+    max-height: calc(100% - 20px);
+    overflow-y: scroll;
+    -webkit-transform: translate3d(0, 0, 0);
+    transition: all .25s;
+    box-shadow: -2px 2px 4px 0px rgba(0,0,0,.75);
+}
+
+.Screen-tabs.hidden {
+    display: block;
+    visibility: hidden;
+    transform: translateX(100%);
+}
+
+.ScreenTabs-tab {
+    background: rgba(43, 141, 204, 1);
+    height: 40px;
+    line-height: 40px;
+    min-width: 200px;
+    border-top: solid 1px hsla(0, 0%, 100%, .3);
+}
+
+.Tab-name {
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tabsButton svg {
+    height: 40px;
+    width:  30px;
+}
+
+/* Tab close Button */
+
+.Tab-close.AerohiveButton {
+    border-radius: 0;
+}
+
+/* Video Image */
+
+.screenWrap {
+    position: absolute;
+    top: 40px;
+    bottom: 0;
+    left:   0;
+    right:  0;
+    background: #000;
+}
+
+.Screen-image {
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width:  100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

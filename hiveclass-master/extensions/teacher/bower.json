@@ -1,0 +1,16 @@
+{
+  "name": "hiveclass-extension-teacher",
+  "version": "0.1.0",
+  "main": "background.html",
+  "moduleType": [
+    "amd"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

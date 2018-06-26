@@ -1,0 +1,71 @@
+.AerohiveLoader {
+    height: 100%;
+}
+
+.AerohiveLoader .Loading {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex: 1;
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.AerohiveLoader .Loading-circles {
+    display: -webkit-flex;
+    display: flex;
+    width: 120px;
+    font-size: 0;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+}
+
+.AerohiveLoader .Loading-circle {
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(153, 153, 153, .9);
+    padding: 0;
+    margin: 0;
+}
+
+.AerohiveLoader .Loading-circle::after {
+    width: 12px;
+    height: 12px;
+    content: "";
+    display: block;
+    border-radius: 6px;
+    margin: 0;
+    padding: 0;
+    -webkit-animation: Loading-circles 1.5s 0s infinite;
+    animation: Loading-circles 1.5s 0s infinite;
+}
+
+.AerohiveLoader .Loading-circle:nth-child(2)::after {
+    -webkit-animation-delay: .375s;
+    animation-delay: .375s;
+}
+
+.AerohiveLoader .Loading-circle:nth-child(3)::after {
+    -webkit-animation-delay: 0.75s;
+    animation-delay: 0.75s;
+}
+
+.AerohiveLoader .Loading-circle:nth-child(4)::after {
+    -webkit-animation-delay: 1.125s;
+    animation-delay: 1.125s;
+}
+
+@-webkit-keyframes Loading-circles { 0% { background: rgba(153, 153, 153, 1); }}
+
+@keyframes Loading-circles { 0% { background: rgba(153, 153, 153, 1); } }

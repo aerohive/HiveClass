@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="enter-class.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "repetition": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "repetition"},
+                "isSelectionEnabled": true
+            },
+            "bindings": {
+                "content": {"<-": "@owner.classrooms"}
+            }
+        },
+
+         "radioButtonController": {
+            "prototype": "montage/core/radio-button-controller",
+            "bindings": {
+                "content": {"<-": "@owner.classrooms"},
+                "value": {"<->": "@owner.classroomId"}
+            }
+        },
+
+        "radioButton": {
+            "prototype": "./[RadioButton]",
+            "properties": {
+                "element": {"#": "radioButton"},
+                "radioButtonController": {"@": "radioButtonController"}
+            },
+            "bindings": {
+                "value": {"<-": "@repetition:iteration.object.id"},
+                "id": {"<-": "@repetition:iteration.object.name"}
+            }
+        },
+
+        "label": {
+            "prototype": "./[Label]",
+            "properties": {
+                "element": {"#": "label"}
+            },
+            "bindings": {
+                "for": {"<-": "@repetition:iteration.object.name"}
+            }
+        },
+
+        "className": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "className"}
+            },
+            "bindings": {
+                "value": {"<-": "@repetition:iteration.object.name"}
+            }
+        },
+
+        "teacherName": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "teacherName"}
+            },
+            "bindings": {
+                "value": {"<-": "@repetition:iteration.object.teacher"}
+            }
+        },
+
+        "addClass": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "addClassButton"}
+            },
+            "localizations": {
+                "label": {
+                    "key": "Add a Class"
+                }
+            },
+            "listeners": [
+                {"type": "action",
+                "listener": {"@": "owner"}}
+            ]
+        },
+
+        "enterClass": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "enterClassButton"}
+            },
+            "localizations": {
+                "label": {
+                    "key": "Enter Class"
+                }
+            },
+            "bindings": {
+                "enabled": {"<-": "!!@radioButtonController.value && !@owner.isClicked"}
+            },
+            "listeners": [
+                {"type": "action",
+                "listener": {"@": "owner"}}
+            ]
+        },
+
+        "startClass": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "startClass"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Start Your Class"
+                }
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="EnterClass Initialization">
+        <div class="EnterClass-content">
+        	<header class="Initialization-header">
+                <div data-montage-id="startClass" class="loginTitle"></div>
+	        </header>
+            <div class="InitializationSection-content">
+                <ul data-montage-id="repetition" class="EnterClass-content-classpicker">
+                    <li class="classroom-item">
+                        <input type="radio" data-montage-id="radioButton" class="Classrooms-radioButton">
+                        <div data-montage-id="label" class="classLabel">
+                            <div data-montage-id="className" class="className"></div>
+                            <div data-montage-id="teacherName" class="teacherName"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <footer class="Initialization-footer">
+	            <button data-montage-id="addClassButton" class="EnterClass-addClassButton button--secondary"></button>
+	            <button data-montage-id="enterClassButton" class="EnterClass-enterClassbutton"></button>
+	        </footer>
+        </div>
+
+    </div>
+</body>
+</html>

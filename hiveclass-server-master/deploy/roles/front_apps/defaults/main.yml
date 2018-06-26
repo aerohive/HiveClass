@@ -1,0 +1,2 @@
+force_image_rebuild:  false
+git_url:              git@github.com:montagestudio/hiveclass.git

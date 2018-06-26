@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="student-dashboard.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "resourcesList": {
+            "prototype": "common/ui/resources/list.reel",
+            "properties": {
+                "element": {"#": "resourcesList"},
+                "readOnly": true
+            },
+            "bindings": {
+                "resources": {"<-": "@owner.application.classroom.activeResources"}
+            }
+        },
+
+        "resourcesSubstitution": {
+            "prototype": "montage/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "resourcesSubstitution"}
+            },
+            "bindings": {
+                "switchValue" : {"<-": "!!@owner.application.classroom.activeResources && @owner.application.classroom.activeResources.children.length > 0 ? 'notEmpty' : 'empty' "}
+            }
+        },
+
+        "teacherName": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "teacherName"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.classroom.teacher"}
+            }
+        },
+
+        "noResourcesAssigned": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "noResourcesAssigned"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "NoResourcesAssigned"
+                }
+            }
+        },
+
+        "assignedResources": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "AssignedResources"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Assigned Resources"
+                }
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="StudentDashboard">
+        <section class="StudentDashboard-content">
+            <section class="StudentDashboard-section">
+                <div data-montage-id="resourcesSubstitution">
+                    <div class="empty" data-arg="empty">
+                        <header class="StudentDashboard-header">
+                            <div class="center">
+                                <div data-montage-id="teacherName" class="StudentDashboard-teacherName"></div>
+                                <div data-montage-id="noResourcesAssigned" class="noResourcesAssigned"></div>
+                            </div>
+                        </header>
+                    </div>
+                    <div data-arg="notEmpty">
+                        <header class="StudentDashboard-header">
+                            <div data-montage-id="AssignedResources"></div>
+                        </header>
+                        <div data-montage-id="resourcesList"></div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </div>
+</body>
+</html>

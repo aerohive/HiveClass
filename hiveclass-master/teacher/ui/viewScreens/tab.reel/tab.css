@@ -1,0 +1,28 @@
+.Tab {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+
+.Tab-name {
+    color: #ffffff;
+    margin-right: 20px;
+}
+
+.TabClose-icon {
+    height: 15px;
+    width:  15px;
+    color: #ffffff;
+}
+
+[data-montage-skin="aerohive-gray"] .Tab-close.AerohiveButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    width:  40px;
+    padding: 0 10px;
+    min-width: 0;
+}
+

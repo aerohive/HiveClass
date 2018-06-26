@@ -1,0 +1,19 @@
+.AerohiveRadioButton {
+    display: inline-block;
+    background-color: #e5e5e5;
+    height: 32px;
+    width: 64px;
+    line-height: 28px;
+    font-size: 14px;
+    text-align: center;
+    color: rgb(128, 128, 128);
+}
+
+.AerohiveRadioButton.montage-RadioButton--checked {
+    background: rgb(128, 128, 128);
+    color: #ffffff;
+}
+
+.AerohiveRadioButton:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,4 @@
+---
+- hosts:    extension_builder
+  roles:
+    - build_extension

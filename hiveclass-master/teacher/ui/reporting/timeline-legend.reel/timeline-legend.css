@@ -1,0 +1,49 @@
+.TimelineLegend{
+    
+}
+
+.TimelineLegend-main:hover{
+    background:#cceeff;
+    cursor:pointer;
+}
+
+.TimelineLegend-details{
+    list-style:none;
+}
+
+.TimelineLegend-details > li {
+    display:block;
+}
+
+.colorElement{
+    width:10px;
+    height:10px;
+    display:inline-block;
+    pointer-events:none;
+}
+
+.labelElement{
+    display:inline-block;
+    margin-left:5px;
+    pointer-events:none;
+}
+
+.startElement, .endElement{
+    display:inline-block;
+    float:right;
+    margin-left:50px;
+    pointer-events:none;
+}
+
+.detailsElement {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display:inline-block;
+    max-width:90%;
+}
+
+.detailsElement:hover {
+    cursor:pointer;
+    color:blue;
+}

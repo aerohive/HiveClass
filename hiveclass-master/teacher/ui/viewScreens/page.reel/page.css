@@ -1,0 +1,61 @@
+.Page {
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0) rotateY(0deg);
+    transition-duration: 500ms;
+    transition-property: transform;
+}
+
+.ClassroomPages-page.Page-back {
+    transform-style: preserve-3d;
+    z-index: -1;
+    transition-duration: 500ms;
+    transition-property: transform;
+    opacity: 0.25;
+}
+
+.ClassroomPages-page.Page-before {
+    transform: scale3d(0.5, 0.5, 0.5) translate3d(-100%, 0, 0) rotateY(60deg);
+    transition-duration: 500ms;
+    transition-property: transform;
+}
+
+.ClassroomPages-page.Page-after {
+    transform: scale3d(0.5, 0.5, 0.5) translate3d(90%, 0, 0) rotateY(-60deg);
+    transition-duration: 500ms;
+    transition-property: transform;
+}
+
+/* Page of screens */
+
+.Page-screens {
+    position: absolute;
+    left:   0;
+    right:  0;
+    bottom: 0;
+    top:    0;
+    padding: 10px;
+    background: #808080;
+}
+
+.PageScreens-screen {
+    box-sizing: border-box;
+    position: absolute;
+    width:  calc(50% - 10px);
+    height: calc(50% - 10px);
+    border: 10px solid #808080;
+    background-color: #000;
+}
+
+.PageScreens-screen:nth-child(2){
+    top:   10px;
+    right: 10px;
+}
+
+.PageScreens-screen:nth-child(3){
+    bottom: 10px;
+    left:   10px;
+}
+
+.PageScreens-screen:nth-child(4){
+    bottom:  10px;
+    right:   10px;
+}

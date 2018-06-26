@@ -1,0 +1,96 @@
+- name: Ensure source repo is cloned and up to date
+  git:
+    repo:           "{{ git_url }}"
+    dest:           /home/deploy/hiveclass-server
+    accept_hostkey: yes
+    key_file:       /home/deploy/.ssh/deploy.pem
+    version:        "{{ branch }}"
+  register: git_repo
+- name: Copy Dockerfile
+  copy:
+    src: Dockerfile
+    dest: /home/deploy/hiveclass-server/Dockerfile
+- name: Copy start_services.sh
+  copy:
+    src: start_services.sh
+    dest: /home/deploy/hiveclass-server/start_services.sh
+    mode: 0755
+- name: Create configuration directories
+  file:
+    path:     "/srv/hiveclass-server/{{ deploy_env }}/{{ item }}"
+    state:    directory
+    recurse:  yes
+    mode:     0755
+  with_items:
+    - apps
+    - auth
+    - jira
+    - logging
+    - storage
+    - router
+- name: Overwrite configuration (template)
+  template:
+    src:    "{{ item }}.js.tpl"
+    dest:   "/srv/hiveclass-server/{{ deploy_env }}/{{ item }}/config.js"
+    mode:   0644
+  with_items:
+    - apps
+    - auth
+    - jira
+    - logging
+    - storage
+    - router
+- name: Build docker image
+  shell: >
+    docker build -t "hiveclass/services_{{ deploy_env }}:{{ branch }}" .
+    chdir=/home/deploy/hiveclass-server
+- shell: docker network ls | awk '{ print $2 }'
+  register: networks
+- name: Create environment network
+  shell: >
+    docker network create "{{ deploy_env }}"
+  when: networks.stdout.find(deploy_env) == -1
+- name: Ensure mongodb container is running
+  docker:
+    name:           "mongo_{{ deploy_env }}"
+    command:        "--replSet hs_rs0"
+    hostname:       "mongo"
+    image:          "mongo:3"
+    expose:         27017
+    ports:          "{{ server.mongodb.external_port }}:27017"
+    net:            "{{ deploy_env }}"
+    volumes:        "/srv/hiveclass-server/{{ deploy_env }}/mongo:/data/db:rw"
+    restart_policy: always
+    state:          started
+- name: Wait for mongo to finish starting
+  wait_for:
+    host:     127.0.0.1
+    port:     "{{ server.mongodb.external_port }}"
+    delay:    2
+    timeout:  30
+- name: Initialize mongo replicaset
+  shell: >
+    docker exec -i "mongo_{{ deploy_env }}" mongo --eval 'rs.initiate()'
+- shell: docker ps -a |awk '{ print $NF }'
+  register: containers
+- name: Remove old docker container
+  shell: >
+    docker rm -v $(docker kill "services_{{ deploy_env }}")
+  when: containers.stdout.find('services_' + deploy_env) != -1
+- name: Start new docker container
+  shell: >
+    docker run -d
+    --name "services_{{ deploy_env }}"
+    --hostname "services"
+    --volume="/srv/hiveclass-server/{{ deploy_env }}:/opt/config:ro"
+    --volumes-from="front_apps_{{ deploy_env }}:ro"
+    --publish="127.0.0.1:{{ monitoring.port }}:9615"
+    --publish="127.0.0.1:{{ rp.http.internal.port }}:{{ server.router.port }}"
+    --publish="127.0.0.1:{{ rp.ws.internal.port }}:{{ server.rendez_vous.port }}"
+    --net="{{ deploy_env }}"
+    --restart=always
+    "hiveclass/services_{{ deploy_env }}:{{ branch }}"
+- name: Removes git repo
+  file:
+    path: /home/deploy/hiveclass-server
+    state: absent

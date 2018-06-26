@@ -1,0 +1,23 @@
+aws_prod ansible_user=ubuntu ansible_become=true ansible_become_method=sudo ansible_become_user=root ansible_ssh_host=54.67.59.152
+aws_mongo_backup ansible_user=ubuntu ansible_become=true ansible_become_method=sudo ansible_become_user=root ansible_ssh_host=54.183.136.105
+
+[webservers]
+aws_prod
+
+[extension_builder]
+aws_prod
+
+[mongo_backup]
+aws_mongo_backup
+
+[local]
+localhost
+
+[domains:children]
+webservers
+local
+
+[vars:children]
+webservers
+extension_builder
+local

@@ -1,0 +1,36 @@
+- name: Add haproxy apt repository
+  shell: >
+    add-apt-repository --yes ppa:vbernat/haproxy-1.5
+- name: Install haproxy
+  apt:
+    name:         haproxy=1.5*
+    update_cache: yes
+- name: Ensure HAProxy is enabled
+  lineinfile:
+    dest: /etc/default/haproxy
+    regexp: ^ENABLED=
+    line: ENABLED=1
+- name: Deploy service configuration
+  template:
+    src:  service.cfg.tpl
+    dest: "/etc/init.d/haproxy_{{ deploy_env }}"
+    mode: 0755
+- name: Deploy haproxy configuration
+  template:
+    src:  haproxy.cfg.tpl
+    dest: "/etc/haproxy/haproxy_{{ deploy_env }}.cfg"
+  notify: Reload haproxy
+- name: Deploy certificate
+  copy:
+    src:  hiveschool.pem
+    dest: /etc/ssl/hiveschool.pem
+- name: Stop default haproxy instance
+  service:
+    name:     haproxy
+    enabled:  no
+    state:    stopped
+- name: Start haproxy service
+  service:
+    name:     "haproxy_{{ deploy_env }}"
+    enabled:  yes
+    state:    started

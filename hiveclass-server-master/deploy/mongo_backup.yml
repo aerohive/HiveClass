@@ -1,0 +1,5 @@
+---
+- hosts: mongo_backup
+  roles:
+    - common
+    - mongo_backup

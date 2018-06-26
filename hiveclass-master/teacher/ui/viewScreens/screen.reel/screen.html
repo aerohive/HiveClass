@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="screen.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "screen": {"<-": "!!@owner.student.desktopStream ? @owner.student.desktopStream : 'default_screen.jpg'"},
+                "tabs": {"<-": "@owner.student.tabs"},
+                "desktopStream": {"<-": "@owner.student.desktopStream"},
+                "classList.has('back')": {"<-": "@owner.back"},
+                "classList.has('is-loading')": {"<-": "!!@owner.student.firstname && !@owner.desktopStream && !@owner.anyZoom"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+
+        "tabsButton": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "tabsButton"}
+            },
+            "bindings": {
+                "classList.has('hidden')": {"<-": "!@owner.desktopStream || @owner.back"},
+                "classList.has('is-active')": {"<-": "@owner.activeButton == @tabsButton"}
+            }
+        },
+
+        "name": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "name"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.student.firstname + ' ' + @owner.student.lastname"}
+            }
+        },
+
+        "expand": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "expand"}
+            },
+            "bindings": {
+                "classList.has('hidden')": {"<-": "!@owner.desktopStream || @owner.back || @owner.zoomed"}
+            }
+        },
+
+        "contract": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "contract"}
+            },
+            "bindings": {
+                "classList.has('hidden')": {"<-": "!@owner.desktopStream || @owner.back || !@owner.zoomed || @owner.isSingle"}
+            }
+        },
+
+        "present": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "present"}
+            },
+            "bindings": {
+                "classList.has('hidden')": {"<-": "!@owner.desktopStream || @owner.back || !@owner.isSingle || !@owner.application.classroomService.canPresentStudent || !@owner.application.classroomService.isSharingEnabled"},
+                "classList.has('is-active')": {"<-": "@owner.activeButton == @present"}
+            }
+        },
+
+        "freeze": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "freeze"}
+            },
+            "bindings": {
+                "classList.has('hidden')": {"<-": "!@owner.desktopStream || @owner.back"},
+                "classList.has('is-active')": {"<-": "@owner.activeButton == @freeze"}
+            }
+        },
+
+        "tabs": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "tabs"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.tabs"}
+            }
+        },
+
+        "tab": {
+            "prototype": "../tab.reel",
+            "properties": {
+                "element": {"#": "tab"}
+            },
+            "bindings": {
+                "tab": {"<-": "@tabs:iteration.object"},
+                "student": {"<-": "@owner.student"}
+            }
+        },
+
+        "screen": {
+            "prototype": "./[DesktopView]",
+            "properties": {
+                "element": {"#": "screen"}
+            },
+            "bindings": {
+                "src": {"<-": "@owner.videoSrc"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="Screen">
+        <div class="Screen-title">
+            <span data-montage-id="name" class=" ScreenTitle-name"></span>
+            <div class="ScreenTitle-tools">
+                <button data-montage-id="tabsButton" title="show students tabs" class="tabsButton ScreenTitle-tabsButton">
+                    <svg class="ScreenTitleToolsButton-icon"><use xlink:href="#tabs"/></svg>
+                </button>
+                <button data-montage-id="expand" title="expand view" class="expandButton ScreenTitle-tabsButton">
+                    <svg class="ScreenTitleToolsButton-icon"><use xlink:href="#expand"/></svg>
+                </button>
+                <button data-montage-id="contract" title="contract view" class="contractButton ScreenTitle-tabsButton">
+                    <svg class="ScreenTitleToolsButton-icon"><use xlink:href="#minimize"/></svg>
+                </button>
+                <button data-montage-id="present" title="present screen to class" class="presentButton ScreenTitle-tabsButton">
+                    <svg class="ScreenTitleToolsButton-icon"><use xlink:href="#present"/></svg>
+                </button>
+                <button data-montage-id="freeze" title="lock students screen" class="freezeButton ScreenTitle-tabsButton">
+                    <svg class="ScreenTitleToolsButton-icon"><use xlink:href="#lock"/></svg>
+                </button>
+            </div>
+        </div>
+        <div data-montage-id="tabs" class="Screen-tabs hidden">
+            <div data-montage-id="tab" class="ScreenTabs-tab"></div>
+        </div>
+        <div class="screenWrap">
+            <video data-montage-id="screen" class="Screen-image" autoplay></video>
+        </div>
+    </div>
+</body>
+</html>

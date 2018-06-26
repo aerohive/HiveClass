@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="student-flow-slide.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "repetition": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "repetition"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.students"}
+            }
+        },
+
+        "screen": {
+            "prototype": "ui/student-flow-slide-zoom.reel",
+            "properties": {
+                "element": {"#": "screen"}
+            },
+            "bindings": {
+                "student": {"<-": "@repetition:iteration.object"},
+                "classList.has('left-column')": {"<-": "@repetition:iteration.index % 2 == 0"},
+                "classList.has('right-column')": {"<-": "@repetition:iteration.index % 2 != 0"},
+                "classList.has('half-width')": {"<-": "@repetition.content.length > 1"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="StudentFlowSlide">
+        <ul data-montage-id="repetition">
+            <li data-montage-id="screen"></li>
+        </ul>
+    </div>
+</body>
+</html>

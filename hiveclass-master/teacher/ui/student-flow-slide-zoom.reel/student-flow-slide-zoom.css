@@ -1,0 +1,59 @@
+.StudentFlowSlideZoom {
+    width: 800px;
+    margin-left: -400px;
+    text-align: center;
+    -webkit-transform: translate3d(0, -50%, 0);
+    -moz-transform: translate3d(0, -50%, 0);
+    -ms-transform: translate3d(0, -50%, 0);
+    -o-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+    padding: 5%;
+    background-color: #979797;
+}
+
+.StudentFlowSlideZoom.left-column {
+    float: left;
+}
+
+.StudentFlowSlideZoom.right-column {
+    margin-left: 0;
+}
+
+.StudentFlowSlideZoom.half-width {
+    width: 40%;
+}
+
+.StudentFlowSlideZoom:hover {
+    cursor: pointer;
+}
+
+.ScreenFlowZoom-header {
+    font-size: 16px;
+    text-transform: capitalize;
+    text-align: left;
+    background-color: #fac23e;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 1em;
+}
+
+.ScreenFlowZoomHeader-name, .ScreenFlowZoomHeader-toolbar {
+    display: inline-block;
+}
+
+.ScreenFlowZoomHeader-toolbar {
+    float: right;
+}
+
+.ScreenFlowZoomHeader-name.montage-Text {
+    font-size: 16px;
+    text-transform: capitalize;
+    text-align: left;
+    font-weight: bold;
+}
+
+.ScreenFlowZoom-screen {
+    height: auto;
+    width: auto;
+    max-width: 100%;
+}

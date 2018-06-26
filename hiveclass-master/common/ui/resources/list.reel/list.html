@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="list.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "resourcesTreeController": {
+            "prototype": "montage/core/tree-controller",
+            "bindings": {
+                "data": {"<-": "@owner.resources"}
+            }
+        },
+
+        "resourceTree": {
+            "prototype": "../tree-list.reel",
+            "properties": {
+                "element": {"#": "resourceTree"},
+                "indentationWidth": 0
+            },
+            "bindings": {
+                "isRootVisible": {"<-": "!@owner.readOnly"},
+                "controller": {"<-": "@resourcesTreeController"},
+                "classList.has('item-focused')" : { "<-" : "@owner.isResourceFocused"}
+            }
+        },
+
+        "resourceTreeItem": {
+            "prototype": "../tree-list-item.reel",
+            "properties": {
+                "element": {"#": "resourceTreeItem"}
+            },
+            "bindings": {
+                "iteration": {"<-": "@resourceTree:iteration.object"},
+                "classroom": {"<-": "@owner.classroom"},
+                "list": {"<-": "@owner"}
+            }
+        },
+
+        "active": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "active"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Active"
+                }
+            }
+        },
+
+        "focus": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "focus"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Focus"
+                }
+            }
+        },
+
+        "hiveschoolResources": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "hiveschoolResources"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "HiveSchool Resources"
+                }
+            }
+        },
+
+        "refreshResources": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "refreshResources"}
+            },
+            "localizations": {
+                "label": {
+                    "key": "Refresh Resources"
+                }
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="ResourcesList">
+        <div class="ResourcesListRepetition-header">
+            <div class="checkbox-column">
+                <div data-montage-id="active" class="resource-column-title checkbox-title"></div>
+            </div>
+            <div class="checkbox-column">
+                <div data-montage-id="focus" class="resource-column-title checkbox-title"></div>
+            </div>
+            <div class="resource-column">
+                <div data-montage-id="hiveschoolResources" class="resource-column-title"></div>
+            </div>
+            <button data-montage-id="refreshResources" class="refreshResources button--secondary"></button>
+        </div>
+        <div data-montage-id="resourceTree" class="ResourcesList-resourceTree">
+            <div data-montage-id="resourceTreeItem" class="ResourcesList-resourceTreeItem"></div>
+        </div>
+    </div>
+</body>
+</html>

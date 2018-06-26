@@ -1,0 +1,6 @@
+.idea
+node_modules
+npm-debug.log
+.DS_Store
+/database/lowdb.json
+/e2e/bin

@@ -1,0 +1,26 @@
+.Main{
+
+}
+
+/*.Main, .LoginSubstitution, .ConnectionError, .ConnectionClosed {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex: 1;
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}*/
+
+
+.ConnectionError-message, .ConnectionClosed-message {
+    color: rgba(43, 141, 206, 1);
+    font-size: 14px;
+    display: block;
+    text-align: center;
+}

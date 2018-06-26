@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="close-tabs-modal.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "modal": {
+            "prototype": "common/ui/aerohive-modal.reel",
+            "properties": {
+                "element": {"#": "modal"},
+                "closeOnEscape": false
+            },
+            "bindings": {
+                "validCallback": {"<-": "@owner.valid"},
+                "cancelCallback": {"<-": "@owner.cancel"}
+            }
+        },
+
+        "header": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "modal-header"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Warning"
+                }
+            }
+        },
+
+        "message": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "modal-message"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "JoinCloseTabsWarning"
+                }
+            }
+        },
+
+        "cancel": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": { "#": "cancel"}
+            },
+            "localizations": {
+                "label": {
+                    "key": "Cancel"
+                }
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "modal"}
+                }
+            ]
+        },
+
+        "valid": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "valid"}
+            },
+            "localizations": {
+                "label": {
+                    "key": "Ok"
+                }
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "modal"}
+                }
+            ]
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner">
+        <div data-montage-id="modal">
+            <div class="CloseTabsModal">
+                <div class="CloseTabsModal-header">
+                    <h1 data-montage-id="modal-header"></h1>
+                </div>
+                <div class="CloseTabsModal-body">
+                    <div data-montage-id="modal-message"></div>
+                </div>
+                <div class="CloseTabsModal-footer">
+                    <button data-montage-id="cancel" class="button"></button>
+                    <button data-montage-id="valid" class="button"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

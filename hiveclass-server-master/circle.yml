@@ -1,0 +1,23 @@
+machine:
+  timezone:
+    America/Los_Angeles
+  python:
+    version: 2.7.5
+
+dependencies:
+  pre:
+    - pip install ansible
+
+test:
+  override:
+    - /bin/echo "NO TEST TO RUN :("
+
+deployment:
+  staging:
+    branch: master
+    commands:
+      - ansible-playbook -i deploy/environments/staging/inventory deploy/back.yml
+  demo:
+    branch: demo
+    commands:
+      - ansible-playbook -i deploy/environments/demo/inventory deploy/back.yml

@@ -1,0 +1,24 @@
+- name: Update cache
+  shell: >
+    /opt/get_services.sh
+  register: services
+  notify: Extract services IPs for cache
+- name: Extract services IPs for cache
+  template:
+    src: backends.tpl
+    dest: /etc/varnish/conf.d/00_backends
+  notify: Assemble Varnish config
+- name: Assemble Varnish config
+  assemble:
+    src: /etc/varnish/conf.d
+    dest: /etc/varnish/varnish.vcl
+  notify: Reload Varnish
+- name: Reload Varnish
+  service:
+    name: varnish
+    state: restarted
+- name: Ensure cache is running
+  service:
+    name: varnish
+    state: started
+    enabled: true

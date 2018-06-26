@@ -1,0 +1,433 @@
+
+/*
+ * This file is reserved for your global style rules.
+ */
+
+html, body, .Main {
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    color: rgba(153, 153, 153, 1);
+    margin: 0; /* Remove default margin */
+    padding: 0;
+    font-weight: 300;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.Loading, .ConnectionError, .ConnectionClosed {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex: 1;
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.ConnectionError-message, .ConnectionClosed-message {
+    color: rgba(43, 141, 206, 1);
+    font-size: 18px;
+    display: block;
+    text-align: center;
+}
+
+.Loading-circles {
+    display: -webkit-flex;
+    display: flex;
+    width: 120px;
+    font-size: 0;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+}
+
+.Loading-circle {
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(153, 153, 153, .9);
+    padding: 0;
+    margin: 0;
+}
+
+.Loading-circle::after {
+    width: 12px;
+    height: 12px;
+    content: "";
+    display: block;
+    border-radius: 6px;
+    margin: 0;
+    padding: 0;
+    -webkit-animation: Loading-circles 1.5s 0s infinite;
+    animation: Loading-circles 1.5s 0s infinite;
+}
+
+.Loading-circle:nth-child(2)::after {
+    -webkit-animation-delay: .375s;
+    animation-delay: .375s;
+}
+
+.Loading-circle:nth-child(3)::after {
+    -webkit-animation-delay: 0.75s;
+    animation-delay: 0.75s;
+}
+
+.Loading-circle:nth-child(4)::after {
+    -webkit-animation-delay: 1.125s;
+    animation-delay: 1.125s;
+}
+
+@-webkit-keyframes Loading-circles { 0% { background: rgba(153, 153, 153, 1); }}
+
+@keyframes Loading-circles { 0% { background: rgba(153, 153, 153, 1); } }
+
+/* Layout Helpers */
+
+.hidden {
+    display: none;
+}
+
+.row {
+	margin-right: -20px;
+}
+
+.row:before,
+.row:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.row:after {
+    clear: both;
+}
+
+.half {
+	float: left;
+	box-sizing: border-box;
+	width: 50%;
+	padding-right: 20px;
+}
+
+.center {
+    text-align: center;
+}
+
+.content{
+    display: -webkit-flex;
+    display: flex;
+    height: calc(100% - 50px);
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+/* Inputs */
+
+input[type='text'] {
+	margin-bottom: 20px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 3px;
+	font-size: 18px;
+	 -webkit-font-smoothing: antialiased;
+}
+
+label {
+	display: inline-block;
+	font-weight: 400;
+	font-size: 20px;
+}
+
+/* Field */
+
+.fieldWrap {
+    position: relative;
+}
+
+.fieldWrap .fieldError-message {
+    color: #D90B0B;
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity .2s;
+}
+
+/* Field Errors */
+
+.fieldWrap.has-error .fieldError-message {
+    opacity: 1;
+}
+
+.fieldWrap.has-error input {
+    border: 1px solid #D90B0B;
+}
+
+/* Buttons */
+
+.button--secondary.AerohiveButton                   { background-color: #979797; }
+.button--secondary.AerohiveButton:hover             { background-color: #898989; }
+.button--secondary.AerohiveButton.montage--active   { background-color: #979797; }
+
+.button--danger.AerohiveButton                      { background-color: #D90B0B; }
+.button--danger.AerohiveButton:hover                { background-color: #BD0A0A; }
+.button--danger.AerohiveButton.montage--active      { background-color: #D90B0B; }
+
+
+/* Initialization Styles */
+
+.Initialization {
+	width: 400px;
+}
+
+.Initialization .HelloMessage {
+    text-align: center;
+    color: rgba(153, 153, 153, .85);
+    text-transform: capitalize;
+}
+
+.Initialization-header {
+	margin-bottom: 40px;
+}
+
+.loginTitle {
+	font-size: 36px;
+	font-weight: 600;
+    text-align: center;
+}
+
+.TeacherInitializationClass-label {
+    color: rgba(43, 141, 206, 1);
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+.InitializationSection-content {
+	position: relative;
+	margin-bottom: 40px;
+}
+
+/* Radio Styles */
+
+.digit-RadioButton {
+	background-image: none !important;
+	box-shadow: none !important;
+	border-color: #D8D8D8 !important;
+}
+
+[data-montage-skin="light"] .digit-RadioButton {
+	fill: #2FBEC1;
+	background: none;
+}
+
+/* classroom styles */
+
+.EnterClass .className, .Classrooms-radioButton-label{
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 40px;
+    max-width: 365px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ClassNameClass-label {
+    color: #010101;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.Classrooms-picker,
+.classroom-items {
+    list-style: none;
+    padding:0;
+    margin:0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 300px;
+}
+
+.classroom-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 20px;
+}
+
+.classroom-item .digit-RadioButton {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -.75em;
+}
+
+.classroom-item input[type="text"] {
+    margin-bottom: 0;
+}
+
+/* Menu Icon*/
+
+.SettingsMenuComponent-settingsButton svg {
+    width:  100%;
+    height: 100%;
+}
+
+.SettingsMenuComponent-settingsButton:hover {
+    background: #1e7bb4 !important;
+    outline: none;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.is-open .SettingsMenuComponent-settingsButton {
+    background: #1e7bb4 !important;
+}
+
+.SettingsMenuComponent-settingsButton.digit-Button {
+    border-radius:0px;
+    color: #fff;
+    font-size: 16px;
+    background-image:none;
+    background:rgba(43, 141, 204, 1);
+    border: none;
+    padding: 13px;
+    height:50px;
+    width: 50px;
+    box-shadow:none;
+    margin:0;
+    float: right;
+    outline: none;
+    transition: background .2s ease-in-out;
+}
+
+.SettingsMenuComponent-items {
+    visibility: hidden;
+    position: absolute;
+    width: 375px;
+    height: calc(100vh - 50px);
+    overflow-y:auto;
+    margin: 0;
+    top: 50px;
+    list-style: none;
+    padding:0;
+    z-index: -10;
+    right: -300px;
+    /*background: #1e7bb4; pure blue*/
+    background: rgba(30,123,180,.95);
+    transition: visibility 0s linear 0.25s, right .25s cubic-bezier(.38,.38,.09,1);
+}
+
+.is-open .SettingsMenuComponent-items {
+    visibility: visible;
+    right: 0;
+    transition-delay: 0s;
+}
+
+.menuSection {
+    background: rgba(0,0,0,.25);
+    font-family: "roboto", Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 24px;
+    padding: 0 20px;
+    font-weight: 400;
+    letter-spacing: .5px;
+}
+
+.SettingsMenuComponent-menuItem,
+.SettingsMenuComponent-menuItem.digit-Button,
+.editClassWrapper {
+    padding: 0px 20px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+.SettingsMenuComponent-item {
+    position:relative;
+}
+
+.SettingsMenuComponent-item > *,
+.SettingsMenuComponent-menuItem.digit-Text,
+.editClassWrapper label {
+    font-family: "roboto", sans-serif;
+    font-weight:400;
+    color: #fff;
+    font-size: 16px;
+    line-height: 50px;
+    text-shadow:none;
+}
+
+.SettingsMenuComponent-item >.SettingsMenuComponent-menuItem.digit-Button, .SettingsMenuComponent-menuItem.digit-Button:focus{
+    border-radius:0px;
+    color: #fffcff;
+    font-size: 16px;
+    background-image:none;
+    border: none;
+    width: 100%;
+    text-align:left;
+    box-shadow:none;
+    margin:0;
+    text-shadow:none;
+    -webkit-font-smoothing: antialiased;
+    transition: background .2s ease-in-out;
+}
+
+/* menu buttons / labels */
+
+.SettingsMenuComponent-menuItem {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.SettingsMenuComponent-menuItem.digit-Button:hover {
+    background: rgba(255,255,255,.15);
+}
+
+/* delete button hover */
+
+.SettingsMenuComponent-menuItem.digit-Button.deleteClass:hover {
+    background: #D90B0B;
+}
+
+.SettingsMenuComponent-item > .SettingsMenuComponent-menuItem.digit-Button.static-item, .static-item{
+    border-top: 1px solid rgba(255,255,255,.5);
+    height:100%;
+}
+
+.language-select{
+    position: absolute;
+    right: 20px;
+    top:24%;
+    border-radius: 5px;
+    border: 1px solid #D8D8D8;
+    box-shadow: none;
+    height:1.75em;
+    color:black;
+    padding: 0 1.5em 0 0.5em;
+    font-size: 100%; /* Override UA style. */
+    background-size: .875em;
+    -webkit-tap-highlight-color: transparent;
+    line-height:normal;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,111 @@
+deploy_env:                     beta
+
+monitoring:
+    port:                       9615
+
+rp:
+    http:
+        external:
+            port:               443
+        internal:
+            port:               18080
+    ws:
+        external:
+            port:               443
+        internal:
+            port:               19090
+
+server:
+    cookie:
+        is_secure:              "true"
+        password:               63581e0fca66ca827d10e6bc2f3c538392f09718
+    router:
+        ip:                     0.0.0.0
+        port:                   8080
+        auth:
+            ip:                 127.0.0.1
+            port:               8081
+            protocol:           http
+        google:
+            ip:                 127.0.0.1
+            port:               8081
+            protocol:           http
+        apps:
+            ip:                 127.0.0.1
+            port:               8082
+            protocol:           http
+        jira:
+            ip:                 127.0.0.1
+            port:               8083
+            protocol:           http
+        logging:
+            ip:                 127.0.0.1
+            port:               8084
+            protocol:           http
+        storage:
+            ip:                 127.0.0.1
+            port:               8085
+            protocol:           http
+    apps:
+        ip:                     0.0.0.0
+        port:                   8082
+        cache:
+            ttl:                24
+    rendez_vous:
+        port:                   9090
+    auth:
+        ip:                     0.0.0.0
+        port:                   8081
+        providers:
+            google:
+                client_id:      532334985580-7ijn35j37uirs9f9u5eij7k8q59emsn0.apps.googleusercontent.com
+                client_secret:  TNKnH3tWK6KSzjrRIDeG_ASV
+        oauthLocation:          https://beta.hiveschool.aerohive.com
+        force_https:            "true"
+        mongodb_url:            "mongodb://mongo_beta:27017/auth"
+        bearer_token:           ZjA2OWQ1OTBjN2RjYzQ5Mjk3NGYzZjZkOTMwNDk4YTEyZDBhNWE1OTJjMTE1YjM5
+    jira:
+        ip:                     0.0.0.0
+        port:                   8083
+        upstream:
+            host:               montage.atlassian.net
+            protocol:           https
+            authorization:      "Basic ZmVlZGJhY2s6ZmVlZGJhY2s="
+    logging:
+        ip:                     0.0.0.0
+        port:                   8084
+    storage:
+        ip:                     0.0.0.0
+        port:                   8085
+        mongodb_url:            "mongodb://mongo_beta:27017/storage"
+    mongodb:
+        external_port:          27017
+        arbiter:
+            host:               mongo_beta_arbiter
+            port:               27017
+        backup:
+            host:               mongo_beta_backup
+            port:               27017
+
+frontend:
+    common:
+        rendez_vous_endpoint:   wss://beta.hiveschool.aerohive.com/ws
+        logging_endpoint:       https://beta.hiveschool.aerohive.com/logging
+    login:
+        app_url:                https://beta.hiveschool.aerohive.com/apps/login/
+        auth_endpoint:          https://beta.hiveschool.aerohive.com/auth
+    student:
+        app_url:                https://beta.hiveschool.aerohive.com/apps/student/
+        profile_endpoint:       https://beta.hiveschool.aerohive.com/auth/me
+        check_endpoint:         https://beta.hiveschool.aerohive.com/auth/check
+        invalidate_endpoint:    https://beta.hiveschool.aerohive.com/auth/invalidate
+    teacher:
+        app_url:                https://beta.hiveschool.aerohive.com/apps/teacher/
+        profile_endpoint:       https://beta.hiveschool.aerohive.com/auth/me
+        check_endpoint:         https://beta.hiveschool.aerohive.com/auth/check
+        invalidate_endpoint:    https://beta.hiveschool.aerohive.com/auth/invalidate
+        storage_endpoint:       https://beta.hiveschool.aerohive.com/storage/
+
+rollbar:
+    accessToken:                9a6ea1bff98a4d0586f8892d55dd1ac1
+    serverToken:                33dc257b9fc449068683b78fdd0bd7fd

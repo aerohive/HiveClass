@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="teacher-main-action-button.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "_SVGUseElement" : {"#" : "buttonIcon"}
+            },
+            "bindings": {
+				"iconAttribute" : {"<-" : "@owner.icon"}
+            }
+        },
+
+        "buttonTitle": {
+        	"prototype": "montage/ui/text.reel",
+        	"properties": {
+        		"element": {"#" : "buttonTitle"}
+        	},
+        	"bindings": {
+        		"value": {"<-": "@owner.title"}
+        	}
+        },
+
+        "tooltip": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "tooltip"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.tooltip"},
+                "classList.has('hidden')": {"<-": "!@owner.tooltip"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <button data-montage-id="owner" class="TeacherMainAction mainAction">
+    	<div class="mainAction-image">
+    		<svg><use data-montage-id="buttonIcon"></use></svg>
+    	</div>
+		<span data-montage-id="buttonTitle" class="mainAction-title"></span>
+        <span data-montage-id="tooltip" class="mainAction-tooltip"></span>
+    </button>
+</body>
+</html>
+
+

@@ -1,0 +1,52 @@
+.ClassroomLock {
+	display: inline-block;
+	padding: 5px 10px;
+    background: grey;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.ClassroomLock-lock {
+    display: inline-block;
+    width: 10px;
+    height: 17px;
+}
+
+.ClassroomLock .ClassroomLock-lockImage {
+    width: 100%;
+    height: 100%;
+}
+
+.ClassroomLock .ClassroomLock-lockLabel {
+    font-size: 16px;
+    color: white;
+    font-weight: 400;
+}
+
+.ClassroomLock.montage--disabled:hover {
+    cursor: default;
+}
+
+.ClassroomLock:hover {
+    cursor: pointer;
+}
+
+.ClassroomLock.montage--active {
+    background: lightgrey;
+}
+
+.ClassroomLock.montage-Checkbox--checked {
+    background: rgba(128, 128, 128, .9);
+}
+
+.ClassroomLock.montage-Checkbox--checked.montage--active {
+    background: rgba(128, 128, 128, 1);
+}
+
+.ClassroomLock .status {
+	margin: 0 4px;
+}
+
+.ClassroomLock .access-code.hidden {
+	display: none;
+}

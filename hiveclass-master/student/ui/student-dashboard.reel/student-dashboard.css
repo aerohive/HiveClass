@@ -1,0 +1,85 @@
+.StudentDashboard {
+    background: #f4f4f4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 50px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.StudentDashboard-header,
+.StudentDashboard .ResourcesList {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.StudentDashboard-teacherName.montage-Text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width:20%;
+    display:inline-block;
+    vertical-align:top;
+}
+
+.noResourcesAssigned {
+    display:inline-block;
+}
+
+.StudentDashboard-header {
+    position: absolute;
+    top: 40px;
+    left:   0;
+    right:  0;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 24px;
+    color: #2FBEC1;
+    border-bottom: 1px solid #ccc;
+}
+
+.StudentDashboard .ResourcesList {
+    position: absolute;
+    top: 111px;
+    left:   0;
+    right:  0;
+    bottom: 0;
+}
+
+/* offsets margin from indent javascript */
+.StudentDashboard .ResourcesList-resourceTree {
+    margin-left: -15px;
+}
+
+/*$fixme */
+
+/*.StudentDashboard-content {
+    width: 60%;
+    max-width: 1400px;
+    margin: 0 auto;
+}*/
+
+/*.StudentDashboardSection-resources {
+    list-style: none;
+    width: 75%;
+    margin-left: 12.5%;
+    padding: 0;
+}*/
+
+/*.StudentDashboardSection-resources li {
+    background: #ffffff;
+    display: inline-block;
+    width: 32%;
+    margin: 0.5%;
+    height: 15em;
+    vertical-align: top;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+}*/

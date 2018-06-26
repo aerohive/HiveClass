@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="dashboard.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "timelineChart": {"@": "timelineChart"}
+            },
+            "bindings": {
+                "studentList": {"<-": "@sessionSwitcher.checked ? @owner.application.classroomService.classroom.currentActivity : @owner.application.classroomService.classroom.previousActivity.activity"},
+                "session": {"<-": "@sessionSwitcher.checked ? @owner.application.classroomService.classroom.session : @owner.application.classroomService.classroom.previousActivity.session"},
+                "activities": {"<-": "@owner.selectedStudent.activity"},
+                "classStartTime": {"<-": "@owner.classStartTime"},
+                "classEndTime": {"<-": "@owner.classEndTime"},
+                "chartData": {"<-": "@owner.chartData"},
+                "sessionSwitcher": {"<-": "@owner.sessionSwitcher"},
+                "noPrevious": {"<-": "!@owner.application.classroomService.classroom.previousActivity"},
+                "noCurrent": {"<-": "@owner.application.classroomService.classroom.students.length == 0"}
+            },
+            "listeners": [
+                { "type": "action", "listener": {"@": "owner"} }
+            ]
+        },
+
+        "sessionSwitcher": {
+            "prototype": "common/ui/aerohive-toggle-button.reel",
+            "properties": {
+                "element": {"#": "sessionSwitcher"},
+                "enabled": true
+            },
+            "bindings": {
+                "checked": {"<-": "@owner.application.classroomService.classroom.students.length > 0"}
+            }
+        },
+
+        "repetition": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "repetition"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.studentList"}
+            }
+        },
+
+        "studentLabel": {
+            "prototype": "./[Label]",
+            "properties": {
+                "element": {"#": "label"}
+            },
+            "bindings": {
+                "value": {"<-": "@repetition:iteration.object.firstname + ' ' + @repetition:iteration.object.lastname"},
+                "for": {"<-": "@repetition:iteration.object.firstname + ' ' + @repetition:iteration.object.lastname"}
+            }
+        },
+
+        "radioButtonController": {
+            "prototype": "montage/core/radio-button-controller",
+            "bindings": {
+                "content": {"<-": "@repetition.content"},
+                "value": {"<->": "@owner.selectedStudent"}
+            }
+        },
+
+        "studentRadio": {
+            "prototype": "./[RadioButton]",
+            "properties": {
+                "element": {"#": "existingRadio"},
+                "radioButtonController": {"@": "radioButtonController"}
+            },
+            "bindings": {
+                "value": {"<-": "@repetition:iteration.object"},
+                "id": {"<-": "@repetition:iteration.object.name"}
+            }
+        },
+
+        "timelineChart": {
+            "prototype": "../timeline-chart.reel",
+            "properties": {
+                "element": {"#": "timelineChart"}
+            },
+            "bindings": {
+                "start": {"<-": "@owner.classStartTime"},
+                "end": {"<-": "@owner.classEndTime"},
+                "data": {"<-": "@owner.chartData"}
+            }
+        },
+
+        "timelineSession": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "timelineSession"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.sessionTime"}
+            }
+        },
+
+        "timelineRep": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "timelineRep"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.chartData"}
+            }
+        },
+
+        "timelineLegend": {
+            "prototype": "../timeline-legend.reel",
+            "properties": {
+                "element": {"#": "timelineLegend"}
+            },
+            "bindings": {
+                "activity": {"<-": "@timelineRep:iteration.object"}
+            }
+        }
+
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="ReportingDashboard">
+        <div data-montage-id="sessionSwitcher" class="sessionSwitcher"></div>
+        <div class="Student-list">
+            <ul data-montage-id="repetition"  class="Student-picker">
+                <li class="student-item">
+                    <input type="radio" data-montage-id="existingRadio" class="Students-radioButton">
+                    <label data-montage-id="label" class="Students-radioButton-label"></label>
+                </li>
+            </ul>
+        </div>
+        <div class="ReportingDashboard-Chart">
+            <div data-montage-id="timelineChart" class="ReportingDashboard-timelineChart"></div>
+            <div data-montage-id="timelineSession" class="ReportingDashboard-timelineSession"></div>
+            <ul data-montage-id="timelineRep" class="ReportingDashboard-timelineRep">
+                <li data-montage-id="timelineLegend"></li>
+            </ul>
+        </div>
+        
+    </div>
+</body>
+</html>

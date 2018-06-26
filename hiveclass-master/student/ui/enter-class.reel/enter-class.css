@@ -1,0 +1,26 @@
+/* several shared styles are in global style.css */
+
+.EnterClass {}
+
+/* Last Button - align right */
+
+.EnterClass .Initialization-footer .AerohiveButton:last-child {float: right;}
+
+.EnterClass .teacherName {
+    margin-top: 2px;
+    font-weight: 300;
+    font-size: 18px;
+    color: rgb(41, 174, 174);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.EnterClass-content-classpicker{
+    list-style: none;
+    padding:0;
+}
+
+.classLabel > * {
+    pointer-events: none;
+}

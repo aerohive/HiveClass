@@ -1,0 +1,49 @@
+{
+  /**
+   * Application configuration section
+   * http://pm2.keymetrics.io/docs/usage/application-declaration/
+   */
+  apps : [
+    {
+      name      : "apps",
+      script    : "apps/app.js"
+      /*,
+      env: {
+        COMMON_VARIABLE: "true"
+      },
+      env_production : {
+        NODE_ENV: "production"
+      }*/
+    },
+
+    {
+      name      : "auth",
+      script    : "auth/app.js"
+    },
+
+    {
+      name      : "jira",
+      script    : "jira/app.js"
+    },
+
+    {
+      name      : "logging",
+      script    : "logging/app.js"
+    },
+
+    {
+      name      : "rendezvous",
+      script    : "rendezvous/app.js"
+    },
+
+    {
+      name      : "router",
+      script    : "router/app.js"
+    },
+
+    {
+      name      : "storage",
+      script    : "storage/app.js"
+    }
+  ]
+}

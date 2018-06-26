@@ -1,0 +1,88 @@
+{
+  "files": {
+    "locale": {
+      "directory": true,
+      "files": {
+        "ko": {
+          "directory": true,
+          "files": {
+            "messages.json": null
+          }
+        },
+        "ja": {
+          "directory": true,
+          "files": {
+            "messages.json": null
+          }
+        },
+        "it": {
+          "directory": true,
+          "files": {
+            "messages.json": null
+          }
+        },
+        "fr": {
+          "directory": true,
+          "files": {
+            "messages.json": null
+          }
+        },
+        "fi": {
+          "directory": true,
+          "files": {
+            "messages.json": null
+          }
+        },
+        "zh-Hant": {
+          "directory": true,
+          "files": {
+            "messages.json": null
+          }
+        },
+        "zh-Hans": {
+          "directory": true,
+          "files": {
+            "messages.json": null
+          }
+        },
+        "sv": {
+          "directory": true,
+          "files": {
+            "messages.json": null
+          }
+        },
+        "pt": {
+          "directory": true,
+          "files": {
+            "messages.json": null
+          }
+        },
+        "nl": {
+          "directory": true,
+          "files": {
+            "messages.json": null
+          }
+        },
+        "de": {
+          "directory": true,
+          "files": {
+            "messages.json": null
+          }
+        },
+        "en": {
+          "directory": true,
+          "files": {
+            "messages.json": null
+          }
+        },
+        "es": {
+          "directory": true,
+          "files": {
+            "messages.json": null
+          }
+        }
+      }
+    }
+  },
+  "version": "1.5.2"
+}

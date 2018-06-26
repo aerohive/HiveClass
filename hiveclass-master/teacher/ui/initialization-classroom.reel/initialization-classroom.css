@@ -1,0 +1,14 @@
+.ClassName {
+}
+
+/* many styles are in global style.css as they are re-used styles for teacher/student */
+
+.ClassName-content .Initialization-footer .ClassNameFooter-Button {
+	float: right;
+}
+
+/* $fixme - these should probably be called .input-label */
+
+.ClassName-label {
+    margin-bottom: 10px;
+}

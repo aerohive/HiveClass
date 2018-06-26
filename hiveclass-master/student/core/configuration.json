@@ -1,0 +1,22 @@
+{
+    "states": {
+        "loading": "loading",
+        "enterClass": "enterClass",
+        "joinClass": "joinClass",
+        "photoBooth": "photoBooth",
+        "followMe": "followMe",
+        "attention": "attention",
+        "closeTabs": "closeTabs",
+        "dashboard": "dashboard",
+        "connectionError": "connectionError",
+        "connectionClosed": "connectionClosed"
+    },
+
+    "profileEndpoint": "http://localhost:8080/auth/me",
+    "checkEndpoint":        "http://localhost:8080/auth/check",
+    "invalidateEndpoint":   "http://localhost:8080/auth/invalidate",
+    "presenceEndpointUrl": "ws://localhost:9090/ws",
+    "loggingEndpoint": "http://localhost:8080/logging",
+
+    "secureCookies":        false
+}

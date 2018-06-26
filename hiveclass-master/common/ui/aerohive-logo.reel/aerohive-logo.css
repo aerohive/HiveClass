@@ -1,0 +1,34 @@
+.AerohiveLogo{
+	width:100%;
+}
+
+.AerohiveLogo-container{
+	width:195px;
+	text-align:left;
+	margin: 0 auto 0 auto;
+}
+
+.AerohiveLogo-product {
+    font-weight: 300;
+    font-size: 42px;
+    line-height: 48px;
+    color: rgba(153, 153, 153, 0.6);
+}
+
+.AerohiveLogo-company {
+    font-weight: 400;
+    text-indent: 4px;
+}
+
+.digit-TextField.AerohiveLogo-dynamicHeader, .digit-TextField.AerohiveLogo-dynamicHeader:focus{
+	width: 100%;
+	height: 60px;
+	color: rgba(153, 153, 153, 0.6);
+	font-weight: 300;
+	border:none;
+	text-align:center;
+	background-image:none;
+	box-shadow:none;
+	margin-bottom:10px;
+	font-size:42px;
+}

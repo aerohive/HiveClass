@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Main</title>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script type="text/montage-serialization">
+        {
+
+            "owner": {
+                "properties": {
+                    "element": {"#": "main"}
+                }
+            },
+
+            "login": {
+                "prototype": "ui/login.reel",
+                "properties": {
+                    "element": {"#": "login"}
+                }
+            },
+
+            "svgIcons": {
+                "prototype": "common/ui/svg-icons.reel",
+                "properties": {
+                    "element": {"#": "svgIcons"}
+                }
+            },
+
+            "aerohiveHeader":{
+                "prototype": "common/ui/aerohive-header.reel",
+                "properties": {
+                    "element": {"#": "aerohive-header"}
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div data-montage-id="main" data-montage-skin="light" class="Main">
+        <div data-montage-id="aerohive-header">
+            <div class="AerohiveHeader-appName">HiveSchool</div>
+        </div>
+        	<div data-montage-id="svgIcons" style="display: none"></div>
+        <div class="content">
+            <div data-montage-id="login" data-arg="login"></div>
+        </div>
+    </div>
+</body>
+</html>

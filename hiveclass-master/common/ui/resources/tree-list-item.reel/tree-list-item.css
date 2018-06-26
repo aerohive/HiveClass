@@ -1,0 +1,117 @@
+.TreeListItem {
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+}
+
+.TreeListItem-active,
+.TreeListItem-focus {
+    float: left;
+    padding: 0;
+    height: 24px;
+    width:  24px;
+    margin: 7px 17px 0 37px;
+    border: 1px solid #D8D8D8;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+}
+
+.ResourcesList-isReadOnly .TreeListItem-active,
+.ResourcesList-isReadOnly .TreeListItem-focus {
+    display: none;
+}
+
+.TreeListItem-folder .TreeListItem-focus {
+    visibility: hidden;
+}
+
+.TreeListItem-active.TreeListItem-checked,
+.TreeListItem-focus.TreeListItem-checked {
+    background-image: url('../svg/check.svg');
+}
+
+.TreeListItem-active.TreeListItem-partial {
+    background-image: url('../svg/partial.svg');
+}
+
+.TreeListItem-active.TreeListItem-checked,
+.TreeListItem-active.TreeListItem-partial {
+    background-color: #4A90E2;
+    border-color: #4A90E2;
+}
+
+.TreeListItem-focus.TreeListItem-checked {
+    background-color: #FED054;
+    border-color: #FED054;
+}
+
+/* dim active checkboxes when item-focused */
+
+.item-focused .TreeListItem-active {
+    opacity: .25;
+    pointer-events: none;
+}
+
+.TreeListItem-title {
+    position: relative;
+    box-sizing: border-box;
+    float: left;
+    max-width: calc(100% - 440px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+    pointer-events: none;
+}
+
+.ResourcesList-isReadOnly .TreeListItem-title {
+    max-width: calc(100% - 280px);
+}
+
+.TreeListItem-icon {
+    float: left;
+    margin: 10px 10px 0 27px;
+    height: 20px;
+    width:  23px;
+    background-image: url('../svg/link.svg');
+    background-repeat: no-repeat;
+    outline: none;
+}
+
+.TreeListItem-folder .TreeListItem-icon {
+    background-image: url('../svg/arrow.svg');
+    background-size: 50%;
+    background-position: 50%;
+    transition: transform 0.25s;
+}
+
+.TreeListItem-isExpanded.TreeListItem-folder .TreeListItem-icon {
+    transform: rotate(90deg);
+    transition: transform 0.25s;
+}
+
+.TreeListItem-folder .TreeListItem-link {
+    display: none;
+}
+
+.TreeListItem-link {
+    display: inline-block;
+    margin-left: 10px;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    font-size: 12px;
+    color: rgba(43, 141, 204, 1);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.TreeListItem-link:hover {
+    text-decoration: underline;
+}

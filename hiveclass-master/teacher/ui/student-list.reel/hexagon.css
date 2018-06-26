@@ -1,0 +1,47 @@
+.HexagonSelectedPath {
+    display: none;
+}
+
+.HexagonSelectedPath.displayed {
+    display: inline;
+}
+
+.Hexagon-button {
+    cursor: pointer;
+}
+
+.Hexagon-face .disconnected {
+    opacity: 0.5;
+}
+
+.disconnected .Hexagon-button.connected-only {
+    opacity: 0.5;
+}
+
+.Hexagon {
+    position: relative;
+}
+
+.Hexagon .hexagon-name {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.Hexagon .hexagon-name span {
+    font-size: 14px;
+    letter-spacing: .5px;
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0 12px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Hexagon .deleteCircle {
+    color: #D90B0B;
+}

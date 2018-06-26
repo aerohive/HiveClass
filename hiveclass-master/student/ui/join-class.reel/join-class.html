@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="join-class.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                },
+                {
+                    "type": "exit",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+
+        "loginTitle": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "loginTitle"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Enroll in a Class"
+                }
+            }
+        },
+
+        "helloMessage": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "helloMessage"}
+            },
+            "bindings": {
+                "value": { "<-": "'Hi ' + @owner.application.student.firstname + '!'" }
+            }
+        },
+
+        "errorMessage": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "errorMessage"}
+            },
+            "bindings": {
+                "classList.has('visible')": {"<-": "!!@owner.errorMessage"},
+                "value": {"<-": "@owner.errorMessage"}
+            }
+        },
+
+        "accessCodeClassFieldLabel": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "accessCodeClassFieldLabel"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "addKey"
+                }
+            }
+        },
+
+
+        "accessCodeField": {
+            "prototype": "common/ui/access-key.reel",
+            "properties": {
+                "element": {"#": "accessCodeField"}
+            }
+        },
+
+        "joinClass": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "joinClassButton"}
+            },
+            "localizations": {
+                "label": {
+                    "key": "Submit"
+                }
+            },
+            "bindings": {
+                "enabled": {"<-": "@accessCodeField.isAccessCodeValid && !@accessCodeField.isInvalid"}
+            }
+        },
+
+        "exitJoinClass": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "cancelClassButton"}
+            },
+            "localizations": {
+                "label": {
+                    "key": "Cancel"
+                }
+            },
+            "bindings": {
+                "classList.has('visible')": {"<-": "!!@owner.classrooms && @owner.classrooms.length > 0"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="JoinClass Initialization">
+    	<div class="JoinClass-content">
+	        <header class="Initialization-header">
+	            <div data-montage-id="loginTitle" class="loginTitle"></div>
+	            <div data-montage-id="helloMessage" class="HelloMessage" style="display: none;"></div>
+	            <div data-montage-id="errorMessage" class="JoinClassHeader-errorMessage"></div>
+	        </header>
+            <div class="InitializationSection-content">
+                <label data-montage-id="accessCodeClassFieldLabel" class="AccessCodeClass-label"></label>
+                <div id="accessCodeClassField" class="accessCode" data-montage-id="accessCodeField"/></div>
+            </div>
+            <footer class="Initialization-footer">
+                <button data-montage-id="cancelClassButton" class="button--secondary ExitJoinClass"></button>
+                <button data-montage-id="joinClassButton" class="confirmButton"></button>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

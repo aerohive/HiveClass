@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="settings-menu-component.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "settingsMenuComponentItemsElement": {"#": "settingsMenuComponentItems"}
+            },
+            "bindings": {
+                "className": {"<->": "@owner.application.classroomService.classroom.name"},
+                "selectedLanguage": {"<-": "@languageSelect.value"},
+                "reportEnabled": {"<-": "@owner.application.classroomService.classroom.students.length > 0 || @owner.application.classroomService.classroom.previousActivity"}
+            },
+            "listeners": [
+                {"type": "action",
+                "listener": {"@": "owner"}}
+            ]
+        },
+
+        "settingsButton": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "settingsButton"}
+            }
+        },
+
+       "sortClass": {
+            "prototype": "digit/ui/text.reel",
+            "properties": {
+                "element": {"#": "settingsMenu-sortClass"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Sort Alphabetically"
+                }
+            }
+        },
+
+        "sortClassSwitch": {
+            "prototype": "digit/ui/toggle-switch.reel",
+            "properties": {
+                "element": {"#": "sortClass-switch"}
+            },
+            "bindings": {
+                "checked": {"<->": "!!@owner.application.classroomService.isStudentsListSorted"}
+            }
+        },
+
+        "displayPictures": {
+            "prototype": "digit/ui/text.reel",
+            "properties": {
+                "element": {"#": "settingsMenu-displayPictures"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Display Profile Pictures"
+                }
+            }
+        },
+
+        "displayPicturesSwitch": {
+            "prototype": "digit/ui/toggle-switch.reel",
+            "properties": {
+                "element": {"#": "displayPictures-switch"}
+            }
+        },
+
+        "closeTabs": {
+            "prototype": "digit/ui/text.reel",
+            "properties": {
+                "element": {"#": "settingsMenu-closeTabs"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Close Tabs on Login"
+                }
+            }
+        },
+
+        "closeTabsSwitch": {
+            "prototype": "digit/ui/toggle-switch.reel",
+            "properties": {
+                "element": {"#": "closeTabs-switch"}
+            },
+            "bindings": {
+                "checked": {"<->": "!!@owner.application.classroomService.classroom.closeTabs"}
+            }
+        },
+
+
+        "lockClass": {
+            "prototype": "digit/ui/text.reel",
+            "properties": {
+                "element": {"#": "settingsMenu-lockClass"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Close Enrollment"
+                }
+            }
+        },
+
+        "lockClassSwitch": {
+            "prototype": "digit/ui/toggle-switch.reel",
+            "properties": {
+                "element": {"#": "lockClass-switch"}
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.application.classroom.lock"}
+            }
+        },
+
+        "editClass": {
+            "prototype": "common/ui/aerohive-input-text.reel",
+            "properties": {
+                "element": {"#": "editClass"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.className"}
+            }
+        },
+
+        "endClass": {
+			"prototype": "digit/ui/button.reel",
+			"properties": {
+			    "element": {"#": "endClass"}
+			},
+            "localizations": {
+                "label": {
+                    "key": "End Class"
+                }
+            }
+        },
+
+        "helpButton": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "helpButton"}
+            },
+            "localizations": {
+                "label": {
+                    "key": "Help"
+                }
+            }
+        },
+
+        "feedbackButton": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "feedbackButton"}
+            },
+            "localizations": {
+                "label": {
+                    "key": "Give Feedback"
+                }
+            }
+        },
+
+        "reportingButton": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "reportingButton"}
+            },
+            "bindings": {
+                "classList.has('reporting-disabled')": {"<-" : "!@owner.reportEnabled"}
+            },
+            "localizations": {
+                "label": {
+                    "key": "Reporting"
+                }
+            }
+        },
+
+        "deleteClass": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "deleteClass"}
+            },
+            "localizations": {
+                "label": {
+                    "key":  "Delete Class"
+                }
+            }
+        },
+
+        "language": {
+            "prototype": "digit/ui/text.reel",
+            "properties": {
+                "element": {"#": "settingsMenu-languageSelect"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Language"
+                }
+            }
+        },
+
+        "languageSelect": {
+            "prototype": "matte/ui/select.reel",
+            "properties": {
+                "element": {"#": "language-select"},
+                "content": [{  "value": "English"}, {"value": "Deutsch"}, {"value": "Español"}, {"value": "Suomi"}, {"value": "Français"}, {"value": "Italiano"}, {"value": "日本語"}, {"value": "한국인"}, {"value": "Dutch"}, {"value": "Português"}, {"value": "Svenska"}, {"value": "简体中文"}, {"value": "繁體中文"}]
+            },
+            "bindings": {
+                "value": {"<-": "@owner.application.defaultLanguage"}
+            }
+        },
+
+        "studentSettings": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "studentSettings"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Student Settings"
+                }
+            }
+        },
+
+        "classSettings": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "classSettings"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Class Settings"
+                }
+            }
+        },
+
+        "editClassLabel": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "editClassLabel"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Edit Name"
+                }
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="SettingsMenuComponent">
+        <button data-montage-id="settingsButton" class="SettingsMenuComponent-settingsButton">
+            <svg><use xlink:href="#menuIcon"/></svg>
+        </button>
+        <ul data-montage-id="settingsMenuComponentItems" class="SettingsMenuComponent-items">
+        	<li class="SettingsMenuComponent-item">
+                <button data-montage-id="helpButton" class="SettingsMenuComponent-menuItem digit-Button static-item helpButton"></button>
+            </li>
+            <li class="SettingsMenuComponent-item">
+                <button data-montage-id="feedbackButton" class="SettingsMenuComponent-menuItem digit-Button static-item feedbackButton"></button>
+            </li>
+            <li class="SettingsMenuComponent-item">
+                <button data-montage-id="reportingButton" class="SettingsMenuComponent-menuItem digit-Button static-item reportingButton"></button>    
+            </li>
+            <li class="SettingsMenuComponent-item">
+                <label for="language-select" data-montage-id="settingsMenu-languageSelect" class="SettingsMenuComponent-menuItem static-item"></label>
+                <select data-montage-id="language-select" class="language-select"></select>
+            </li>
+        	<div data-montage-id="studentSettings" class="menuSection"></div>
+            <li class="SettingsMenuComponent-item">
+                <label for="sortClass" data-montage-id="settingsMenu-sortClass" class="SettingsMenuComponent-menuItem"></label>
+                <span id="sortClass" data-montage-id="sortClass-switch" class="SettingsMenuComponent-menuSwitch"></span>
+            </li>
+            <li class="SettingsMenuComponent-item">
+                <label for="displayPictures" data-montage-id="settingsMenu-displayPictures" class="SettingsMenuComponent-menuItem"></label>
+                <span id="displayPictures" data-montage-id="displayPictures-switch" class="SettingsMenuComponent-menuSwitch"></span>
+            </li>
+            <li class="SettingsMenuComponent-item">
+                <label for="closeTabs" data-montage-id="settingsMenu-closeTabs" class="SettingsMenuComponent-menuItem"></label>
+                <span id="closeTabs" data-montage-id="closeTabs-switch" class="SettingsMenuComponent-menuSwitch"></span>
+            </li>
+            <div data-montage-id="classSettings" class="menuSection"></div>
+            <li class="SettingsMenuComponent-item">
+            	<div class="editClassWrapper">
+            		<label data-montage-id="editClassLabel"></label>
+                	<div data-montage-id="editClass" id="editClass"></div>
+                </div>
+            </li>
+            <li class="SettingsMenuComponent-item">
+                <label for="lockClass"  data-montage-id="settingsMenu-lockClass" class="SettingsMenuComponent-menuItem"></label>
+                <span id="lockClass" data-montage-id="lockClass-switch" class="SettingsMenuComponent-menuSwitch"></span>
+            </li>
+            <li class="SettingsMenuComponent-item">
+                <button data-montage-id="endClass" class="SettingsMenuComponent-menuItem digit-Button static-item"></button>
+            </li>
+            <li class="SettingsMenuComponent-item">
+                <button data-montage-id="deleteClass" class="SettingsMenuComponent-menuItem digit-Button static-item deleteClass"></button>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="follow-me.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "desktopStream": {"<-": "@owner.application.classroomService.followmeStream"}
+            }
+        },
+
+        "screen": {
+            "prototype": "./[DesktopView]",
+            "properties": {
+                "element": {"#": "screen"}
+            },
+            "bindings": {
+                "src": {"<-": "@owner.videoSrc"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="FollowMe">
+        <header data-montage-id="header"></header>
+        <section>
+            <video data-montage-id="screen" class="FollowMe-screen" autoplay></video>
+        </section>
+    </div>
+</body>
+</html>

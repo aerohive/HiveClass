@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="aerohive-confirm-modal.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+
+        "message": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "modal-message"}
+            },
+            "localizations": {
+                "value": {
+                    "key": {"<-": "@owner.message"}
+                }
+            }
+        },
+
+        "cancelButton": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "identifier": "Cancel",
+                "element": { "#": "modal-cancel"}
+            },
+            "localizations": {
+                "label": {
+                    "key": {"<-": "@owner.cancelLabel"}
+                }
+            }
+        },
+
+        "validButton": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "identifier": "Valid",
+                "element": {"#": "modal-valid"}
+            },
+            "localizations": {
+                "label": {
+                    "key": {"<-": "@owner.validLabel"}
+                }
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="AerohiveConfirmModal modal--centered">
+        <div data-montage-id="modal-content" class="modal-content">
+            <div class="modal-body">
+                <div data-montage-id="modal-message" class="modal-message"></div>
+            </div>
+            <div class="modal-footer">
+                <button data-montage-id="modal-cancel" class="modal-cancel button--secondary"></button>
+                <button data-montage-id="modal-valid" class="modal-valid button"></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

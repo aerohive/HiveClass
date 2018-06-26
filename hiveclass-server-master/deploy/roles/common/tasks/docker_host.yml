@@ -1,0 +1,39 @@
+- name: Ensure apt-transport-https is installed
+  apt:
+    name: apt-transport-https
+    update_cache: yes
+- name: Ensure linux-extra is installed
+  apt:
+    name: "linux-image-extra-{{ ansible_kernel }}"
+- name: Ensure docker key is installed
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 36A1D7869245C8950F966E92D8576A8BA88D21E9
+- name: Ensure docker repo is configured
+  apt_repository:
+    repo: 'deb https://get.docker.com/ubuntu docker main'
+    update_cache: yes
+- name: Ensure docker is installed and up to date
+  apt:
+    name: lxc-docker
+    state: latest
+- name: Update docker default configuration
+  copy:
+    src:  docker.default
+    dest: /etc/default/docker
+    mode: 0644
+- name: Restart docker service
+  service:
+    name:   docker
+    state:  restarted
+- name: Ensure setuptools is installed and up to date
+  apt:
+    name: python-setuptools
+    state: latest
+- name: Ensure pip is intalled and up to date
+  easy_install:
+    name: pip
+- name: Ensure docker-py is installed and up to date
+  pip:
+    name:     docker-py
+    version:  1.2.3

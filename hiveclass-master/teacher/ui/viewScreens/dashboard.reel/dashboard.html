@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="dashboard.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "viewSubstitution": {
+            "prototype": "montage/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "viewSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "!@owner.peerId ? 'classroom' : 'student' "}
+            }
+        },
+
+        "classroom": {
+            "prototype": "../classroom.reel",
+            "properties": {
+                "element": {"#": "classroom"}
+            }
+        }
+    }
+    </script>
+
+</head>
+<body>
+    <div data-montage-id="owner" class="Dashboard">
+        <section data-montage-id="viewSubstitution" class="Dashboard-content" data-montage-skin="aerohive-gray">
+            <div data-montage-id="classroom" data-arg="classroom"></div>
+            <div data-montage-id="student" data-arg="student"></div>
+        </section>
+    </div>
+</body>
+</html>

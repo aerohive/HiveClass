@@ -1,0 +1,30 @@
+.TeacherDashboardHeader {
+	position: relative;
+	z-index: 1;
+    background: rgba(43, 141, 204, 1);
+    color: rgba(255, 255, 255, .95);
+    height: 50px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.TeacherDashboardHeader-classMenu{
+    position:absolute;
+}
+
+.TeacherDashboardHeader-settingsMenu{
+    position:absolute;
+    right:0;
+}
+
+.TeacherDashboardHeaderMenu-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    font-size: 15px;
+    font-weight: 300;
+    text-transform: capitalize;
+}

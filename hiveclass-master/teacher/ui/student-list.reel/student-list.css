@@ -1,0 +1,49 @@
+.StudentList {
+    /*margin: 40px 0 10px 0;*/
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-user-select: none;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+.StudentList-items {
+    margin: 0;
+    padding: 0 45px; /* this is halfWidth - halfMargin */
+    display: inline-block;
+
+}
+
+.StudentList-item, .StudentList-addStudent {
+    position: relative;
+    /*cannot add margin or border or calculation for student list positioning will be broken*/
+    float: left;
+    width: 100px; /* this is the width of the hexagon */
+    /*height: 114px;*/
+    padding: 0 5px;
+    margin-bottom: -19px;
+}
+
+.StudentList-hexagon.StudentList--indent {
+    padding-left: 60px; /* this is half the width of a hexagons */
+}
+
+.StudentList-student {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex: 1;
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, .95);
+    overflow-y: hidden;
+}

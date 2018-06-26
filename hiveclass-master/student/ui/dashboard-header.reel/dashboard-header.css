@@ -1,0 +1,26 @@
+.students-dashboard-header .teacherName,
+.students-dashboard-header .AerohiveHeader-className {
+    position: absolute;
+    right: 60px;
+}
+
+.students-dashboard-header .teacherName {
+    /*font-family: "Merriweather";*/
+    font-size:   14px;
+    line-height: 60px;
+    top: 5px;
+    color: rgba(255,255,255,.7);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width:20%;
+}
+
+.students-dashboard-header .AerohiveHeader-className.montage-Text {
+    margin-left: 0;
+    top: 5px;
+    font-size:   18px;
+    line-height: 24px;
+}

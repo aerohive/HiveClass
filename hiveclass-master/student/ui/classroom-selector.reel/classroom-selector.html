@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="classroom-selector.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "id": {
+            "prototype": "digit/ui/radio-button.reel",
+            "properties": {
+                "element": {"#": "id"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.classroom.id"},
+                "radioButtonController": {"<-": "@owner.controller"}
+            }
+        },
+
+        "name": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "name"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.classroom.name"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="ClassroomSelector">
+        <input type="radio" data-montage-id="id" name="classroomId" class="ClassroomSelector-radioButton">
+        <div data-montage-id="name" class="ClassroomSelector-label"></div>
+    </div>
+</body>
+</html>

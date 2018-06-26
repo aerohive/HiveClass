@@ -1,0 +1,11 @@
+{
+  "name": "adaptor",
+  "version": "0.0.1",
+  "dependencies": {
+    "montage": "git+http://github.com/montagejs/montage.git#a57cc46f766b60099b6094a0b62366eab8888aec",
+    "digit": "*",
+    "matte": "*",
+    "collections": "1.2.1"
+  },
+  "bundle": [ "ui/main.reel" ]
+}

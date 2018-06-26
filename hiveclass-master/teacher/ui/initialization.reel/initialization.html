@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Initialization</title>
+    <link rel="stylesheet" type="text/css" href="initialization.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "teacher": {"<-": "@owner.application.teacher"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+
+        "stateSubstitution": {
+            "prototype": "montage/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "stateSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.step"}
+            }
+        },
+
+        "teacherName": {
+            "prototype": "ui/initialization-teacher.reel",
+            "properties": {
+                "element": {"#": "teacherName"}
+            }
+        },
+
+        "className": {
+            "prototype": "ui/initialization-classroom.reel",
+            "properties": {
+                "element": {"#": "className"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="Initialization">
+        <div class="Initialization-content">
+            <div data-montage-id="stateSubstitution" class="StateSubstitution">
+                <div data-montage-id="teacherName" data-arg="name"></div>
+                <div data-montage-id="className" data-arg="class"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

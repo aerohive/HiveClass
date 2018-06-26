@@ -1,0 +1,693 @@
+{
+    "clients": {
+        "AOC+OOST": [
+            "aoc-oost.nl"
+        ],
+        "Aerohive": [
+            "aerohive.com",
+            "ah-tme.com"
+        ],
+        "Aerohive+Employee+Domain": [
+            "postadigitale.net"
+        ],
+        "Aerohive-RSM": [
+            "fernandolobo.com"
+        ],
+        "Aerohive-Roberto+Minotti": [
+            "postadigitale.net"
+        ],
+        "All+Saints+Cathedral+School": [
+            "allsaintsvi.org"
+        ],
+        "American+International+School": [
+            "ais.edu.hk"
+        ],
+        "Arnall+Middle+School": [
+            "cowetaschools.net"
+        ],
+        "Au+Gres-Sims+School+District": [
+            "ags-schools.org"
+        ],
+        "Awapuni+School": [
+            "awapuni.school.nz"
+        ],
+        "BART+Charter+Public+School": [
+            "bartcharter.org"
+        ],
+        "BV+CCSD": [
+            "charleston.k12.sc.us"
+        ],
+        "Baldwin+County+School+District": [
+            "baldwin.k12.ga.us"
+        ],
+        "Beaverton+Rural+Schools": [
+            "stu.beavertonruralschools.com"
+        ],
+        "Bellwood+School+District+88": [
+            "sd88.org"
+        ],
+        "Bergman+School+District": [
+            "bergman.k12.ar.us",
+            "bergman.k12.ar.us"
+        ],
+        "Brainerd+Baptist+School": [
+            "brainerdbaptist.org"
+        ],
+        "CSCprovidence": [
+            "cscprovidence.ca"
+        ],
+        "Calexico+Unified+School+District": [
+            "cusdk12.org",
+            "cusdk12.org"
+        ],
+        "Calexico+Unified+School+District+Student": [
+            "st.cusdk12.org"
+        ],
+        "Cardinal+Community+School+District": [
+            "cardinalcomet.com"
+        ],
+        "Carlstadt+Public+School": [
+            "carlstadtps.org"
+        ],
+        "Carlyle+CUSD1": [
+            "roe13.org"
+        ],
+        "Center+Grove+Community+Schools": [
+            "centergrove.k12.in.us",
+            "Students.Centergrove.k12.in.us"
+        ],
+        "Centura+Public+Schools": [
+            "esu10.org",
+            "centuraps.org"
+        ],
+        "Charleston+County+School+District+": [
+            "charleston.k12.sc.us"
+        ],
+        "Charlotte+County": [
+            "yourcharlotteschools.net"
+        ],
+        "Charlotte+County+Schools": [
+            "yourcharlotteschools.net"
+        ],
+        "Charlotte+Public+School": [
+            "charlottenet.org"
+        ],
+        "Cherokee+County+Schools": [
+            "cherokeek12.org"
+        ],
+        "Christian+Heritage+School": [
+            "chslions.com"
+        ],
+        "Consolidated+District+230": [
+            "d230.org"
+        ],
+        "Covington+Community+School+Corporation": [
+            "covington.k12.in.us"
+        ],
+        "Covington+Community+School+Corporation+-+Student": [
+            "covtrojans.org"
+        ],
+        "Coweta+County+School": [
+            "cowetaschools.net",
+            "coweta.k12.ga.us",
+            "centraleducationalcenter.net"
+        ],
+        "Coweta+County+School+": [
+            "cowetaschools.org"
+        ],
+        "Coweta+County+School+-+copy+of+line++98": [
+            "cowetaschools.net"
+        ],
+        "Cuba+City+High+School": [
+            "cubacity.k12.wi.us"
+        ],
+        "DeQueen+Public+Schools": [
+            "dequeenleopards.org"
+        ],
+        "Delavan-Darien": [
+            "ddschools.org",
+            "stu.ddschools.org"
+        ],
+        "Delaware+Community+Schools": [
+            "delcomschools.org"
+        ],
+        "Deven%27s+beta+account": [
+            "hivebeta.com",
+            "dducommun.com"
+        ],
+        "Director+of+Technology": [
+            "rich227.org"
+        ],
+        "Donegal+Junior+High+School": [
+            "donegal.k12.pa.us"
+        ],
+        "Donegal+School+District": [
+            "donegalsd.org"
+        ],
+        "Dugsi+Academy": [
+            "dugsiacademy.org"
+        ],
+        "Eastern+Carver+County+Schools": [
+            "isd112.org"
+        ],
+        "Eastern+High+School": [
+            "ewsc.k12.in.us"
+        ],
+        "Eastern+High+School+-+Students": [
+            "students.ewsc.k12.in.us"
+        ],
+        "Eastern+Illinois+Area+of+Special+Education": [
+            "eiase.com",
+            "stu.eiase.com"
+        ],
+        "Ecole+Bilingue+de+Berkeley": [
+            "eb.org"
+        ],
+        "Ellsworth": [
+            "danbury.k12.ct.us"
+        ],
+        "Elyes+Khechana+St.+Michael+College": [
+            "stmichaelcollege.nl"
+        ],
+        "Enge-washington-intermediate": [
+            "culberson.ave"
+        ],
+        "Evansville+Attendance+Center": [
+            "sparta.k12.il.us"
+        ],
+        "Exeter+School+District": [
+            "exeter.k12.ca.us"
+        ],
+        "Exeter+Union+High+School": [
+            "exeterk12.org"
+        ],
+        "Facultad+de+Ciencias+F%C3%ADsico+Matem%C3%A1ticas%2C+BUAP": [
+            "correo.buap.mx"
+        ],
+        "Fenton+High+School": [
+            "fenton100.org"
+        ],
+        "Filey+Junior+School": [
+            "filey-jun.n-yorks.sch.uk"
+        ],
+        "Floyd+County+Schools": [
+            "floydboe.net"
+        ],
+        "Forest+Park+Jr.%2FSr.+High+School": [
+            "sedubois.k12.in.us",
+            "student.sedubois.k12.in.us"
+        ],
+        "Forward+Edge": [
+            "forward-edge.net"
+        ],
+        "Franklin+High+school": [
+            "franklin.ma.k12.ma"
+        ],
+        "Girard+City+School+District": [
+            "girardcityschools.org"
+        ],
+        "Goreville+Schools": [
+            "gorevilleschools.com"
+        ],
+        "Groton+Dunstable+regional+school+district": [
+            "gdrsd.org",
+            "gdrsd.us"
+        ],
+        "Guerin+Prep": [
+            "guerinprep.org"
+        ],
+        "Gwinn+High+School": [
+            "gacsk12.org"
+        ],
+        "Hampton+School+District": [
+            "sau90.org",
+            "hamptonsd.com"
+        ],
+        "Harmony+ISD": [
+            "harmonyisd.net"
+        ],
+        "Hart+Public+Schools": [
+            "hart.k12.mi.us"
+        ],
+        "Hayward+Middle+School": [
+            "hayward.k12.wi.us"
+        ],
+        "Healdsburg+Unified+School+District": [
+            "husd.com",
+            "my.husd.com",
+            "stu.husd.com"
+        ],
+        "Hhvm": [
+            "sgvoorkempen.be"
+        ],
+        "Higgins+Middle+School+Peabody": [
+            "peabody.k12.ma.us"
+        ],
+        "Ho-Ho-Kus": [
+            "hohokus.org"
+        ],
+        "Hopkinton+Public+Schools": [
+            "hopkinton.k12.ma.us",
+            "hillers.org"
+        ],
+        "Hot+Springs+Middle+School": [
+            "hssd.net"
+        ],
+        "Indian+Creek+Schools": [
+            "nhj.k12.in.us",
+            "indiancreekschools.com"
+        ],
+        "Instructional+Support+Services": [
+            "myonc.org"
+        ],
+        "International+Christian+School": [
+            "ics.ed.hk"
+        ],
+        "International+School+San+Patricio+Toledo": [
+            "colegiosanpatricio.edu.es",
+            "colegiosanpatricio.edu.es"
+        ],
+        "Intueri": [
+            "intueri.co.nz"
+        ],
+        "Jeff+Davis": [
+            "jeff-davis.k12.ga.us",
+            "jdstudents.org"
+        ],
+        "Julia+P.+Bryant+Elementary": [
+            "bullochschools.org"
+        ],
+        "Kankakee+Valley+High+School": [
+            "kv.k12.in.us"
+        ],
+        "Kankakee+Valley+School+Corporation": [
+            "kv.k12.in.us"
+        ],
+        "Kiel": [
+            "kiel.k12.wi.us"
+        ],
+        "Kohler+School+District": [
+            "kohler.k12.wi.us"
+        ],
+        "Koningin+Beatrixschool": [
+            "kbeducatie.nl"
+        ],
+        "Lamar+County+Schools": [
+            "lamarcountyschools.org"
+        ],
+        "Langston+Chapel+Elementary": [
+            "bullochschools.org"
+        ],
+        "Lantech": [
+            "weeghel.nl"
+        ],
+        "Lantech+BV": [
+            "lantech.nl"
+        ],
+        "Lauderdale+County+Schools": [
+            "lcschools.org"
+        ],
+        "Lauderdale+County+Schools+-+Student": [
+            "students.lcschools.org"
+        ],
+        "Laurens+County+Schools": [
+            "lcboe.info"
+        ],
+        "Leaders+Preparatory+School": [
+            "leaderspreparatoryschool.org"
+        ],
+        "Leesbery+": [
+            "faleesburg.com"
+        ],
+        "Leland+CUSD+%231": [
+            "lelandcusd1.org",
+            "leland1.org"
+        ],
+        "Lemont+High+School": [
+            "lhs210.net",
+            "lemont.k12.il.us",
+            "s.lhs210.net"
+        ],
+        "Lemont+High+School+": [
+            "lhs210.net"
+        ],
+        "Liberty+Hill+ISD": [
+            "libertyhill.txed.net"
+        ],
+        "Luck+School+District": [
+            "lucksd.k12.wi.us",
+            "student.lucksd.k12.wi.us"
+        ],
+        "MSD+of+Boone+Township+Schools": [
+            "hebronschools.k12.in.us"
+        ],
+        "Madawaska+School+Department": [
+            "madawaskaschools.org"
+        ],
+        "Madera+Unified": [
+            "maderausd.org"
+        ],
+        "Madrid+Middle+School": [
+            "mtviewschools.net",
+            "madridms2.org"
+        ],
+        "Marlton+Middle": [
+            "evesham.k12.nj.us"
+        ],
+        "Marseilles+Elementary": [
+            "mes150.org"
+        ],
+        "Marshall+CUSD+%23C2": [
+            "marshall.k12.il.us",
+            "students.marshall.k12.il.us"
+        ],
+        "McDowell+County+Schools": [
+            "mcdowell.k12.nc.us"
+        ],
+        "McKinley": [
+            "sd88.org"
+        ],
+        "McMinnville+School+District": [
+            "msd.k12.or.us",
+            "msd.oregonk-12.net",
+            "msd.k12.or.us"
+        ],
+        "Mekeel+Christian+Academy": [
+            "mekeel.org"
+        ],
+        "Messmer+High+School": [
+            "messmerschools.org"
+        ],
+        "Mid-Columbia+Adventist+Christian+School": [
+            "macshr.org"
+        ],
+        "Milwaukee+Collegiate+Academy": [
+            "milwaukeecollegiateacademy.org"
+        ],
+        "Mt+Aetna+Adventist+School": [
+            "mysdaschool.org"
+        ],
+        "NTHS+Dist+219": [
+            "d219.org"
+        ],
+        "Narragansett+Regional+School+District": [
+            "nrsd.org"
+        ],
+        "Nebraska+City+Public+Schools": [
+            "nebcityps.org",
+            "nebcityps.org"
+        ],
+        "Nelson+County+Schools": [
+            "nelson.k12.va.us"
+        ],
+        "New+Castle+School+Corp.+": [
+            "nccsc.k12.in.us",
+            "ncweb.me"
+        ],
+        "New+Kent+County+Public+Schools": [
+            "nkcps.k12.va.us"
+        ],
+        "New+Kent+County+Public+Schools+-+Student": [
+            "newkenths.org"
+        ],
+        "Nextel+NL": [
+            "nextel.nl"
+        ],
+        "Nokomis+School+District": [
+            "nokomis.k12.il.us"
+        ],
+        "North+Palos+School+District+117": [
+            "g.npd117.net"
+        ],
+        "Northside+K-8": [
+            "warrenk12nc.org"
+        ],
+        "Norwalk+Ontario+Wilton+School+Disti": [
+            "now.k12.wi.us"
+        ],
+        "Notre+Dame+Academy": [
+            "ndapandas.org"
+        ],
+        "ONC+BOCES": [
+            "mail.oncboces.org"
+        ],
+        "Oaklawn+Hometown+School+D123": [
+            "d123.org"
+        ],
+        "Owasso+Public+Schools": [
+            "owassops.org"
+        ],
+        "PCM": [
+            "edmail.edcc.edu"
+        ],
+        "PK+Yonge+Developmental+Research+School": [
+            "pkyonge.ufl.edu"
+        ],
+        "Paoli+Community+School+Corp": [
+            "paoli.k12.in.us"
+        ],
+        "Patterson+School+": [
+            "patterson.k12.ca.us"
+        ],
+        "Peabody+Public+Schools": [
+            "peabody.k12.ma.us"
+        ],
+        "Pearson+Elementary": [
+            "atkinson.k12.ga.us",
+            "atcostudents.org"
+        ],
+        "Pearson+Elementary+": [
+            "atkinson.k12.ga.us"
+        ],
+        "Pender+County+School": [
+            "pender.k12.nc.us"
+        ],
+        "Pender+County+School+-+Students": [
+            "students.pendercountyschools.net"
+        ],
+        "Perkiomen+Valley+School+District%3A+Schwenksville+Elementary": [
+            "pvsd.org"
+        ],
+        "Peshtigo+School+District": [
+            "peshtigo.k12.wi.us",
+            "students.peshtigo.k12.wi.us"
+        ],
+        "Piedmont+Public+Schools": [
+            "piedmontschools.org"
+        ],
+        "Pine+Point+School": [
+            "pinepoint.org"
+        ],
+        "Pine+Point+Schools": [
+            "pinepoint.org"
+        ],
+        "Plainfield+Elementary+School": [
+            "plainfieldschool.org"
+        ],
+        "Prins+Floris+School": [
+            "prinsfloris.nl"
+        ],
+        "Qesfc": [
+            "g.qeliz.ac.uk"
+        ],
+        "R+CUSD%23188": [
+            "zr188.org"
+        ],
+        "REK+Educare": [
+            "rekordara.it"
+        ],
+        "Ramsey+CUSD": [
+            "ramseycusd.org"
+        ],
+        "Raymore-Peculiar+School+District": [
+            "raypec.org"
+        ],
+        "Red+Clay+School+District": [
+            "redclay.k12.de.us"
+        ],
+        "Riverside+School+District+96": [
+            "district96.org"
+        ],
+        "Rocky+River+Elementary": [
+            "apps.cabarrus.k12.nc.us"
+        ],
+        "Roxbury": [
+            "students.roxbury.org"
+        ],
+        "Roxbury+public+schools": [
+            "Roxbury.org"
+        ],
+        "Rutherford+County+Schools": [
+            "rcsnc.org"
+        ],
+        "SCHOOL+ADMIN+DISTRICT+20": [
+            "msad20.org"
+        ],
+        "SPLS": [
+            "spbrookfield.org"
+        ],
+        "SPLS+-+Student": [
+            "illa.us"
+        ],
+        "Salem+City+Schools": [
+            "salem.k12.va.us"
+        ],
+        "Santa+Cruz+City+Schools": [
+            "sccs-stu.net"
+        ],
+        "Scarborough+Public+Schools": [
+            "ci.scarborough.me.us",
+            "Scarboroughschools.org"
+        ],
+        "School+Administrative+unit+20": [
+            "sau20.org"
+        ],
+        "School+District+of+Horicon": [
+            "horicon.k12.wi.us"
+        ],
+        "School+District+of+Marinette": [
+            "marinette.k12.wi.us"
+        ],
+        "Schwenksville+Elementary": [
+            "pvsd.org"
+        ],
+        "Seven+Hills+School": [
+            "shs-student.org",
+            "sevenhillsschool.org"
+        ],
+        "Seymour+6gc": [
+            "scsc.k12.in.us"
+        ],
+        "Silverdale+Baptist+Academy": [
+            "silverdaleba.org"
+        ],
+        "Slippery+Rock+Area+School+Dist": [
+            "slipperyrock.k12.pa.us"
+        ],
+        "Smethport+Area+School+District": [
+            "smethportschools.com"
+        ],
+        "South+Shore+International+College+Prep+High+School": [
+            "cps.edu"
+        ],
+        "Southeast+Dubois+County+School+Corporation": [
+            "sedubois.k12.in.us"
+        ],
+        "St+Vincent+de+Paul+School": [
+            "svcape.eduk12.net"
+        ],
+        "St.+Francis+Central+Coast+Catholic+High+School": [
+            "stfrancishigh.net"
+        ],
+        "St.+Francis+School+": [
+            "stfrancis-oahu.org"
+        ],
+        "Stanly+County+Schools": [
+            "stanlycountyschools.org",
+            "student.stanlycountyschools.org"
+        ],
+        "Suan+Sunandha+Rajabhat+University": [
+            "nutthapat.ke@ssru.ac.th"
+        ],
+        "Taylorville+CUSD+%233": [
+            "tcusd3.org"
+        ],
+        "Te+Whai+Toi+Tangata": [
+            "waikato.ac.nz"
+        ],
+        "The+Master%27s+Academy": [
+            "mastersacademy.org"
+        ],
+        "The+Master%27s+Academy+-+Student": [
+            "tmastudent.org"
+        ],
+        "The+Winchendon+School": [
+            "winchendon.org"
+        ],
+        "The+englishschool+Gothenburg": [
+            "theenglishschool.se"
+        ],
+        "Think+Wireless+-+VAR": [
+            "thinkwireless.co.nz"
+        ],
+        "Troy": [
+            "gapps.troy30c.org",
+            "troy30c.org"
+        ],
+        "Union+County+Schools": [
+            "union.k12.sc.us"
+        ],
+        "University+Preparatory+Academy": [
+            "upatoday.com"
+        ],
+        "Upper+Saddle+RIver": [
+            "usrschoolsk8.com"
+        ],
+        "Virginia+Beach+City+Public+Schools": [
+            "vbschools.com"
+        ],
+        "Virginia+Beach+City+Public+Schools+-+Students": [
+            "vbstudents.com"
+        ],
+        "Vitasys+%28reseller%29+": [
+            "vitasys.nl",
+            "vitachrome.nl"
+        ],
+        "WEYAUWEGA-FREMONT+SCHOOL+DIST": [
+            "wfsd.k12.wi.us"
+        ],
+        "Walnut+Grove": [
+            "patterson.12.ca.us"
+        ],
+        "Warren+205": [
+            "205warren.net"
+        ],
+        "Wellington+Exempted+Village+Schools": [
+            "wellingtondukes.org"
+        ],
+        "Wells-Ogunquit+CSD": [
+            "wocsd.org"
+        ],
+        "West+Central+School+Corporation": [
+            "wcsc.k12.in.us"
+        ],
+        "Wheatley+Park+School": [
+            "wheatleypark.org"
+        ],
+        "Winton+Woods+City+Schools": [
+            "wintonwoods.org",
+            "wwstudent.org"
+        ],
+        "Worcester+Central+School": [
+            "worcestercs.org"
+        ],
+        "Yongsan+International+School+of+Seoul": [
+            "yisseoul.org"
+        ],
+        "cabarrus+county+schools": [
+            "apps.cabarrus.k12.nc.us",
+            "st.cabarrus.k12.nc.us"
+        ],
+        "centrina": [
+            "centrina.se"
+        ],
+        "ieducando": [
+            "ieducando.com"
+        ],
+        "kewanee+high+school": [
+            "kcud229.org"
+        ],
+        "kewanee+high+school+-+Student": [
+            "students.kcud229.org"
+        ],
+        "madawaska+schools": [
+            "madawaskaschools.org"
+        ],
+        "novidys": [
+            "novidys.com"
+        ],
+        "vusd": [
+            "vusd.us"
+        ]
+    }
+}

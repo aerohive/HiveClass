@@ -1,0 +1,13 @@
+{
+  "name": "hiveclass-apps",
+  "version": "1.5.2",
+  "description": "HiveClass file server service ",
+  "main": "app.js",
+  "dependencies": {
+    "blipp": "^2.3.0",
+    "good": "^5.1.2",
+    "good-console": "^4.1.0",
+    "h2o2": "^5.0.0",
+    "hapi": "^13.0.0"
+  }
+}

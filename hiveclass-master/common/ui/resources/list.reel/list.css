@@ -1,0 +1,110 @@
+/* $fixme -  this is a mess and needs to be cleaned up / or wait for the new tree controller */
+
+.ResourcesList {
+    position: absolute;
+    top:    5px;
+    left:   0;
+    right:  0;
+    bottom: 0;
+    font-size: 20px;
+    color: #4A4A4A;
+}
+
+.ResourcesList-resourceTree {
+    position: absolute;
+    top:    51px;
+    left:   0;
+    right:  0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: auto;
+}
+
+.ResourcesList-isReadOnly .ResourcesList-resourceTree { top: 0; }
+
+.ResourcesList-isReadOnly .ResourcesListRepetition-header { display: none; }
+
+
+/* refresh button */
+
+[data-montage-skin="aerohive-gray"] .refreshResources.AerohiveButton {
+    position: relative;
+    font-size: 12px;
+    min-width: 0;
+    padding: 0 10px;
+    border: none;
+    height: 26px;
+    line-height: 26px;
+    top: 7px;
+}
+
+.ResourcesList .refreshResources {
+    float: left;
+    margin-left: 20px;
+}
+
+/* Resources Column Titles */
+
+.ResourcesListRepetition-header {
+    margin-bottom: 10px;
+}
+
+.ResourcesListRepetition-title {
+    float: left;
+    max-width: calc(100% - 250px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+}
+
+.ResourcesListRepetition-link {
+    margin-bottom: -2px;
+    display: inline-block;
+    margin-left: 5px;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+}
+
+.ResourceEntry, .ResourcesListRepetition-iconSubstitution {
+    float: left;
+}
+
+.ResourcesListRepetition-entry {
+    position: relative;
+}
+
+/* flexbox */
+
+.resource,
+.ResourcesListRepetition-header {
+    padding: 0 10px;
+    display: flex;
+}
+
+.ResourcesListRepetition-header {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* columns */
+
+.checkbox-column,
+.resource-column {
+    float: left;
+}
+
+.checkbox-column {
+    width: 80px;
+    text-align: center;
+}
+
+.resource-column {
+    padding-left: 17px;
+}

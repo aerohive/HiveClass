@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="access-key.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "_digitRepetition": {"@": "digitRepetition"}
+            },
+            "bindings": {
+                "classList.has('error')": {"<-": "@owner.isInvalid"}
+            }
+        },
+
+        "digitRepetition": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties":{
+                "element": {"#": "digitRepetition"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.digitCount.range()"}
+            }
+        },
+
+        "digitInput": {
+            "prototype": "./[DigitTextField]",
+            "properties":{
+                "element": {"#": "digitInput"}
+            },
+            "bindings": {
+                "index": {"<-": "@digitRepetition:iteration.object"}
+            }
+        },
+
+        "errorMessage": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "errorMessage"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "AccessKeyIncorrect"
+                }
+            }
+        },
+
+        "accessKeyStates": {
+            "prototype": "montage/ui/substitution.reel",
+            "properties":{
+                "element": {"#": "accessKeyStates"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.state"}
+            }
+        },
+
+        "unlockButton": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties":{
+                "element":{"#": "unlockButton"}
+            },
+            "localizations": {
+                "label": {
+                    "key": "Finish Enrollment"
+                }
+            },
+            "listeners": [
+                {"type": "action",
+                "listener": {"@": "owner"}}
+            ]
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="accessKey" >
+        <div data-montage-id="digitRepetition" class="accessKey-inputs">
+            <div class="accessKey-input">
+                <div data-montage-id="digitInput" class="access-key-box" tabindex="0"></div>
+            </div>
+        </div>
+        <span data-montage-id="errorMessage" class="errorMessage"></span>
+        <div class="accessKey-states" data-montage-id="accessKeyStates">
+        	<svg data-arg="valid" class="accessKey-success"><use xlink:href="#success"/></svg>
+        	<svg data-arg="error" class="accessKey-error"><use xlink:href="#error"/></svg>
+            <div data-arg="lock" data-montage-id="unlockButton" class="accessKey-unlock"></div>
+        </div>
+        
+    </div>
+</body>
+</html>

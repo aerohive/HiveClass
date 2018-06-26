@@ -1,0 +1,13 @@
+{
+  "name": "hiveclass_tests",
+  "version": "0.1.0",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "bluebird": "^2.8.2",
+    "chai": "^2.3.0",
+    "selenium-webdriver": "^2.44.0",
+    "iron": "^2.1.2"
+  }
+}

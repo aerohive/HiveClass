@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="aerohive-toggle-button.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "AerohiveToggleButton"}
+            },
+             "listeners": [
+                { "type": "action", "listener": {"@": "owner"} }
+            ]
+        },
+
+        "currentClass": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "currentClass"}
+            },
+            "bindings": {
+                "classList.has('on')" : { "<-" : "@owner.checked"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Current Class"
+                }
+            }
+        },
+
+        "previousClass": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "previousClass"}
+            },
+            "bindings": {
+                "classList.has('on')" : { "<-" : "!@owner.checked"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Previous Class"
+                }
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="AerohiveToggleButton">
+        <span data-montage-id="currentClass" class="currentClass"></span><span data-montage-id="previousClass" class="previousClass"></span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Initialization</title>
+    <link rel="stylesheet" type="text/css" href="initialization-classroom.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "teacher": {"<-": "@owner.application.teacher"}
+            },
+            "listeners": [
+                { "type": "action", "listener": {"@": "owner"} }
+            ]
+        },
+
+        "startClass": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "startClass"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Start Your Class"
+                }
+            }
+        },
+
+        "firstClassubstitution": {
+            "prototype": "montage/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "firstClassSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.classrooms.length == 0"}
+            }
+        },
+
+        "repetition": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "repetition"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.classrooms"}
+            }
+        },
+
+        "existingClassRoomLabel": {
+            "prototype": "./[Label]",
+            "properties": {
+                "element": {"#": "label"}
+            },
+            "bindings": {
+                "value": {"<-": "@repetition:iteration.object.name"},
+                "for": {"<-": "@repetition:iteration.object.name"}
+            }
+        },
+
+        "radioButtonController": {
+            "prototype": "montage/core/radio-button-controller",
+            "bindings": {
+                "content": {"<-": "@repetition.content"},
+                "value": {"<->": "@owner.existingClass"}
+            }
+        },
+
+        "existingClassroomRadio": {
+            "prototype": "./[RadioButton]",
+            "properties": {
+                "element": {"#": "existingRadio"},
+                "checked": false,
+                "radioButtonController": {"@": "radioButtonController"}
+            },
+            "bindings": {
+                "value": {"<-": "@repetition:iteration.object"},
+                "id": {"<-": "@repetition:iteration.object.name"}
+            }
+        },
+
+        "newClassroomRadio": {
+            "prototype": "digit/ui/radio-button.reel",
+            "properties": {
+                "element": {"#": "newRadio"},
+                "radioButtonController": {"@": "radioButtonController"}
+            },
+            "bindings": {
+                "checked": {"<-": "!!@owner.newClassName"}
+            }
+        },
+
+        "addClassNameField": {
+            "prototype": "common/ui/aerohive-input-text.reel",
+            "properties": {
+                "element": {"#": "addClassNameField"},
+                "identifier": "addClass",
+                "delegate": {"@": "owner"}
+            },
+            "localizations": {
+                "placeholderValue":{
+                    "key": "AddClass"
+                }
+            },
+            "bindings": {
+                "value": {"<->": "@owner.newClassName"}
+            }
+        },
+
+        "firstClassNameLabel": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "firstClassNameLabel"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "Create your first class"
+                }
+            }
+        },
+
+        "firstClassNameField": {
+            "prototype": "common/ui/aerohive-input-text.reel",
+            "properties": {
+                "element": {"#": "firstClassNameField"},
+                "identifier": "createFirstClass"
+            },
+            "localizations": {
+                "placeholderValue":{
+                    "key": "Period # - Subject Name"
+                }
+            },
+            "bindings": {
+                "value": {"<->": "@owner.newClassName"}
+            }
+        },
+
+        "enterClass": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "enterClassButton"},
+                "identifier": "enter"
+            },
+            "localizations": {
+                "label": {
+                    "key": "Enter Class"
+                }
+            },
+            "bindings": {
+                "enabled": {"<-": "@owner.existingClass || @owner.newClassName ? true : false"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+<div data-montage-id="owner" class="ClassName">
+    <div class="ClassName-content">
+    	<header class="Initialization-header">
+            <div data-montage-id="startClass" class="loginTitle"></div>
+        </header>
+        <div data-montage-id="firstClassSubstitution">
+            <section class="ClassName-section" data-arg="true">
+                <div data-montage-skin="aerohive-gray" class="InitializationSection-content">
+                    <label data-montage-id="firstClassNameLabel" class="ClassName-label"></label>
+                    <input id="firstClassNameField" data-montage-id="firstClassNameField"/>
+                </div>
+            </section>
+            <section class="InitializationSection-content" data-arg="false">
+                <ul data-montage-id="repetition"  class="Classrooms-picker">
+                    <li class="classroom-item">
+                        <input type="radio" data-montage-id="existingRadio" class="Classrooms-radioButton">
+                        <label data-montage-id="label" class="Classrooms-radioButton-label"></label>
+                    </li>
+                </ul>
+                <ul class="classroom-items">
+                    <li class="classroom-item">
+                        <input type="radio" data-montage-id="newRadio" class="Classrooms-radioButton">
+                        <input id="addClassNameField" data-montage-id="addClassNameField" class="Classrooms-item-input"/>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <footer class="Initialization-footer">
+            <div data-montage-id="enterClassButton" class="ClassNameFooter-Button"></div>
+        </footer>
+    </div>
+</div>
+</body>
+</html>

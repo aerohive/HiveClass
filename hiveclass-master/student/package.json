@@ -1,0 +1,22 @@
+{
+  "name": "hiveschool-app-student",
+  "version": "1.5.2",
+  "dependencies": {
+    "collections": "~1.2.0",
+    "digit": "~0.5.0",
+    "matte": "git+http://github.com/montagejs/matte.git#master",
+    "montage": "git+http://github.com/montagejs/montage.git#a57cc46f766b60099b6094a0b62366eab8888aec",
+    "montage-webrtc": "git+http://github.com/montagestudio/montage-webrtc.git#master"
+  },
+  "devDependencies": {
+    "montage-testing": "~0.4.0"
+  },
+  "exclude": [
+    "run-tests.html",
+    "test"
+  ],
+  "bundle": [
+    "ui/main.reel"
+  ],
+  "manifest": true
+}

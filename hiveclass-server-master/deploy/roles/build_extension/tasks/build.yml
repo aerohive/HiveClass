@@ -1,0 +1,46 @@
+- name: Overwrite app configuration
+  template:
+    src: "configuration.js.tpl"
+    dest: "/home/deploy/hiveclass/extensions/{{ item }}/js/configuration.js"
+
+- name: Overwrite rollbar configuration
+  template:
+    src: "rollbar_config.js.tpl"
+    dest: "/home/deploy/hiveclass/extensions/{{ item }}/rollbar_config.js"
+
+-   name: Build extension
+    docker:
+        image: "hiveclass/extension_builder"
+        name: "extension_builder_{{ item }}"
+        volumes: "/home/deploy/hiveclass/extensions:/src"
+        command: "/opt/build_extension.sh {{ item }}"
+        state: running
+-   name: Create zip package for webstore
+    shell: >
+      zip -r "{{ item }}.zip" "{{ item }}"
+    args:
+      chdir:  /home/deploy/hiveclass/extensions
+
+-   wait_for:
+        path: "/home/deploy/hiveclass/extensions/{{ item }}.crx"
+-   wait_for:
+        path: "/home/deploy/hiveclass/extensions/{{ item }}.zip"
+
+-   name: Fetch built extensions
+    fetch:
+        src: "/home/deploy/hiveclass/extensions/{{ item }}.crx"
+        dest: "./{{ deploy_env }}/{{ item }}_{{ deploy_env }}_{{ branch }}.crx"
+        flat: yes
+-   name: Fetch zipped extensions
+    fetch:
+        src: "/home/deploy/hiveclass/extensions/{{ item }}.zip"
+        dest: "./{{ deploy_env }}/{{ item }}_{{ deploy_env }}_{{ branch }}.zip"
+        flat: yes
+
+-   name: Remove container
+    docker:
+        image: "hiveclass/extension_builder"
+        name: "extension_builder_{{ item }}"
+        volumes: "/home/deploy/hiveclass/extensions:/src"
+        command: "{{ item }}"
+        state: absent

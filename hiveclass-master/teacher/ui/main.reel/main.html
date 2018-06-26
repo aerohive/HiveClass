@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Main</title>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {"#": "main"}
+                },
+                "bindings": {
+                    "teacher": {"<-": "@owner.application.teacher"},
+                    "currentClass": {"<-": "@owner.application.classroomService.classroom"}
+                }
+            },
+
+            "stateSubstitution": {
+                "prototype": "montage/ui/substitution.reel",
+                "properties": {
+                    "element": {"#": "stateSubstitution"}
+                },
+                "bindings": {
+                    "switchValue": {"<-": "@owner.application.state"}
+                }
+            },
+
+            "teacherLoading": {
+                "prototype": "common/ui/aerohive-loader.reel",
+                "properties": {
+                    "element": {"#": "loader"}
+                }
+            },
+
+            "teacherInit": {
+                "prototype": "ui/initialization.reel",
+                "properties": {
+                    "element": {"#": "initialization"}
+                }
+            },
+
+            "studentsDashboard": {
+                "prototype": "ui/teacher-dashboard.reel",
+                "properties": {
+                    "element": {"#": "studentsDashboard"}
+                },
+                "bindings": {
+                    "selectedMenu": {"<-": "@teacherDashboardHeader.selectedMenu"},
+                    "displayPictures": {"<-": "@teacherDashboardHeader.displayPictures"}
+                }
+            },
+
+            "svgIcons": {
+                "prototype": "common/ui/svg-icons.reel",
+                "properties": {
+                    "element": {"#": "svgIcons"}
+                }
+            },
+
+            "resourcesDashboard": {
+                "prototype": "ui/resources/dashboard.reel",
+                "properties": {
+                    "element": {"#": "resourcesDashboard"}
+                }
+            },
+
+            "screensDashboard": {
+                "prototype": "ui/viewScreens/dashboard.reel",
+                "properties": {
+                    "element": {"#": "screensDashboard"}
+                }
+            },
+
+            "feedbackDashboard":{
+                "prototype": "ui/feedback/dashboard.reel",
+                "properties": {
+                    "element": {"#": "feedbackDashboard"}
+                }
+            },
+
+            "reportingDashboard":{
+                "prototype": "ui/reporting/dashboard.reel",
+                "properties": {
+                    "element": {"#": "reportingDashboard"}
+                }
+            },
+
+            "confirmModal": {
+                "prototype": "common/ui/aerohive-confirm-modal.reel",
+                "properties": {
+                    "element": {"#": "confirmModal"}
+                }
+            },
+
+            "aerohiveHeader":{
+                "prototype": "common/ui/aerohive-header.reel",
+                "properties": {
+                    "element": {"#": "aerohive-header"}
+                }
+            },
+           
+            "headerSubstitution": {
+                "prototype": "montage/ui/substitution.reel",
+                "properties": {
+                    "element": {"#": "headerSub"}
+                },
+                "bindings": {
+                    "switchValue":{"<-": "@owner.application.state"}
+                }
+            },
+
+            "initializationHeader": {
+                "prototype": "ui/initialization-header.reel",
+                "properties": {
+                    "element": {"#": "init-header"}
+                }
+            },
+
+            "teacherDashboardHeader": {
+                "prototype": "ui/teacher-dashboard-header.reel",
+                "properties": {
+                    "element": {"#": "teacher-dashboard-header"}
+                },
+                "bindings": {
+                    "currentClass": {"<-": "@owner.application.classroomService.classroom"}
+                }
+            },
+
+            "resourcesHeader": {
+                "prototype": "ui/resources/dashboard-header.reel",
+                "properties": {
+                    "element": {"#": "resources-header"}
+                }
+            },
+
+            "screensHeader": {
+                "prototype": "ui/viewScreens/dashboard-header.reel",
+                "properties": {
+                    "element": {"#": "screens-header"}
+                }
+            },
+
+            "feedbackHeader": {
+                "prototype": "ui/feedback/dashboard-header.reel",
+                "properties": {
+                    "element": {"#": "feedback-header"}
+                }
+            },
+
+            "reportingHeader": {
+                "prototype": "ui/reporting/dashboard-header.reel",
+                "properties": {
+                    "element": {"#": "reporting-header"}
+                }
+            },
+
+            "connectionClosedWarning": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "connectionClosedWarning"}
+                },
+                "localizations": {
+                    "value": {
+                        "key": "ConnectionClosedWarning"
+                    }
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div data-montage-id="main" data-montage-skin="light" class="Main">
+        <div data-montage-id="aerohive-header">
+            <a href="http://www.aerohive.com/edu" target="_blank"><img src="../../common/assets/images/Aerohive_Logo_rev.png" class="AerohiveHeader-logo"></a>
+            <div data-montage-id="headerSub">
+                <div data-arg="init" data-montage-id="init-header"></div>
+                <div data-arg="dashboard" data-montage-id="teacher-dashboard-header"></div>
+                <div data-arg="resources" data-montage-id="resources-header"></div>
+                <div data-arg="screens" data-montage-id="screens-header"></div>
+                <div data-arg="feedback" data-montage-id="feedback-header"></div>
+                <div data-arg="reporting" data-montage-id="reporting-header"></div>
+            </div>
+        </div>
+    	<div data-montage-id="svgIcons" class="svgIcons"></div>
+        <div data-montage-id="stateSubstitution" class="TeacherStateSubstitution content">
+            <div data-montage-id="loader" data-arg="loading"></div>
+            <div data-montage-id="initialization" data-arg="init"></div>
+            <div data-montage-id="studentsDashboard" data-arg="dashboard"></div>
+            <div data-montage-id="resourcesDashboard" data-arg="resources"></div>
+            <div data-montage-id="screensDashboard" data-arg="screens"></div>
+            <div data-montage-id="feedbackDashboard" data-arg="feedback"></div>
+            <div data-montage-id="reportingDashboard" data-arg="reporting"></div>
+            <div data-arg="connectionClosed" class="ConnectionClosed">
+                <span data-montage-id="connectionClosedWarning" class="ConnectionClosed-message"></span>
+            </div>
+        </div>
+
+        <div data-montage-id="confirmModal"></div>
+    </div>
+</body>
+</html>

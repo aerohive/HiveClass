@@ -1,0 +1,19 @@
+.FeedbackDashboard {
+    position: absolute;
+    left: 0;
+    top: 50px;
+    bottom: 0;
+    right: 0;
+    overflow:auto;
+}
+
+.FeedbackDashboard-Form{
+	position:absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow:auto;
+    min-width:60%;
+    height:710px;
+
+}

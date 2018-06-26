@@ -1,0 +1,42 @@
+.newStudentModal-modal .AerohiveModal-content {
+    max-width: 550px;
+}
+
+/* Modal Contents */
+
+.newStudentModal-modal .modalTitle {
+	color: #979797;
+	font-size: 36px;
+	font-weight: 700;
+	margin-bottom: 30px;
+}
+
+/* global style */
+
+.modalMessage {
+	margin-bottom: 20px;
+}
+
+/* Inputs */
+
+.newStudentModal-modal label {
+	color: #2FBEC1;
+	margin-bottom: 10px;
+}
+
+/* Buttons */
+
+.newStudentModal-modal .modalFooter { text-align: right; }
+
+.newStudentModal-modal .cancelButton { float: left; }
+
+.newStudentButton.AerohiveButton,
+.addAdditionalStudentButton.AerohiveButton {
+    margin-left: 10px;
+}
+
+.addAdditionalStudentButton.AerohiveButton { background: #979797; }
+
+#newEmailField:before {
+    content: 'test';
+}

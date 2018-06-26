@@ -1,0 +1,9 @@
+{
+  "name": "hiveclass-bots",
+  "version": "0.1.0",
+  "dependencies": {
+    "bluebird": "^2.8.2",
+    "selenium-webdriver": "^2.44.0",
+    "iron": "^2.1.2"
+  }
+}

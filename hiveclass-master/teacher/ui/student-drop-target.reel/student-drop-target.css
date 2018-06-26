@@ -1,0 +1,36 @@
+.StudentDropTarget {
+    position: absolute;
+    width:  20px;
+    top:    20%;
+    bottom: 20%;
+    left: -10px;
+    z-index: 1;
+}
+
+.StudentDropTarget.after {
+    left: auto;
+    right: -10px;
+}
+
+/* line */
+
+.StudentDropTarget:before {
+    content: '';
+    position: absolute;
+    top:    0;
+    bottom: 0;
+    left:   7px;
+    right:  7px;
+    border-radius: 5px;
+}
+
+.StudentDropTarget.active:before {
+    background: rgba(43, 141, 204, 1);
+    border: 1px dashed rgba(43, 141, 204, 1);
+}
+
+.StudentDropTarget.hidden {
+    display: none;
+}
+
+

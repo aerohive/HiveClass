@@ -1,0 +1,16 @@
+{
+  "name": "hiveclass-rendezvous",
+  "version": "1.5.2",
+  "description": "HiveClass rendezvous and signaling service",
+  "main": "app.js",
+  "dependencies": {
+    "ws": "^0.7.1",
+    "blipp": "^2.3.0",
+    "bluebird": "^3.3.1",
+    "good": "^5.1.2",
+    "good-console": "^4.1.0",
+    "hapi": "^13.0.0",
+    "hapi-auth-cookie": "^2.2.0",
+    "mongodb": "^2.1.7"
+  }
+}

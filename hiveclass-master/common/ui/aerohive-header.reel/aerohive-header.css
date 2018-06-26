@@ -1,0 +1,108 @@
+.AerohiveHeader {
+    background: rgba(43, 141, 204, 1);
+    color: #FFF;
+    height: 50px;
+}
+
+/* Middle Text */
+
+.AerohiveHeader-appName {
+    position:absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    line-height: 52px;
+    font-weight: 400;
+    font-family: "roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+/* AeroHive Logo */
+.AerohiveHeader-logo{
+    z-index:3;
+    position:absolute;
+    left:20px;
+    top:2.5px;
+    height: 40px;
+}
+/* Right Side Text */
+
+.AerohiveHeader-className.montage-Text, .AerohiveHeader-teacherName.montage-Text {
+    font-family: "roboto", sans-serif;
+    position:absolute;
+    right:60px;
+    line-height: 52px;
+    font-size: 20px;
+    display:inline-block;
+    max-width: 30%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Close Button */
+
+.AerohiveHeader-close {
+    position: absolute;
+    top:    0;
+    right:  0;
+}
+
+.AerohiveHeader-close svg {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    margin-left: 3px;
+}
+
+.AerohiveHeader-close button.digit-Button {
+    border-radius:0;
+    background: transparent;
+    color: #FFF;
+    width:  50px;
+    height: 50px;
+    box-shadow:none;
+    padding: 0;
+    margin: 0;
+    text-shadow:none;
+    z-index:1;
+    border: none;
+    transition: background-color .25s;
+}
+
+.AerohiveHeader-close button.digit-Button:hover {
+    background: rgba(0,0,0,.1);
+}
+
+.AerohiveHeader-close button.digit-Button.montage--active {
+    background: rgba(0,0,0,.1);
+    box-shadow: none;
+}
+
+/* Menu */
+
+.AerohiveHeader-menu {
+    position:absolute;
+    right:0;
+    top:0;
+    z-index:1;
+}
+
+button.AerohiveHeader-log.digit-Button {
+    float: right;
+    border-radius:0;
+    background: transparent;
+    color: #FFF;
+    width:  75px;
+    height: 50px;
+    box-shadow:none;
+    padding: 0;
+    margin: 0;
+    text-shadow:none;
+    z-index:1;
+    border: none;
+    transition: background-color .25s;
+    font-size: small;
+}
+
+

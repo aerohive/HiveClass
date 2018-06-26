@@ -1,0 +1,39 @@
+.Login  {
+	text-align: center;
+}
+
+/* google button */
+
+.googleButton {
+    height: 40px;
+    position: relative;
+    background: #E14829;
+}
+
+.googleButton:hover,
+.googleButton.montage--active:hover {
+    background: #E14829 linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1));
+    transition: background .2s;
+}
+
+.googleButton.montage--active {
+    background: #E14829;
+}
+
+.googleButton svg {
+    position: absolute;
+    left: 0;
+    box-sizing: border-box;
+    padding: 6px 3px 4px 6px;
+    height: 40px;
+    width:  50px;
+    border-right: 1px solid rgba(0,0,0,.1);
+}
+
+.googleButton span {
+    display: inline-block;
+    padding-left: 50px;
+    padding-right: 5px;
+    font-size: 14px;
+    vertical-align: top;
+}

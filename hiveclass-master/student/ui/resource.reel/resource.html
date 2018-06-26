@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="resource.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "resourceTitle": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "resourceTitle"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.resource.title"}
+            }
+        },
+
+        "resourceImage": {
+            "prototype": "digit/ui/image.reel",
+            "properties": {
+                "element": {"#": "resourceImage"}
+            },
+            "bindings": {
+                "src": {"<-": "@owner.resource.image"}
+            }
+        },
+
+        "resourceLink": {
+            "prototype": "common/ui/aerohive-anchor.reel",
+            "properties": {
+                "element": {"#": "resourceLink"},
+                "target": "_blank"
+            },
+            "bindings": {
+                "href": {"<-": "@owner.resource.url"},
+                "textContent": {"<-": "@owner.resource.url"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="Resource">
+        <div data-montage-id="resourceTitle" class="Resource-title"></div>
+        <img data-montage-id="resourceImage" class="Resource-image">
+        <a data-montage-id="resourceLink" class="Resource-link"></a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="dashboard.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "resourcesSubstitution": {
+            "prototype": "montage/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "resourcesSubstitution"}
+            },
+            "bindings": {
+                "switchValue" : {"<-": "!!@owner.application.resourceService.resources && !!@owner.application.resourceService.resources.children && @owner.application.resourceService.resources.children.length > 0 ? 'notEmpty' : 'empty' "}
+            }
+        },
+
+        "resourcesList": {
+            "prototype": "common/ui/resources/list.reel",
+            "properties": {
+                "element": {"#": "resourcesList"}
+            },
+            "bindings": {
+                "resources": {"<-": "@owner.application.resourceService.resources"}
+            }
+        },
+
+        "refreshResources": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "refreshResources"}
+            },
+            "localizations": {
+                "label": {
+                    "key": "Refresh Resources"
+                }
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "resourcesList"}
+                }
+            ]
+        },
+
+        "noResource": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "NoResource"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "NoResource"
+                }
+            }
+        },
+
+        "resourceHint": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "ResourceHint"}
+            },
+            "localizations": {
+                "value": {
+                    "key": "ResourceHint"
+                }
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="ResourcesDashboard">
+        <div data-montage-id="resourcesSubstitution">
+            <div class="empty" data-arg="empty">
+                <header class="resources-header center">
+                    <div data-montage-id="NoResource"></div>
+                    <div data-montage-id="ResourceHint"></div>
+                    <button data-montage-id="refreshResources" class="refreshResources"></button>
+                </header>
+            </div>
+            <div data-arg="notEmpty">
+                <section class="ResourcesDashboard-content" data-montage-skin="aerohive-gray">
+                    <div data-montage-id="resourcesList"></div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

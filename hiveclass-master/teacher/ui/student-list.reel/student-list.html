@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="student-list.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "addStudentButton": {"@": "addStudent"}
+            },
+            "bindings": {
+                "_repetitionElement": {"<-": "@studentRepetition.element"},
+                "connectedStudents": {"<-": "@owner.students"},
+                "studentCount": {"<-": "@owner.studentsList.length"},
+                "selectedStudent": {"<-": "@studentRepetition.selection.0"}
+            }
+        },
+
+        "studentRepetition": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "repetition"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.students"}
+            }
+        },
+
+        "studentItem": {
+            "prototype": "montage/ui/condition.reel",
+            "properties": {
+                "element": {"#": "studentItem"},
+                "condition": true
+            },
+            "bindings": {
+                "classList.has('StudentList--indent')": {"<-": "@studentRepetition:iteration.index % (2 * @owner._firstLineCount - 1) == @owner._firstLineCount"}
+            }
+        },
+
+        "hexagon": {
+            "prototype": "ui/hexagon.reel",
+            "properties": {
+                "element": { "#": "hexagon" }
+            },
+            "bindings": {
+				"student": {"<-": "@studentRepetition:iteration.object"},
+				"isAvatarDisplayed": {"<-": "@owner.isFaceDisplayed"},
+                "connected": {"<-": "@owner.application.classroomService.classroom.students.has(student)"},
+                "draggable": {"<-": "!@owner.application.classroomService.isStudentsListSorted"}
+            }
+        },
+
+        "dropBefore": {
+            "prototype": "ui/student-drop-target.reel",
+            "properties": {
+                "element": {"#": "dropBefore"}
+            },
+            "bindings": {
+                "position": {"<-": "@studentRepetition:iteration.index"}
+            }
+        },
+
+        "dropAfter": {
+            "prototype": "ui/student-drop-target.reel",
+            "properties": {
+                "element": {"#": "dropAfter"}
+            },
+            "bindings": {
+                "position": {"<-": "@studentRepetition:iteration.index + 1"},
+                "classList.has('hidden')": {"<-": "@studentRepetition:iteration.index != @studentRepetition.iterations.length - 1"},
+                "classList.has('after')": {"<-": "true"}
+            }
+        },
+
+        "addStudent": {
+            "prototype": "ui/add-student.reel",
+            "properties": {
+                "element": { "#": "addStudent" }
+            },
+            "bindings": {
+                "classList.has('StudentList--indent')": {"<-": "@owner._students.length % (2 * @owner._firstLineCount - 1) == @owner._firstLineCount"}
+            },
+            "listeners": [
+                {"type": "action",
+                "listener": {"@": "newStudentModal"}}
+            ]
+
+        },
+
+        "newStudentModal": {
+            "prototype": "ui/new-student-modal.reel",
+            "properties": {
+                "element": {"#": "newStudentModal"}
+            },
+            "bindings": {
+                "daStudents": {"<-": "@owner.students"}
+            }
+
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="StudentList">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="0" height="0" viewBox="0 0 205 232">
+            <defs>
+                <clipPath id="clipping-hexagon" transform="translate(-50.7,-46.137817)">
+                    <path d="m 152.7,277.5 c -4,0 -7.7,-0.9 -10.5,-2.5 l -81,-47.2 C 55.4,224.4 50.7,216.2 50.7,209.4 V 115 c 0,-6.8 4.7, -15 10.5,-18.4 l 81,-47.2 c 2.8,-1.6 6.6,-2.5 10.5,-2.5 4,0 7.7,0.9 10.5,2.5 l 81,47.2 c 5.8,3.4 10.5,11.6 10.5, 18.4 v 94.4 c 0,6.8 -4.7,15 -10.5,18.4 l -81,47.2 c -2.8,1.6 -6.5,2.5 -10.5,2.5 z" />
+                </clipPath>
+            </defs>
+        </svg>
+        <div class="StudentList-items">
+            <div data-montage-id="repetition">
+                <div data-montage-id="studentItem" class="StudentList-item StudentList-hexagon">
+                    <div data-montage-id="dropBefore"></div>
+                    <div data-montage-id="hexagon" class="StudentList-student"></div>
+                    <div data-montage-id="dropAfter"></div>
+                </div>
+            </div>
+            <div data-montage-id="addStudent" class="StudentList-addStudent StudentList-hexagon"></div>
+        </div>
+        <div data-montage-id="newStudentModal"></div>
+    </div>
+</body>
+</html>

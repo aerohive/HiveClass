@@ -1,0 +1,47 @@
+.AerohiveInputText {
+    outline: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    padding: 0 .5em;
+    vertical-align: middle;
+    color: #aaa;
+    border: 1px solid #D8D8D8;
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 1);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none; /* Removes inner shadow on iOS. */
+    font-weight: 300;
+    transition: color .25s, border-color .25s;
+}
+
+
+/* States --------------------- */
+
+.AerohiveInputText.montage--disabled {
+    opacity: .6;
+    border-style: dashed;
+    pointer-events: none;
+}
+
+.AerohiveInputText:focus {
+    border-color: #2FBEC1;
+    color: #777;
+}
+
+.AerohiveInputText:invalid {
+    color: rgba(231, 53, 37, 0.8);
+}
+
+.AerohiveInputText[readonly] {
+    background-color: #e5e5e5;
+}
+
+
+/* Placeholder --------------------- */
+
+.AerohiveInputText::-webkit-input-placeholder { color: inherit; opacity: .8; }
+.AerohiveInputText::-moz-placeholder { color: inherit; opacity: .8; }
+.AerohiveInputText:-ms-input-placeholder { color: inherit; opacity: .8; }

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="student-screen-flow.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "rangeController": {"<-": "@rangeController"},
+                "service": {"<-": "@owner.application.service"},
+                "selectedStudent": {"<-": "@screenFlow.selection.0"},
+                "studentsPages": {"<-": "@owner.application.classroomService.classroom.students"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+
+        "close": {
+            "prototype": "common/ui/aerohive-button.reel",
+            "properties": {
+                "element": {"#": "closeButton"}
+            },
+            "localizations": {
+                "label": {
+                    "key": "Close"
+                }
+            }
+        },
+
+        "rangeController": {
+            "prototype": "montage/core/range-controller",
+            "bindings": {
+                "content": {"<-" : "@owner.studentsPages"}
+            }
+        },
+
+        "screenFlow": {
+            "prototype": "montage/ui/flow.reel",
+            "properties": {
+                "element": {"#": "screenFlow"},
+                "cameraFov": 45,
+                "cameraTargetPoint": [0, 0, 0],
+                "stride": 1,
+                "isSelectionEnabled": true,
+                "hasSelectedIndexScrolling": true,
+                "scrollingTransitionDuration": "600",
+                "linearScrollingVector": [-70, 0],
+                "cameraPosition": [0, 0, 3600],
+                "sceneScaleX": {
+                    "numerator": 11,
+                    "denominator": 1
+                },
+                "sceneScaleZ": {
+                    "numerator": 1.4,
+                    "denominator": 1
+                },
+                "paths": [
+                    {
+                        "knots": [
+                            {
+                                "knotPosition": [-300, 0, 0],
+                                "nextHandlerPosition": [-200, 0, 50],
+                                "previousHandlerPosition": [-200, 0, 50],
+                                "previousDensity": 4,
+                                "nextDensity": 4,
+                                "rotateY": 1.2,
+                                "opacity": -0.1
+                            },
+                            {
+                                "knotPosition": [0, 0, 2000],
+                                "nextHandlerPosition": [100, 0, 1000],
+                                "previousHandlerPosition": [-100, 0, 1000],
+                                "previousDensity": 4,
+                                "nextDensity": 4,
+                                "rotateY": 0,
+                                "opacity": 1.8
+                            },
+                            {
+                                "knotPosition": [300, 0, 0],
+                                "nextHandlerPosition": [200, 0, 50],
+                                "previousHandlerPosition": [200, 0, 50],
+                                "previousDensity": 4,
+                                "nextDensity": 4,
+                                "rotateY": -1.2,
+                                "opacity": -0.1
+                            }
+                        ],
+                        "units": {
+                            "rotateY": "rad",
+                            "opacity": ""
+                        },
+                        "headOffset": 4,
+                        "tailOffset": 4
+                    }
+                ]
+            },
+            "bindings": {
+                "contentController": {"<-": "@rangeController"},
+                "delegate": {"<-": "@owner"}
+            }
+        },
+
+        "screenSlide": {
+            "prototype": "ui/student-flow-slide.reel",
+            "properties": {
+                "element": { "#": "screenSlide" }
+            },
+            "bindings": {
+                "students": {"<-" : "@screenFlow:iteration.object"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="StudentScreenFlow">
+        <header class="StudentScreenFlow-header" data-montage-skin="aerohive-gray">
+            <div data-montage-id="closeButton"></div>
+            <div class="BigBrother">
+                <span class="BigBrother-eye"></span>
+            </div>
+
+        </header>
+
+        <section class="StudentScreenFlow-section">
+            <div data-montage-id="screenFlow" class="ScreenFlow">
+                <div data-montage-id="screenSlide"></div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

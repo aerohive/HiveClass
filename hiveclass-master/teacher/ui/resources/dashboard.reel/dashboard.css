@@ -1,0 +1,49 @@
+.ResourcesDashboard {
+    position: absolute;
+    left: 0;
+    top: 50px;
+    bottom: 0;
+    right: 0;
+}
+
+.ResourcesDashboardContent-tools {
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Import Button */
+
+[data-montage-skin="aerohive-gray"] .ResourcesDashboardContent-add.AerohiveButton {
+    border: none;
+    background: #2FBEC1;
+}
+
+[data-montage-skin="aerohive-gray"] .ResourcesDashboardContent-add.AerohiveButton:hover {
+    background: #2AACAE;
+}
+
+
+[data-montage-skin="aerohive-gray"] .ResourcesDashboardContent-add.AerohiveButton.montage--active {
+    background: #2FBEC1;
+}
+
+.resources-header {
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* title */
+
+.resources-header div:first-child {
+    color: #D90B0B;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* message */
+
+.resources-header div {
+    margin-bottom: 20px;
+    font-size: 24px;
+}

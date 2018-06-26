@@ -1,0 +1,15 @@
+- copy:
+    src: get_services.sh
+    dest: /opt/get_services.sh
+    mode: 0755
+- copy:
+    src: varnish.default
+    dest: /etc/default/varnish
+    mode: 0644
+- file:
+    path: /etc/varnish/conf.d
+    state: directory
+- name: Ensure varnish is installed and up to date
+  apt:
+    name: varnish
+    state: latest

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Main</title>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {"#": "main"}
+                }
+            },
+
+            "stateSubstitution": {
+                "prototype": "montage/ui/substitution.reel",
+                "properties": {
+                    "element": {"#": "stateSubstitution"}
+                },
+                "bindings": {
+                    "switchValue": {"<-": "@owner.application.state"}
+                }
+            },
+
+            "loading": {
+                "prototype": "common/ui/aerohive-loader.reel",
+                "properties": {
+                    "element": {"#": "loading"}
+                }
+            },
+
+            "enterClass": {
+                "prototype": "ui/enter-class.reel",
+                "properties": {
+                    "element": {"#": "enterClass"}
+                },
+                "bindings": {
+                    "classrooms": {"<-": "@owner.application.classroomService.openClassrooms"}
+                }
+            },
+
+            "joinClass": {
+                "prototype": "ui/join-class.reel",
+                "properties": {
+                    "element": {"#": "joinClass"}
+                },
+                "bindings": {
+                    "classrooms": {"<-": "@enterClass.classrooms"}
+                }
+            },
+
+
+            "dashboard": {
+                "prototype": "ui/student-dashboard.reel",
+                "properties": {
+                    "element": {"#": "dashboard"}
+                },
+                "bindings": {
+                    "student": {"<-": "@owner.application.student"},
+                    "classroom": {"<-": "@owner.application.classroom"},
+                    "teacher": {"<-": "@owner.application.classroom.teacher"}
+                }
+            },
+
+            "followMe": {
+                "prototype": "ui/follow-me.reel",
+                "properties": {
+                    "element": {"#": "follow-me"}
+                },
+                "bindings": {
+                    "classroom": {"<-": "@owner.application.classroom"}
+                }
+            },
+
+            "attention": {
+                "prototype": "ui/attention.reel",
+                "properties": {
+                    "element": {"#": "attention"}
+                }
+            },
+
+            "svgIcons": {
+                "prototype": "common/ui/svg-icons.reel",
+                "properties": {
+                    "element": {"#": "svgIcons"}
+                }
+            },
+
+            "closeTabs": {
+                "prototype": "ui/close-tabs-modal.reel",
+                "properties": {
+                    "element": {"#": "closeTabs"}
+                }
+            },
+
+            "aerohiveHeader":{
+                "prototype": "common/ui/aerohive-header.reel",
+                "properties": {
+                    "element": {"#": "aerohive-header"}
+                }
+            },
+
+            "headerSubstitution": {
+                "prototype": "montage/ui/substitution.reel",
+                "properties": {
+                    "element": {"#": "headerSub"}
+                },
+                "bindings": {
+                    "switchValue":{"<-": "@owner.application.state"}
+                }
+            },
+
+            "studentDashboardHeader": {
+                "prototype": "ui/dashboard-header.reel",
+                "properties": {
+                    "element": {"#": "student-dashboard-header"}
+                },
+                "bindings": {
+                    "student": {"<-": "@owner.application.student"},
+                    "classroom": {"<-": "@owner.application.classroom"},
+                    "teacher": {"<-": "@owner.application.classroom.teacher"}
+                }
+            },
+
+            "logState": {
+                "prototype": "digit/ui/button.reel",
+                "properties": {
+                    "element": {"#": "logState"}
+                },
+                "bindings": {
+                    "classList.has('hidden')": {"<-": "!@owner.application.connectionRefused"}
+                },
+                "localizations": {
+                    "label": {
+                        "key": "Unable to connect?"
+                    }
+                },
+                "listeners": [
+                    {"type": "action",
+                    "listener": {"@": "owner"}}
+                ]
+            },
+
+            "noServerWarning": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#":"NoServerWarning"}
+                },
+                "localizations": {
+                    "value": {
+                        "key": "NoServerWarning"
+                    }
+                }
+            },
+
+            "connectionClosedWarning": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "connectionClosedWarning"}
+                },
+                "localizations": {
+                    "value": {
+                        "key": "ConnectionClosedWarning"
+                    }
+                }
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+    <div data-montage-id="main" data-montage-skin="light" class="Main">
+        <div data-montage-id="aerohive-header">
+            <a href="http://www.aerohive.com/edu" target="_blank"><img src="../../common/assets/images/Aerohive_Logo_rev.png" class="AerohiveHeader-logo"></a>
+            <div data-montage-id="headerSub">
+                <div data-arg="enterClass" class="AerohiveHeader-appName">HiveSchool</div>
+                <div data-arg="joinClass"  class="AerohiveHeader-appName">HiveSchool</div>
+                <div data-arg="dashboard" data-montage-id="student-dashboard-header"></div>
+            </div>
+            <button data-montage-id="logState" class="AerohiveHeader-log"></button>
+        </div>
+    	<div data-montage-id="svgIcons" class="svgIcons" style="display: none"></div>
+        <div data-montage-id="stateSubstitution" class="StateSubstitution content">
+            <div data-montage-id="enterClass" data-arg="enterClass"></div>
+            <div data-montage-id="joinClass" data-arg="joinClass"></div>
+            <div data-montage-id="loading" data-arg="loading"></div>
+            <div data-montage-id="photoBooth" data-arg="photoBooth"></div>
+            <div data-montage-id="follow-me" data-arg="followMe"></div>
+            <div data-montage-id="attention" data-arg="attention"></div>
+            <div data-montage-id="dashboard" data-arg="dashboard"></div>
+            <div data-montage-id="closeTabs" data-arg="closeTabs"></div>
+            <div data-arg="connectionError" class="ConnectionError">
+                <span data-montage-id="NoServerWarning" class="ConnectionError-message"></span>
+            </div>
+            <div data-arg="connectionClosed" class="ConnectionClosed">
+                <span data-montage-id="connectionClosedWarning" class="ConnectionClosed-message"></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

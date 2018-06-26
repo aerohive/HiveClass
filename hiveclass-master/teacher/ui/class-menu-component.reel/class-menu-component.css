@@ -1,0 +1,59 @@
+/* $fixme - are we even using this component? */
+
+
+.ClassMenuComponent {
+	/*margin-bottom:20px;*/
+}
+
+/*.ClassMenuComponent-items{
+	list-style: none;
+	width:300px;
+	margin:0;
+	padding:0;
+}
+
+.ClassMenuComponent-item{
+	height:50px;
+}*/
+
+/*.ClassMenuComponent-menuItem.digit-Button{
+	border-radius:0px;
+	font-family: 'Roboto';
+	font-weight:700;
+	color: #fffcff;
+	font-size: 16px;
+	background: #1e7bb4;
+	padding: 10px 20px;
+	width:100%;
+	height:100%;
+	text-align:left;
+	border-color:#1e7bb4;
+	box-shadow:none;
+	margin:0;
+	text-shadow:none;
+	white-space: nowrap;
+ 	overflow: hidden;
+  	text-overflow: ellipsis;
+}*/
+
+/*.ClassMenuComponent-menuItem.currentClass.digit-Button{
+	background:rgba(43, 141, 204, 1) no-repeat url("br_down.png") 100% 50%;
+	border-color:rgba(43, 141, 204, 1);
+	white-space: nowrap;
+ 	overflow: hidden;
+  	text-overflow: ellipsis;
+}
+.down-caret{
+	position:absolute;
+	top: 17px;
+  	left: 235px;
+}*/
+
+/*.ClassMenuComponent-menuItem:hover {
+	background: #54bdf5;
+	color:#fffcff;
+}
+
+.ClassMenuComponent-menuItem.digit-Button.static-item{
+	border-top:1px white solid;
+}*/

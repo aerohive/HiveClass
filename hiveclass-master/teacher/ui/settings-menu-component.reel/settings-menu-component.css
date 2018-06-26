@@ -1,0 +1,100 @@
+/* most styles are in global style.css */
+
+/* Menu Style */
+
+.SettingsMenuComponent {
+    position: absolute;
+    z-index: -1;
+    outline:none;
+}
+
+/* class name input */
+
+.editClassWrapper label {
+    display: block;
+}
+
+.editClassWrapper input[type='text'] {
+    margin-bottom: 10px;
+    border-color: #D8D8D8;
+}
+
+/* toggle */
+
+.SettingsMenuComponent-menuSwitch.digit-ToggleSwitch {
+    box-sizing: border-box;
+    padding: .1em;
+    position: absolute;
+    right: 20px;
+    top:50%;
+    margin-top: -.75em;
+    height:1.5em;
+    width:3em;
+    border: none;
+    box-shadow: none;
+    background: #DDD;
+}
+
+/* adding to the clickable area */
+
+.menuToggle:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    outline: 1px solid red;
+    width: 100%;
+    height: 100%;
+}
+
+.SettingsMenuComponent-menuSwitch.montage-ToggleSwitch--checked {
+    background: #A3E060;
+}
+
+.SettingsMenuComponent-menuSwitch > .digit-ToggleSwitch-thumb {
+    margin: 0px 2px;
+    height: 1.3em;
+    width:  1.3em;
+    border: none;
+    box-shadow: none;
+    background: #4A4A4A;
+}
+
+.SettingsMenuComponent-menuSwitch.montage-ToggleSwitch--checked > .digit-ToggleSwitch-thumb {
+    -webkit-transform: translate3d(108%,0,0);
+            transform: translate3d(108%,0,0);
+}
+
+.SettingsMenuComponent-menuSwitch > .digit-ToggleSwitch-thumb:active {
+    background: #4A4A4A;
+    box-shadow: none;
+    border: none;
+}
+
+.SettingsMenuComponent-item > .SettingsMenuComponent-menuItem.digit-Button.static-item.deleteClass{
+    border-bottom: 1px solid rgba(255,255,255,.5);
+}
+
+.reporting-disabled{
+    background: rgba(0,0,0,.25);
+    cursor:default;
+    pointer-events:none;
+}
+
+/*.reportingButton{*/
+    
+/*}*/
+
+/*.reportingButton:hover:after{
+    background: #333;
+    background: rgba(0,0,0,.8);
+    border-radius: 5px;
+    bottom: 26px;
+    color: #fff;
+    content: attr(title);
+    left: 20%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: 220px;
+}*/
+

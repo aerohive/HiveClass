@@ -1,0 +1,10 @@
+.TeacherName {}
+
+.TeacherName-label {
+    margin-bottom: 10px;
+    color: #2FBEC1;
+}
+
+.TeacherNameFooter-Button {
+	float: right;
+}
