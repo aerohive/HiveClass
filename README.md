@@ -1,4 +1,4 @@
-# H1 HiveClass
+# HiveClass
 *HiveClass and HiveSchool*
 
 **Q: What is HiveSchool?<br>**
